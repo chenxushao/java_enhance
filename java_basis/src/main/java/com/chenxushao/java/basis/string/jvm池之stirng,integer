@@ -1,0 +1,81 @@
+JVM之池----String,Integer
+
+----String
+1.对于Java程序中的字符直接量，JVM会使用一个字符串池(Stirng pool)来保存它们：当第一次使用某个字符串直接量时，JVM会将它放入字符串池进行缓存，这有点像是
+享元模式的应用。在一般情况下，字符串池中的字符串对象不会被垃圾回收器回收，当程序再次需要使用该字符串时，无需重新创建一个新的字符串而是直接让引用变量指向
+字符串池中已有的字符串。
+
+2.String str = new String("Hello,Wrold!");创建了几个对象？
+答案是:2个。字符串池中一个。堆内存中一个。
+
+3.前面提到过，除了通过字符串直接量创建字符串对象之外，也可以通过字符串连接表达式来创建字符串对象，因此也可以将一个字符串连接表达式赋给字符串变量。
+如果这个字符串连接表达式的值可以在编译时确定下来，那么JVM会在编译时计算该字符串变量的值，并让它指向字符串池中对应的字符串。如：
+String a  = "Hello,Wrold!";
+String b  = "Hello" + ",Wrold" + "!";
+System.out.println(a == b);
+上面程序中的b的值是一个字符串连接表达式，但由于这个字符串连接表达式的值在编译时就能确定下来，因此JVM将在编译时计算b的值，并让b指向字符串池中对应的字符串。
+因此，上面程序判断a==b时将输出true。
+需要注意的是，上面的字符串连接表达式中，都是字符串直接量、整数直接量，没有变量参与，没有方法调用。因此，JVM可以在编译时就确定该字符串连接表达式的值，可以让
+该字符串变量指向字符串中对应的字符串。但如果程序使用了变量，或者调用了方法，那就只能等到运行时才可以确定该字符串连接表达式的值，也就无法在编译时确定该字符串
+变量的值，因此无法利用JVM的字符串池。示例如下：
+int len  = 12;
+String a  = "Hello,Wrold!的长度:12";
+String b  = "Hello" + ",Wrold" + "!" + "的长度:" + 12 ;
+String c  = "Hello" + ",Wrold" + "!" + "的长度:" + "Hello,Wrold!".length() ;
+String d  = "Hello" + ",Wrold" + "!" + "的长度:" + len ;
+System.out.println("a: " + a);
+System.out.println("b: " + b);
+System.out.println("c: " + c);
+System.out.println("d: " + d);
+System.out.println(a == b);//true:在编译时期就能确定b的值
+System.out.println(a == c);//false:因为c中包含了方法调用,因此不能在编译时确定
+System.out.println(a == d);//false:因为c中包含了变量，因此不能在编译时确定
+
+
+当然有一种情况例外：如果字符串连接运算中的所有变量都是用final修饰的，那么JVM一样可以在编译时就确定字符串连接表达式的值，一样会让字符串指向JVM字符串池中的对应字符串。
+示例如下：
+final int len  = 12;//用final修饰
+final String s = "的长度:";//用final修饰
+String a  = "Hello,Wrold!的长度:12";
+String b  = "Hello" + ",Wrold" + "!" + "的长度:" + 12 ;
+String c  = "Hello" + ",Wrold" + "!" + "的长度:" + len;
+String d  = "Hello" + ",Wrold" + "!" + s + len ;
+		
+System.out.println("a: " + a);
+System.out.println("b: " + b);
+System.out.println("c: " + c);
+System.out.println("d: " + d);
+System.out.println(a == b);//true:在编译时期就能确定b的值
+System.out.println(a == c);//true
+System.out.println(a == d);//false
+
+
+4.String str = "a" + "b" + "c"; 一共创建了几个字符串对象?
+有人认为是4个，也有人认为是5个。但实际上只创建了一个字符串对象，因为str的值在编译时就能确定下来，JVM会在编译时就计算出str的值为"abc"，然后将该字符串
+直接量放入字符串池中，并让str指向该该常量。因此，并不存在所谓的"a","b","c"等字符串对象。
+
+
+5.String是不可变的。因此如果程序需要一个字符串序列会发生改变的字符串。应该使用StringBuffer或StringBuilder。
+实际上通常应该优先考虑使用StringBuilder。StringBuilder与StringBuffer唯一的区别在于，StringBuffer是线程安全的，也就是说StringBuffer里绝大部分方法都
+增加了synchronized修饰符。对方法增加synchronized修饰符可以保证该方法线程安全，但会降低该方法的执行效率。在没有多线程的环境下，应该优先使用StringBuilder类来表示字符串。
+
+
+----Integer
+1. 先看示例。
+Integer a1 = 200;
+Integer a2 = 200;
+System.out.println(a1 == a2);//false
+Integer a3 = 100;
+Integer a4 = 100;
+//Integer在 -128-127(flyweight(享元模式),可以节省内存开销)
+System.out.println(a3 == a4);//true
+  以下一段话为个人根据String pool机制进行的猜测(暂时没找到具体资料，以前仿佛在哪看到过类似资料)。
+  针对Integer，JVM也对其进行了特殊处理。具体可描述为，对字面值在-128-127范围内的Integer，如果是直接以赋值形式创建Integer实例，则直接指向常量池中的对应的Integer实例。
+  换句话说，就是JVM在一启动时就开辟了一块空间，将字面值范围在-128-127内的Integer统统放到那里去，以后若有此范围内的Integer实例创建，则不需要在heap中创建了，直接指向池中已经创建好的对象。为什么这样做？当然是为了缓存和共享。
+  实际上这是享元模式的又一个经典应用。这是怎么实现的？一般是利用工厂和多例模式结合来做的。实际上如果将单例模式作一变通，就可以变成多例模式。上面几个模式在此不赘述。
+  注意，若上面的代码为:
+Integer a3 = new Integer(100);
+Integer a4 = new Integer(100);
+System.out.println(a3 == a4)//false
+因为指明了new创建实例方式，则不管什么共享了，直接在堆中创建对象。聪明的你，看过String类的机制，应该一下子就能明白了。
+

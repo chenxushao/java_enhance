@@ -1,0 +1,20 @@
+----Integer
+1. 先看示例。
+Integer a1 = 200;
+Integer a2 = 200;
+System.out.println(a1 == a2);//false
+Integer a3 = 100;
+Integer a4 = 100;
+//Integer在 -128-127(flyweight(享元模式),可以节省内存开销)
+System.out.println(a3 == a4);//true
+  以下一段话为个人根据String pool机制进行的猜测(暂时没找到具体资料，以前仿佛在哪看到过类似资料)。
+  针对Integer，JVM也对其进行了特殊处理。具体可描述为，对字面值在-128-127范围内的Integer，如果是直接以赋值形式创建Integer实例，则直接指向常量池中的对应的Integer实例。
+  换句话说，就是JVM在一启动时就开辟了一块空间，将字面值范围在-128-127内的Integer统统放到那里去，以后若有此范围内的Integer实例创建，则不需要在heap中创建了，直接指向池中已经创建
+
+好的对象。为什么这样做？当然是为了缓存和共享。
+  实际上这是享元模式的又一个经典应用。这是怎么实现的？一般是利用工厂和多例模式结合来做的。实际上如果将单例模式作一变通，就可以变成多例模式。上面几个模式在此不赘述。
+  注意，若上面的代码为:
+Integer a3 = new Integer (100);
+Integer a4 =  new Integer (100);
+System.out.println(a3 == a4)//false
+因为指明了new创建实例方式，则不管什么共享了，直接在堆中创建对象。聪明的你，看过String类的机制，应该一下子就能明白了。

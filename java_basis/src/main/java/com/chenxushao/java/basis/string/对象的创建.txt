@@ -1,0 +1,11 @@
+1.Java程序中创建对象的常规方式有如下4种：
+①通过new调用构造方法创建对象
+②通过Class对象的newInstance()方法调用的构造器创建对象
+③通过Java的反序列化机制从IO流中恢复Java对象
+④通过Java对象的clone()方法复制一个新的Java对象
+除此之外，对于字符串以及Byte,Integer等基本数据类型的包装类，Java还允许以直接量的方式来创建Java对象，例如如下语句所示：
+String str = "abc";
+Integer i = 5;
+除此之外，也可以通过简单的算术表达式、连接运算来创建Java对象，例如如下语句所示：
+String str2 = "abc" + "xyz";
+Long price = 23 + 12;
