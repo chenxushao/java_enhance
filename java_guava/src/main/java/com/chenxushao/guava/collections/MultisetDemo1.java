@@ -2,6 +2,7 @@ package com.chenxushao.guava.collections;
 
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
+import com.google.common.collect.Table;
 
 public class MultisetDemo1 {
 
@@ -16,6 +17,7 @@ public class MultisetDemo1 {
 	    ms.add("e");
 	    
 	    System.out.println(ms);
+	    
 		
 	    System.out.println(ms.count("a"));
 	    

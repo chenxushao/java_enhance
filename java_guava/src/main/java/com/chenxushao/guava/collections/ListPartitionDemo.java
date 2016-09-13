@@ -1,5 +1,7 @@
 package com.chenxushao.guava.collections;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import com.google.common.collect.Lists;
@@ -17,7 +19,7 @@ public class ListPartitionDemo {
 			list.add(String.valueOf(i));
 		}
 		List<List<String>> subLists = Lists.partition(list, 2);
-		
+	
 		for(List<String> subList:subLists){
 			System.out.println(subList);
 		}
