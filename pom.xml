@@ -139,5 +139,6 @@
 		<module>java_javassist</module>
 		<module>java_cglib</module>
 		<module>java_jodatime</module>
+		<module>java8_train</module>
 	</modules>
 </project>

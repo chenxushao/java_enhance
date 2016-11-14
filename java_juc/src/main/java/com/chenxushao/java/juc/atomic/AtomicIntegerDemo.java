@@ -10,10 +10,7 @@ public class AtomicIntegerDemo {
 //    private static AtomicInteger atomicInteger = new AtomicInteger(2);
     private static AtomicInteger atomicInteger = new AtomicInteger(0);
 
-
-
     public static  void main(String[] args){
-
         System.out.println(atomicInteger.get());//
         System.out.println(atomicInteger.getAndAdd(5));//增加5,返回旧值
         System.out.println(atomicInteger.get());
