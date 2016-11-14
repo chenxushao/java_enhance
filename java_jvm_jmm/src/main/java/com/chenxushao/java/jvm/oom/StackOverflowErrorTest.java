@@ -3,19 +3,11 @@ package com.chenxushao.java.jvm.oom;
 
 public class StackOverflowErrorTest {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		 
-		
 		 new Thread(new Runnable(){
-
 			public void run() {
-			     
 				loop(0);
 			}
-		
 			 private void loop(int i){
 				   if(i != 80000){
 					   i++;
@@ -24,11 +16,6 @@ public class StackOverflowErrorTest {
 				   }
 			   }
 		 }
-		 
-		   
-		  
 		 ).start();
-		
 	}
-
 }

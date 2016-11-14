@@ -12,7 +12,7 @@ public class UnSafeCounterDemo {
 
         Thread t1 = new Thread(new Runnable(){
             public void run() {
-                for(int i=0; i<100000; i++){
+                for(int i=0; i<100000*100; i++){
                     unSafeCounter.increment();;
                 }
             }
@@ -20,7 +20,7 @@ public class UnSafeCounterDemo {
 
         Thread t2 = new Thread(new Runnable(){
             public void run() {
-                for(int i=0; i<100000; i++){
+                for(int i=0; i<100000*100; i++){
                     unSafeCounter.increment();;
                 }
             }
@@ -28,9 +28,8 @@ public class UnSafeCounterDemo {
 
         t1.start();
         t2.start();
-
-        t1.join();;
-        t2.join();;
+        t1.join();
+        t2.join();
         System.out.println("end");
         System.out.println(unSafeCounter.getCount());
 

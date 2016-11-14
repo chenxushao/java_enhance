@@ -20,7 +20,6 @@ import java.util.List;
      另外，还有方法区溢出，本机直接内存溢出等。
  */
 public class RuntimeConstantPoolOOM {
-
 	
 	/**
 	 * @param args
@@ -30,13 +29,9 @@ public class RuntimeConstantPoolOOM {
 
 		//使用List保持着常量池引用，避免Full GC回收常量池行为
 		List<String> list = new ArrayList<String>();
-		
 		int i=0;
 		while(true){
 			list.add(String.valueOf(i++).intern());
 		}
-
-
 	}
-
 }

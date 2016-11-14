@@ -5,7 +5,11 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.Spliterator;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 /**
  * JDK并没有提供ConcurrenHashSet，考虑到JDK的HashSet也是基于HashMap实现的，因此ConcurrenHashSet也由ConcurrenHashMap完成。
@@ -99,5 +103,35 @@ public class ConcurrentHashSet<E> extends AbstractSet<E> implements Set<E> {
 	@Override
 	public String toString() {
 		return keys.toString();
+	}
+
+	@Override
+	public boolean removeIf(Predicate<? super E> filter) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Stream<E> stream() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Stream<E> parallelStream() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void forEach(Consumer<? super E> action) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Spliterator<E> spliterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

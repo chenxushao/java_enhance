@@ -1,6 +1,7 @@
 package com.chenxushao.java.juc.atomic;
 /**
  * Created by cuser on 16/7/24.
+ * 非线程安全计数器
  */
 public class UnSafeCounter {
 
@@ -10,9 +11,7 @@ public class UnSafeCounter {
        count++;
     }
 
-
     public int getCount(){
         return count;
     }
-
 }

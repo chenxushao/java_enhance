@@ -11,9 +11,6 @@ public class JavaParameterTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		 
-		
 		System.out.println(System.getProperty("config_path"));
 	}
-
 }

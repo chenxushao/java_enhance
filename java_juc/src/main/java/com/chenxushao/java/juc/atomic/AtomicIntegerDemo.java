@@ -23,8 +23,6 @@ public class AtomicIntegerDemo {
         System.out.println(atomicInteger.getAndSet(2));
         System.out.println(atomicInteger.get());
 
-
         System.out.println(atomicInteger.incrementAndGet());
-
     }
 }

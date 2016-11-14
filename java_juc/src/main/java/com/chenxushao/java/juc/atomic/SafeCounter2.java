@@ -9,16 +9,12 @@ public class SafeCounter2 {
 
     private AtomicInteger count =  new AtomicInteger(0);
 
-
-
     //使用AtomicInteger后,不需要加锁，也可以达到线程安全
-    public synchronized void increment(){
+    public  void increment(){
         count.incrementAndGet();
     }
-
 
     public int getCount(){
         return count.get();
     }
-
 }

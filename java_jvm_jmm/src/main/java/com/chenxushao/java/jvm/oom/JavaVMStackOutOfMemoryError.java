@@ -24,20 +24,16 @@ public class JavaVMStackOutOfMemoryError {
 	public void stackLeakByThread(){
 		while(true){
 			Thread thread = new Thread(new Runnable(){
-
 				public void run() {
 					 dontStop();
 				}
-				
 			});
-			
 			thread.start();
 		}
 	}
 	
 	private void dontStop(){
 		 for(int i=0; i<1000; i++){
-			 
 		 }
 	}
 }

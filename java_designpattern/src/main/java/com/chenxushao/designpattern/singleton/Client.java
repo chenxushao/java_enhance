@@ -1,13 +1,11 @@
 package com.chenxushao.designpattern.singleton;
 
+
 public class Client {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		SingleIton2 iton1 = SingleIton2.getInstance();
+		SingleIton2 iton2 = SingleIton2.getInstance();
+		System.out.println(iton1 == iton2);
 	}
-
 }

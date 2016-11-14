@@ -23,10 +23,6 @@ package com.chenxushao.java.jvm.oom;
 public class VMStackOverflowError {
 	private int length = 0;
 
-	/**
-	 * @param args
-	 * @throws Throwable 
-	 */
 	public static void main(String[] args) throws Throwable {
          VMStackOverflowError vse = new VMStackOverflowError();
          try{
@@ -35,14 +31,10 @@ public class VMStackOverflowError {
         	 System.out.println("stack length: " + vse.length);
         	 throw e;
          }
-		
 	}
-
 	
 	private  void loop(){
 		 length ++;
 		 loop();
 	}
-	
-	
 }
