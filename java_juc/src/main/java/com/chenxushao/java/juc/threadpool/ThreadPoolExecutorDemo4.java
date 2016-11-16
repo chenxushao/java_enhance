@@ -1,11 +1,11 @@
-package com.chenxushao.java.juc.executor;
+package com.chenxushao.java.juc.threadpool;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 //自定义线程池
-public class ThreadPoolTest{ 
+public class ThreadPoolExecutorDemo4{ 
 	public static void main(String[] args){ 
 		//创建等待队列 
 		BlockingQueue<Runnable> bqueue = new ArrayBlockingQueue<Runnable>(20); 

@@ -1,4 +1,4 @@
-package com.chenxushao.java.juc.executor;
+package com.chenxushao.java.juc.threadpool;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ThreadPoolExecutorExample implements Runnable {
+public class ThreadPoolExecutorDemo2 implements Runnable {
 	
 	private static AtomicInteger counter = new AtomicInteger();
 	private final int taskId;
@@ -17,7 +17,7 @@ public class ThreadPoolExecutorExample implements Runnable {
 		return taskId;
 	}
 
-	public ThreadPoolExecutorExample(int taskId) {
+	public ThreadPoolExecutorDemo2(int taskId) {
 		this.taskId = taskId;
 	}
 	
@@ -46,15 +46,15 @@ public class ThreadPoolExecutorExample implements Runnable {
 		//拒绝策略
 		RejectedExecutionHandler rejectedHandler = new RejectedExecutionHandler() {
 			public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-				if (r instanceof ThreadPoolExecutorExample) {
-					ThreadPoolExecutorExample example = (ThreadPoolExecutorExample) r;
+				if (r instanceof ThreadPoolExecutorDemo2) {
+					ThreadPoolExecutorDemo2 example = (ThreadPoolExecutorDemo2) r;
 					System.out.println("Rejecting task with id " + example.getTaskId());
 				}
 			}
 		};
 		ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 10, 1, TimeUnit.SECONDS, queue, threadFactory, rejectedHandler);
 		for (int i = 0; i < 100; i++) {
-			executor.execute(new ThreadPoolExecutorExample(i));
+			executor.execute(new ThreadPoolExecutorDemo2(i));
 		}
 		executor.shutdown();
 	}

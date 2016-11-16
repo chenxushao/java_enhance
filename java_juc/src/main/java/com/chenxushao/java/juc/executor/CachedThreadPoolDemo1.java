@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
  * @author CHENXUSHAO
  *  可变尺寸的线程池
  */
-public class CachedThreadPoolDemo {
+public class CachedThreadPoolDemo1 {
 
 	
 	public static void main(String[] args) {

@@ -2,7 +2,7 @@ package com.chenxushao.java.juc.executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class TestCachedThreadPool{ 
+public class CachedThreadPoolDemo2{ 
 	public static void main(String[] args){ 
         ExecutorService executorService = Executors.newCachedThreadPool(); 
 //      ExecutorService executorService = Executors.newFixedThreadPool(5);

@@ -1,4 +1,4 @@
-package com.chenxushao.java.juc.executor;
+package com.chenxushao.java.juc.threadpool;
 
 public class ThreadPoolExecutorDemo1 {
 	
