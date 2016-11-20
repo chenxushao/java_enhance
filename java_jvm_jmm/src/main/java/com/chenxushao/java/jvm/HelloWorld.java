@@ -9,7 +9,7 @@ public class HelloWorld {
 		 System.out.println("hello,world!");
 		 
 		 List<Object> objs = new ArrayList<Object>();
-		 for(int i=0; i<1024;i++){
+		 for(int i=0; i<20*1024;i++){
 			 objs.add(new Object());
 		 }
 		 

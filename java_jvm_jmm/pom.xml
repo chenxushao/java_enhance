@@ -6,4 +6,13 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>java_jvm_jmm</artifactId>
+  
+  
+  <dependencies>
+    <dependency>
+    <groupId>javassist</groupId>
+    <artifactId>javassist</artifactId>
+    <version>3.12.0.GA</version>
+   </dependency>
+  </dependencies>
 </project>
