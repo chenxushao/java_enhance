@@ -4,7 +4,7 @@ public class ConcreteBuilder implements Builder {
 
 	@Override
 	public void buildPart1() {
-		 
+
 	}
 
 	@Override
@@ -16,7 +16,7 @@ public class ConcreteBuilder implements Builder {
 	@Override
 	public void getResult() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

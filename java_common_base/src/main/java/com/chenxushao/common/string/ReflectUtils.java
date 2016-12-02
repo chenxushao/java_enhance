@@ -31,16 +31,17 @@ import java.util.jar.JarFile;
 
 /**
  * 功能：反射工具类
+ * 
  * @author chenxushao@gmail.com
  */
 public final class ReflectUtils {
 	private static final String NAMESPACE_SEPARATOR = ".";
 
-	public static final Class<Object> ROOT_CLASS = Object.class;//所有java类的父亲
+	public static final Class<Object> ROOT_CLASS = Object.class;// 所有java类的父亲
 
 	public static final Class<?>[] NO_PARAMETERS = null;
 
-	public static final Object[] NO_ARGUMENTS = null;//无参常量
+	public static final Object[] NO_ARGUMENTS = null;// 无参常量
 
 	private static final Method HASH_CODE_METHOD = lookupHashCodeMethod();
 
@@ -53,7 +54,7 @@ public final class ReflectUtils {
 	private ReflectUtils() {
 	}
 
-	//获取某对象的某字段值
+	// 获取某对象的某字段值
 	public static Object getField(Object target, String fieldName) {
 		Class<?> clazz = target.getClass();
 		while (clazz != null) {
@@ -73,7 +74,7 @@ public final class ReflectUtils {
 		return null;
 	}
 
-	//获取某Class的某字段
+	// 获取某Class的某字段
 	public static Field getField(Class<?> c, String fieldName) {
 		try {
 			try {
@@ -174,7 +175,7 @@ public final class ReflectUtils {
 		}
 	}
 
-	//调用某方法
+	// 调用某方法
 	public static Object invokeMethod(Method method, Object target,
 			Object... arguments) throws InvocationTargetException {
 		if (!method.isAccessible()) {
@@ -189,7 +190,7 @@ public final class ReflectUtils {
 		}
 	}
 
-	//收集一个Class的所有字段
+	// 收集一个Class的所有字段
 	public static void collectFields(Class<?> c, List<Field> fields) {
 		if (c == ROOT_CLASS) {
 			return;
@@ -223,7 +224,7 @@ public final class ReflectUtils {
 		}
 	}
 
-	//获得某个对象的某字段值
+	// 获得某个对象的某字段值
 	public static Object getValue(Field field, Object target) {
 		if (!field.isAccessible()) {
 			field.setAccessible(true);
@@ -236,7 +237,8 @@ public final class ReflectUtils {
 			throw new RuntimeException("");
 		}
 	}
-	//设置某个对象的某字段值
+
+	// 设置某个对象的某字段值
 	public static void setValue(Field field, Object target, Object value) {
 		if (!field.isAccessible()) {
 			field.setAccessible(true);
@@ -281,7 +283,7 @@ public final class ReflectUtils {
 		return id;
 	}
 
-	//得到包名
+	// 得到包名
 	public static String getPackageName(Class<? extends Object> c) {
 		if (c == null) {
 			return null;
@@ -290,7 +292,7 @@ public final class ReflectUtils {
 		return getPackageName(c.getName());
 	}
 
-	//根据类的完整名字，获取包名
+	// 根据类的完整名字，获取包名
 	public static String getPackageName(String className) {
 		if (className == null) {
 			return null;
@@ -549,8 +551,7 @@ public final class ReflectUtils {
 	 * @param ignoreStaticAndFinalFields
 	 *            determines if static and final fields should be ignored
 	 * @return a List of all collected fields
-	 * @see java.lang.reflect.Field
-	 * 收集某类的字段，从子类收集到父类(sropClass)
+	 * @see java.lang.reflect.Field 收集某类的字段，从子类收集到父类(sropClass)
 	 */
 	public static List<Field> collectAllFields(Class<?> originalClass,
 			Class<?> stopClass, boolean ignoreStaticAndFinalFields,
@@ -943,8 +944,8 @@ public final class ReflectUtils {
 				URL resourceURL = resources.nextElement();
 				if (resourceURL.getProtocol() == null
 						|| resourceURL.getProtocol().equalsIgnoreCase("file")) {
-					pathEntries.add(new File(URLDecoder.decode(resourceURL
-							.getPath(), "UTF-8")));
+					pathEntries.add(new File(URLDecoder.decode(
+							resourceURL.getPath(), "UTF-8")));
 				} else if (resourceURL.getProtocol().equalsIgnoreCase("jar")) {
 					String jarPath = resourceURL.getPath();
 					jarPath = jarPath.substring(0, jarPath.indexOf("!"));

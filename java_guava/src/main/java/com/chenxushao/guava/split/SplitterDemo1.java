@@ -23,7 +23,8 @@ public class SplitterDemo1 {
 		System.out.println(splitter.split("abc1def2ccc3aaa9"));
 
 		// 这样就可以按正则分割了
-		Splitter splitter1 = Splitter.on(Pattern.compile("\\d")).trimResults().omitEmptyStrings();
+		Splitter splitter1 = Splitter.on(Pattern.compile("\\d")).trimResults()
+				.omitEmptyStrings();
 		// 或者 Splitter splitter1 = Splitter.onPattern("\\d");
 		System.out.println(splitter1.split("abc1def2ccc3aaa9"));
 
@@ -34,7 +35,8 @@ public class SplitterDemo1 {
 		testMap.put("New York City", "Giants");
 		testMap.put("Philadelphia", "Eagles");
 		testMap.put("Dallas", "Cowboys");
-		Splitter.MapSplitter mapSplitter = Splitter.on("#").withKeyValueSeparator("=");
+		Splitter.MapSplitter mapSplitter = Splitter.on("#")
+				.withKeyValueSeparator("=");
 		Map<String, String> splitMap = mapSplitter.split(startString);
 		System.out.println(splitMap);
 	}

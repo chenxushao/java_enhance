@@ -11,27 +11,31 @@ import com.google.common.base.CaseFormat;
  */
 public class CaseFormatDemo1 {
 
-    @Test
-    public void shouldConvertToUpperUnderscore() throws Exception {
+	@Test
+	public void shouldConvertToUpperUnderscore() throws Exception {
 
-        // then
-        assertThat(CaseFormat.UPPER_CAMEL.to(CaseFormat.UPPER_UNDERSCORE, "HelloWorld"))
-                .isEqualTo("HELLO_WORLD");
-    }
+		// then
+		assertThat(
+				CaseFormat.UPPER_CAMEL.to(CaseFormat.UPPER_UNDERSCORE,
+						"HelloWorld")).isEqualTo("HELLO_WORLD");
+	}
 
-    @Test
-    public void shouldConvertToLowerCamel() throws Exception {
+	@Test
+	public void shouldConvertToLowerCamel() throws Exception {
 
-        // then
-        assertThat(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "HELLO_WORLD"))
-                .isEqualTo("helloWorld");
-    }
+		// then
+		assertThat(
+				CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL,
+						"HELLO_WORLD")).isEqualTo("helloWorld");
+	}
 
-    @Test
-    public void shouldConvertToLowerHyphen() throws Exception {
+	@Test
+	public void shouldConvertToLowerHyphen() throws Exception {
 
-        // then
-        assertThat(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, "helloWorld"))
-                .isEqualTo("hello-world");
-    }
+		// then
+		assertThat(
+				CaseFormat.LOWER_CAMEL
+						.to(CaseFormat.LOWER_HYPHEN, "helloWorld")).isEqualTo(
+				"hello-world");
+	}
 }

@@ -13,16 +13,16 @@ import com.google.common.base.Charsets;
  */
 public class CharsetsDemo2 {
 
-    @Test
-    public void shouldCreateSupportedInJavaCharset() throws Exception {
+	@Test
+	public void shouldCreateSupportedInJavaCharset() throws Exception {
 
-        // given
-        Charset charset = Charset.forName("UTF-8");
+		// given
+		Charset charset = Charset.forName("UTF-8");
 
-        // when
-        Charset charsetFromGuava = Charsets.UTF_8;
+		// when
+		Charset charsetFromGuava = Charsets.UTF_8;
 
-        // then
-        assertThat(charset.name()).isEqualTo(charsetFromGuava.name());
-    }
+		// then
+		assertThat(charset.name()).isEqualTo(charsetFromGuava.name());
+	}
 }

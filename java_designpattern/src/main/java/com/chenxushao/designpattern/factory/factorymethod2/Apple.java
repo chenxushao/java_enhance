@@ -1,14 +1,16 @@
 package com.chenxushao.designpattern.factory.factorymethod2;
+
 /*
  * 作者：cuser
  * 版本：1.0
  * 名称：Apple
  * 功能：具体产品类Apple(苹果)
-*/
+ */
 public class Apple implements Fruit {
-    private int treeAge;//树龄
+	private int treeAge;// 树龄
+
 	public void grow() {
-		 System.out.println("Apple is growing...");
+		System.out.println("Apple is growing...");
 
 	}
 
@@ -29,7 +31,5 @@ public class Apple implements Fruit {
 	public void setTreeAge(int treeAge) {
 		this.treeAge = treeAge;
 	}
-	
-	
 
 }

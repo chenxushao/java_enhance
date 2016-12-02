@@ -7,7 +7,9 @@ public class HexUtils {
 
 	/**
 	 * 转换字节数组为16进制字串
-	 * @param b 字节数组
+	 * 
+	 * @param b
+	 *            字节数组
 	 * @return 16进制字串
 	 */
 	public static String byteArrayToHexString(byte[] b) {
@@ -27,7 +29,6 @@ public class HexUtils {
 		return hexDigits[d1] + hexDigits[d2];
 	}
 
-	
 	public static String encodeHexStr(byte[] buf, int pos, int len) {
 		StringBuffer hex = new StringBuffer();
 		while (len-- > 0) {

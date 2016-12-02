@@ -82,7 +82,7 @@ public class DateTimeExample {
 
 	/**
 	 * 时间计算 <br>
-	 * plusXxx 增加xx属性<br> 
+	 * plusXxx 增加xx属性<br>
 	 * minusXxx 减少xx属性
 	 */
 	private static void example_3() {
@@ -105,20 +105,20 @@ public class DateTimeExample {
 	 */
 	private static void example_4() {
 		System.out.println("===================属性操作===================");
-		
+
 		DateTime dateTime = new DateTime();
-		
-		//获取年
+
+		// 获取年
 		Property yearOfCentury = dateTime.yearOfEra();
 		System.out.println(yearOfCentury.getAsString());
-		
-		//获取月属性、星期dayOfWeek()、dayOfMonth、 xxOfxx.....
+
+		// 获取月属性、星期dayOfWeek()、dayOfMonth、 xxOfxx.....
 		DateTime.Property month = dateTime.monthOfYear();
 		System.out.println("short = " + month.getAsShortText());
 		System.out.println("short = " + month.getAsShortText(Locale.ITALIAN));
-		
+
 		System.out.println("string = " + month.getAsString());
-		
+
 		System.out.println("text = " + month.getAsText());
 		System.out.println("text = " + month.getAsText(Locale.GERMAN));
 		System.out.println("max = " + month.getMaximumValue());

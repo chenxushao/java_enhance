@@ -1,22 +1,22 @@
 package mytest;
-import java.lang.reflect.*;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 public class ReflectDemo02 {
 
+	public static void main(String[] args) {
+		Constructor con = null;
+		Class c = null;
+		Object obj = null;
+		Class[] cArray = null;
+		User u = null;
+		c = mytest.User.class;
 
-	public static void main(String[] args) 
-	{
-          Constructor con=null;
-          Class c=null;
-          Object obj=null;
-          Class[] cArray=null;
-          User u=null;
-          c=mytest.User.class;
-          
-          cArray=new Class[]{String.class,int.class};
-          try {
-			con=c.getConstructor(cArray);
-			u=(User)con.newInstance("lisi",24);
+		cArray = new Class[] { String.class, int.class };
+		try {
+			con = c.getConstructor(cArray);
+			u = (User) con.newInstance("lisi", 24);
 			System.out.println(u);
 		} catch (SecurityException e) {
 			// TODO Auto-generated catch block
@@ -37,7 +37,7 @@ public class ReflectDemo02 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
- 
+
 	}
 
 }

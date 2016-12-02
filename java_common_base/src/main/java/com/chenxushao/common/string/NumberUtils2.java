@@ -19,58 +19,58 @@ package com.chenxushao.common.string;
  */
 public class NumberUtils2 {
 
-    /**
-     * @param string
-     * @param defaultReturn
-     * @return
-     */
-    public static int safeParseInt(String string, int defaultReturn) {
-        if (string != null) {
-            try {
-                return Integer.parseInt(string);
-            } catch (Throwable e) {
-            }
-        }
-        return defaultReturn;
-    }
+	/**
+	 * @param string
+	 * @param defaultReturn
+	 * @return
+	 */
+	public static int safeParseInt(String string, int defaultReturn) {
+		if (string != null) {
+			try {
+				return Integer.parseInt(string);
+			} catch (Throwable e) {
+			}
+		}
+		return defaultReturn;
+	}
 
-    /**
-     * @param s
-     * @param defaultFloat
-     * @return
-     */
-    public static float safeParseFloat(String s, float defaultFloat) {
-        if (s != null) {
-            try {
-                return Float.parseFloat(s);
-            } catch (Throwable e) {
-            }
-        }
-        return defaultFloat;
-    }
+	/**
+	 * @param s
+	 * @param defaultFloat
+	 * @return
+	 */
+	public static float safeParseFloat(String s, float defaultFloat) {
+		if (s != null) {
+			try {
+				return Float.parseFloat(s);
+			} catch (Throwable e) {
+			}
+		}
+		return defaultFloat;
+	}
 
-    public static double safeParseDouble(String s, double defaultValue) {
-        if (s != null) {
-            try {
-                return Double.parseDouble(s);
-            } catch (Throwable e) {
-            }
-        }
-        return defaultValue;
-    }
+	public static double safeParseDouble(String s, double defaultValue) {
+		if (s != null) {
+			try {
+				return Double.parseDouble(s);
+			} catch (Throwable e) {
+			}
+		}
+		return defaultValue;
+	}
 
-    /**
-     * @param s
-     * @param defaultLong
-     * @return
-     */
-    public static long safeParseLong(String s, long defaultLong) {
-        if (s != null) {
-            try {
-                return Long.parseLong(s);
-            } catch (Throwable e) {
-            }
-        }
-        return defaultLong;
-    }
+	/**
+	 * @param s
+	 * @param defaultLong
+	 * @return
+	 */
+	public static long safeParseLong(String s, long defaultLong) {
+		if (s != null) {
+			try {
+				return Long.parseLong(s);
+			} catch (Throwable e) {
+			}
+		}
+		return defaultLong;
+	}
 }

@@ -16,16 +16,16 @@ public class ImmutableCollectionsTour {
 	 */
 	public static void main(String[] args) {
 		// 不可修改集合
-		ImmutableSet<String> COLOR_NAMES = ImmutableSet.of("red", "orange", "yellow", "green", "blue", "purple");
+		ImmutableSet<String> COLOR_NAMES = ImmutableSet.of("red", "orange",
+				"yellow", "green", "blue", "purple");
 		System.out.println(COLOR_NAMES);
-		
+
 		// 不可修改集合的其他用法
-		ImmutableSet<String> GOOGLE_COLORS = 
-			ImmutableSet.<String>builder() //
-			.addAll(COLOR_NAMES) //
-			.add("not-exist") //
-			.build();
-		
+		ImmutableSet<String> GOOGLE_COLORS = ImmutableSet.<String> builder() //
+				.addAll(COLOR_NAMES) //
+				.add("not-exist") //
+				.build();
+
 		System.out.println(GOOGLE_COLORS);
 	}
 

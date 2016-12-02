@@ -20,7 +20,8 @@ import java.util.concurrent.TimeUnit;
  * 使用示例：
  * 
  * <pre>
- * ExecutorService ExecutorService = new FixedThreadPoolBuilder().setPoolSize(10).build();
+ * ExecutorService ExecutorService = new FixedThreadPoolBuilder().setPoolSize(10)
+ * 		.build();
  * </pre>
  */
 public class ThreadPoolBuilder {
@@ -30,7 +31,8 @@ public class ThreadPoolBuilder {
 	/**
 	 * 创建FixedThreadPool.
 	 * 
-	 * 1. 任务提交时, 如果线程数还没达到poolSize即创建新线程并绑定任务(即poolSize次提交后线程总数必达到poolSize，不会重用之前的线程)
+	 * 1. 任务提交时,
+	 * 如果线程数还没达到poolSize即创建新线程并绑定任务(即poolSize次提交后线程总数必达到poolSize，不会重用之前的线程)
 	 * 
 	 * 1.a poolSize是必填项，不能忽略.
 	 * 
@@ -38,8 +40,10 @@ public class ThreadPoolBuilder {
 	 * 
 	 * 2.a Queue默认为无限长的LinkedBlockingQueue, 也可以设置queueSize换成有界的队列.
 	 * 
-	 * 2.b 如果使用有界队列, 当队列满了之后,会调用RejectHandler进行处理, 默认为AbortPolicy，抛出RejectedExecutionException异常.
-	 * 其他可选的Policy包括静默放弃当前任务(Discard)，放弃Queue里最老的任务(DisacardOldest)，或由主线程来直接执行(CallerRuns).
+	 * 2.b 如果使用有界队列, 当队列满了之后,会调用RejectHandler进行处理,
+	 * 默认为AbortPolicy，抛出RejectedExecutionException异常.
+	 * 其他可选的Policy包括静默放弃当前任务(Discard
+	 * )，放弃Queue里最老的任务(DisacardOldest)，或由主线程来直接执行(CallerRuns).
 	 * 
 	 * 3. 因为线程全部为core线程，所以不会在空闲回收.
 	 */
@@ -61,12 +65,14 @@ public class ThreadPoolBuilder {
 			return this;
 		}
 
-		public FixedThreadPoolBuilder setThreadFactory(ThreadFactory threadFactory) {
+		public FixedThreadPoolBuilder setThreadFactory(
+				ThreadFactory threadFactory) {
 			this.threadFactory = threadFactory;
 			return this;
 		}
 
-		public FixedThreadPoolBuilder setRejectHanlder(RejectedExecutionHandler rejectHandler) {
+		public FixedThreadPoolBuilder setRejectHanlder(
+				RejectedExecutionHandler rejectHandler) {
 			this.rejectHandler = rejectHandler;
 			return this;
 		}
@@ -91,26 +97,30 @@ public class ThreadPoolBuilder {
 				rejectHandler = defaultRejectHandler;
 			}
 
-			return new ThreadPoolExecutor(poolSize, poolSize, 0L, TimeUnit.MILLISECONDS, queue, threadFactory,
-					rejectHandler);
+			return new ThreadPoolExecutor(poolSize, poolSize, 0L,
+					TimeUnit.MILLISECONDS, queue, threadFactory, rejectHandler);
 		}
 	}
 
 	/**
 	 * 创建CachedThreadPool.
 	 * 
-	 * 1. 任务提交时, 如果线程数还没达到minSize即创建新线程并绑定任务(即minSize次提交后线程总数必达到minSize, 不会重用之前的线程)
+	 * 1. 任务提交时, 如果线程数还没达到minSize即创建新线程并绑定任务(即minSize次提交后线程总数必达到minSize,
+	 * 不会重用之前的线程)
 	 * 
 	 * 1.a minSize默认为0, 可设置保证有基本的线程处理请求不被回收.
 	 * 
-	 * 2. 第minSize次任务提交后, 新增任务提交进SynchronousQueue后，如果没有空闲线程立刻处理，则会创建新的线程, 直到总线程数达到上限.
+	 * 2. 第minSize次任务提交后, 新增任务提交进SynchronousQueue后，如果没有空闲线程立刻处理，则会创建新的线程,
+	 * 直到总线程数达到上限.
 	 * 
 	 * 2.a maxSize默认为Integer.Max, 可进行设置.
 	 * 
-	 * 2.b 如果设置了maxSize, 当总线程数达到上限, 会调用RejectHandler进行处理, 默认为AbortPolicy, 抛出RejectedExecutionException异常.
+	 * 2.b 如果设置了maxSize, 当总线程数达到上限, 会调用RejectHandler进行处理, 默认为AbortPolicy,
+	 * 抛出RejectedExecutionException异常.
 	 * 其他可选的Policy包括静默放弃当前任务(Discard)，或由主线程来直接执行(CallerRuns).
 	 * 
-	 * 3. minSize以上, maxSize以下的线程, 如果在keepAliveTime中都poll不到任务执行将会被结束掉, keeAliveTime默认为60秒, 可设置.
+	 * 3. minSize以上, maxSize以下的线程, 如果在keepAliveTime中都poll不到任务执行将会被结束掉,
+	 * keeAliveTime默认为60秒, 可设置.
 	 */
 	public static class CachedThreadPoolBuilder {
 
@@ -136,12 +146,14 @@ public class ThreadPoolBuilder {
 			return this;
 		}
 
-		public CachedThreadPoolBuilder setThreadFactory(ThreadFactory threadFactory) {
+		public CachedThreadPoolBuilder setThreadFactory(
+				ThreadFactory threadFactory) {
 			this.threadFactory = threadFactory;
 			return this;
 		}
 
-		public CachedThreadPoolBuilder setRejectHanlder(RejectedExecutionHandler rejectHandler) {
+		public CachedThreadPoolBuilder setRejectHanlder(
+				RejectedExecutionHandler rejectHandler) {
 			this.rejectHandler = rejectHandler;
 			return this;
 		}
@@ -156,8 +168,9 @@ public class ThreadPoolBuilder {
 				rejectHandler = defaultRejectHandler;
 			}
 
-			return new ThreadPoolExecutor(minSize, maxSize, keepAliveSecs, TimeUnit.SECONDS,
-					new SynchronousQueue<Runnable>(), threadFactory, rejectHandler);
+			return new ThreadPoolExecutor(minSize, maxSize, keepAliveSecs,
+					TimeUnit.SECONDS, new SynchronousQueue<Runnable>(),
+					threadFactory, rejectHandler);
 		}
 	}
 
@@ -198,12 +211,14 @@ public class ThreadPoolBuilder {
 			return this;
 		}
 
-		public ConfigurableThreadPoolBuilder setThreadFactory(ThreadFactory threadFactory) {
+		public ConfigurableThreadPoolBuilder setThreadFactory(
+				ThreadFactory threadFactory) {
 			this.threadFactory = threadFactory;
 			return this;
 		}
 
-		public ConfigurableThreadPoolBuilder setRejectHanlder(RejectedExecutionHandler rejectHandler) {
+		public ConfigurableThreadPoolBuilder setRejectHanlder(
+				RejectedExecutionHandler rejectHandler) {
 			this.rejectHandler = rejectHandler;
 			return this;
 		}
@@ -225,8 +240,8 @@ public class ThreadPoolBuilder {
 				rejectHandler = defaultRejectHandler;
 			}
 
-			return new ThreadPoolExecutor(minSize, maxSize, keepAliveSecs, TimeUnit.SECONDS, queue, threadFactory,
-					rejectHandler);
+			return new ThreadPoolExecutor(minSize, maxSize, keepAliveSecs,
+					TimeUnit.SECONDS, queue, threadFactory, rejectHandler);
 		}
 	}
 

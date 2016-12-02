@@ -7,18 +7,16 @@
  * @version V1.0   
  */
 
-
-
-/** 
- * @ClassName: User 
- * @Description: 用户 
- * @author 秦玉昆 
+/**
+ * @ClassName: User
+ * @Description: 用户
+ * @author 秦玉昆
  * @date 2013-8-9
- *  
+ * 
  */
 public class User {
 
-	public String hello(String user){
-		return "hello,"+user;
+	public String hello(String user) {
+		return "hello," + user;
 	}
 }

@@ -30,46 +30,48 @@ public class ThreadUtil {
 			return false;
 		}
 	}
-	
+
 	public static void interrupt(Thread t) {
 		try {
 			t.interrupt();
-		} catch (Exception e) {}
+		} catch (Exception e) {
+		}
 	}
-	
+
 	public static void stop(Thread t, long millis) {
 		interrupt(t);
-		
+
 		try {
 			t.join(millis);
-		} catch (Exception e) {}
+		} catch (Exception e) {
+		}
 	}
-	
+
 	public static void waitObject(Object obj) {
 		try {
 			obj.wait();
 		} catch (InterruptedException e) {
 		}
 	}
-	
+
 	public static void waitObject(Object obj, long millis) {
 		try {
 			obj.wait(millis);
 		} catch (InterruptedException e) {
 		}
 	}
-	
+
 	public static void syncWait(Object obj) {
-		synchronized(obj) {
+		synchronized (obj) {
 			try {
 				obj.wait();
 			} catch (InterruptedException e) {
 			}
 		}
 	}
-	
+
 	public static void syncWait(Object obj, long millis) {
-		synchronized(obj) {
+		synchronized (obj) {
 			try {
 				obj.wait(millis);
 			} catch (InterruptedException e) {

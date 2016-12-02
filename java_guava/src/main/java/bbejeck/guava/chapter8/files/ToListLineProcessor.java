@@ -9,24 +9,22 @@ import com.google.common.collect.Lists;
 import com.google.common.io.LineProcessor;
 
 /**
- * User: Bill Bejeck
- * Date: 5/2/13
- * Time: 11:45 PM
+ * User: Bill Bejeck Date: 5/2/13 Time: 11:45 PM
  */
-public class ToListLineProcessor implements LineProcessor<List<String>>{
+public class ToListLineProcessor implements LineProcessor<List<String>> {
 
-    private static final Splitter splitter = Splitter.on("|");
-    private List<String> bookTitles = Lists.newArrayList();
-    private static final int TITLE_INDEX = 1;
+	private static final Splitter splitter = Splitter.on("|");
+	private List<String> bookTitles = Lists.newArrayList();
+	private static final int TITLE_INDEX = 1;
 
-    @Override
-    public List<String> getResult() {
-        return bookTitles;
-    }
+	@Override
+	public List<String> getResult() {
+		return bookTitles;
+	}
 
-    @Override
-    public boolean processLine(String line) throws IOException {
-        bookTitles.add(Iterables.get(splitter.split(line),TITLE_INDEX));
-        return true;
-    }
+	@Override
+	public boolean processLine(String line) throws IOException {
+		bookTitles.add(Iterables.get(splitter.split(line), TITLE_INDEX));
+		return true;
+	}
 }

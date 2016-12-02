@@ -27,27 +27,21 @@ public class ThreadTest2 {
 
 }
 
+class Thread1 extends Thread {
 
-class Thread1 extends Thread{
-
-
-
-	
 	@Override
 	public void run() {
-		
-		
-		 for ( int i=0; i< 15; i++)
-		 {
-			  System.out.println("true");
-			  System.out.println("run..."+ " ---" + this.getState().toString());
-			  try {
+
+		for (int i = 0; i < 15; i++) {
+			System.out.println("true");
+			System.out.println("run..." + " ---" + this.getState().toString());
+			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		 }	
+		}
 	}
 
 	@Override
@@ -55,5 +49,5 @@ class Thread1 extends Thread{
 		System.out.println("start..." + " ---" + this.getState().toString());
 		super.start();
 	}
-	
+
 }

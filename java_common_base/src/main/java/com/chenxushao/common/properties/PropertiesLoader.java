@@ -1,7 +1,5 @@
 package com.chenxushao.common.properties;
 
-
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.NoSuchElementException;
@@ -15,13 +13,15 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
 /**
- * Properties文件载入工具类. 可载入多个properties文件, 相同的属性在最后载入的文件中的值将会覆盖之前的值，但以System的Property优先.
+ * Properties文件载入工具类. 可载入多个properties文件,
+ * 相同的属性在最后载入的文件中的值将会覆盖之前的值，但以System的Property优先.
  * 
  * @author calvin
  */
 public class PropertiesLoader {
 
-	private static Logger logger = LoggerFactory.getLogger(PropertiesLoader.class);
+	private static Logger logger = LoggerFactory
+			.getLogger(PropertiesLoader.class);
 
 	private static ResourceLoader resourceLoader = new DefaultResourceLoader();
 
@@ -138,7 +138,8 @@ public class PropertiesLoader {
 				is = resource.getInputStream();
 				props.load(is);
 			} catch (IOException ex) {
-				logger.info("Could not load properties from path:{}, {} ", location, ex.getMessage());
+				logger.info("Could not load properties from path:{}, {} ",
+						location, ex.getMessage());
 			} finally {
 				IOUtils.closeQuietly(is);
 			}

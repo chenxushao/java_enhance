@@ -8,15 +8,15 @@ import java.util.concurrent.ArrayBlockingQueue;
 public class ArrayBlockingQueueDemo7 {
 
 	public static void main(String[] args) throws InterruptedException {
-		
+
 		ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<String>(2);
 		queue.put("1");
 		System.out.println(queue.offer("2"));
-		//队列满时，立即返回false
-	    System.out.println(queue.offer("x"));
-	    //支持超时退出
-//	    queue.offer(e, timeout, unit)
-		
+		// 队列满时，立即返回false
+		System.out.println(queue.offer("x"));
+		// 支持超时退出
+		// queue.offer(e, timeout, unit)
+
 		System.out.println(queue.size());
 	}
 }

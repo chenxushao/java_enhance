@@ -12,6 +12,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface AuthPassport {
-    LoginAuthResponeType type() default LoginAuthResponeType.RedirectUrl;
-    String msg() default "";
+	LoginAuthResponeType type() default LoginAuthResponeType.RedirectUrl;
+
+	String msg() default "";
 }

@@ -3,13 +3,17 @@ package com.chenxushao.java.basis.enums;
 import java.util.Arrays;
 import java.util.List;
 
+//定义常量类的参考
 public final class BizConstants {
+
+	private BizConstants() {
+	}
 
 	public static final String TIELYOU_WEBSERVICE_URLKEY = "tieyou_ws_addr";
 	public static final String TIELYOU_SEARCH_URLKEY = "tieyou_search_addr";
-	
+
 	public static final String TIEYOU = "TIEYOU";
-	
+
 	/**
 	 * 调用接口的签名错误
 	 */
@@ -98,8 +102,6 @@ public final class BizConstants {
 	// 订单已完成小时阈值
 	public final static Integer ORDER_FINISH_HOURS_LIMIT = 24;
 
-
-
 	// 已出票的退款单类型集合
 	public final static List<Integer> ticketSuccessRefundTypeList = Arrays
 			.asList(RefundType.cetk.type, RefundType.tb.type,
@@ -117,6 +119,4 @@ public final class BizConstants {
 	public static final List<Integer> canPushRefundNotifyStatusList = Arrays
 			.asList(PushMsgStatus.NO_PUSH.STATUS,
 					PushMsgStatus.DEAL_FAILURE.STATUS);
-
-
 }

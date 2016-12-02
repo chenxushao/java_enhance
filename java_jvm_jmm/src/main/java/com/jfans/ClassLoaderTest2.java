@@ -1,23 +1,22 @@
 package com.jfans;
 
-
 public class ClassLoaderTest2 {
 	public static void main(String[] args) throws ClassNotFoundException {
-		
-		
-		//À©Õ¹Àà¼ÓÔØÆ÷
+
+		// ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		ClassLoader ccl = ClassLoader.getSystemClassLoader().getParent();
-		
-	    Class<?> clazz1 = ccl.loadClass("java.lang.String");
-	    System.out.println(clazz1 + " ---> " + clazz1.getClassLoader());
-	    
-	    //½«ClassLoaderTest2.class¿½±´ÖÁ%JDK_HOME%\jre6\lib\extÄ¿Â¼ÏÂ(°üÀ¨°ü½á¹¹),ÈÔÈ»¿É±»À©Õ¹Àà¼ÓÔØÆ÷¼ÓÔØ
-	    //ÁîÈË¸Ðµ½Ææ¹ÖµÄÊÇ£¬±ØÐë½«º¬°ü½á¹¹µÄÎÄ¼þ¼Ð±ØÐë·Åµ½extÄ¿Â¼ÏÂµÄÄ³Ò»¸ö×ÓÄ¿Â¼ÏÂÊ±²Å»á¼ÓÔØ
-	    Class<?> clazz2 = ccl.loadClass("com.jfans.ClassLoaderTest2");
-	    System.out.println(clazz2 + " ---> " + clazz2.getClassLoader());
-	    Class<?> clazz3 = ccl.loadClass("sun.net.spi.nameservice.dns.DNSNameService");
-	    System.out.println(clazz3 + " ---> " + clazz3.getClassLoader());
-		 
+
+		Class<?> clazz1 = ccl.loadClass("java.lang.String");
+		System.out.println(clazz1 + " ---> " + clazz1.getClassLoader());
+
+		// ï¿½ï¿½ClassLoaderTest2.classï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%JDK_HOME%\jre6\lib\extÄ¿Â¼ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¹¹),ï¿½ï¿½È»ï¿½É±ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½Ë¸Ðµï¿½ï¿½ï¿½Öµï¿½ï¿½Ç£ï¿½ï¿½ï¿½ï¿½ë½«ï¿½ï¿½ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ð±ï¿½ï¿½ï¿½Åµï¿½extÄ¿Â¼ï¿½Âµï¿½Ä³Ò»ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½Ê±ï¿½Å»ï¿½ï¿½ï¿½ï¿½
+		Class<?> clazz2 = ccl.loadClass("com.jfans.ClassLoaderTest2");
+		System.out.println(clazz2 + " ---> " + clazz2.getClassLoader());
+		Class<?> clazz3 = ccl
+				.loadClass("sun.net.spi.nameservice.dns.DNSNameService");
+		System.out.println(clazz3 + " ---> " + clazz3.getClassLoader());
+
 	}
 
 }

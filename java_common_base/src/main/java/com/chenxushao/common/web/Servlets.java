@@ -30,11 +30,14 @@ public class Servlets {
 	/**
 	 * 设置客户端缓存过期时间 的Header.
 	 */
-	public static void setExpiresHeader(HttpServletResponse response, long expiresSeconds) {
+	public static void setExpiresHeader(HttpServletResponse response,
+			long expiresSeconds) {
 		// Http 1.0 header, set a fix expires date.
-		response.setDateHeader(HttpHeaders.EXPIRES, System.currentTimeMillis() + (expiresSeconds * 1000));
+		response.setDateHeader(HttpHeaders.EXPIRES, System.currentTimeMillis()
+				+ (expiresSeconds * 1000));
 		// Http 1.1 header, set a time after now.
-		response.setHeader(HttpHeaders.CACHE_CONTROL, "private, max-age=" + expiresSeconds);
+		response.setHeader(HttpHeaders.CACHE_CONTROL, "private, max-age="
+				+ expiresSeconds);
 	}
 
 	/**
@@ -45,13 +48,15 @@ public class Servlets {
 		response.setDateHeader(HttpHeaders.EXPIRES, 1L);
 		response.addHeader(HttpHeaders.PRAGMA, "no-cache");
 		// Http 1.1 header
-		response.setHeader(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, max-age=0");
+		response.setHeader(HttpHeaders.CACHE_CONTROL,
+				"no-cache, no-store, max-age=0");
 	}
 
 	/**
 	 * 设置LastModified Header.
 	 */
-	public static void setLastModifiedHeader(HttpServletResponse response, long lastModifiedDate) {
+	public static void setLastModifiedHeader(HttpServletResponse response,
+			long lastModifiedDate) {
 		response.setDateHeader(HttpHeaders.LAST_MODIFIED, lastModifiedDate);
 	}
 
@@ -67,12 +72,15 @@ public class Servlets {
 	 * 
 	 * 如果无修改, checkIfModify返回false ,设置304 not modify status.
 	 * 
-	 * @param lastModified 内容的最后修改时间.
+	 * @param lastModified
+	 *            内容的最后修改时间.
 	 */
-	public static boolean checkIfModifiedSince(HttpServletRequest request, HttpServletResponse response,
-			long lastModified) {
-		long ifModifiedSince = request.getDateHeader(HttpHeaders.IF_MODIFIED_SINCE);
-		if ((ifModifiedSince != -1) && (lastModified < (ifModifiedSince + 1000))) {
+	public static boolean checkIfModifiedSince(HttpServletRequest request,
+			HttpServletResponse response, long lastModified) {
+		long ifModifiedSince = request
+				.getDateHeader(HttpHeaders.IF_MODIFIED_SINCE);
+		if ((ifModifiedSince != -1)
+				&& (lastModified < (ifModifiedSince + 1000))) {
 			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
 			return false;
 		}
@@ -84,14 +92,17 @@ public class Servlets {
 	 * 
 	 * 如果Etag有效, checkIfNoneMatch返回false, 设置304 not modify status.
 	 * 
-	 * @param etag 内容的ETag.
+	 * @param etag
+	 *            内容的ETag.
 	 */
-	public static boolean checkIfNoneMatchEtag(HttpServletRequest request, HttpServletResponse response, String etag) {
+	public static boolean checkIfNoneMatchEtag(HttpServletRequest request,
+			HttpServletResponse response, String etag) {
 		String headerValue = request.getHeader(HttpHeaders.IF_NONE_MATCH);
 		if (headerValue != null) {
 			boolean conditionSatisfied = false;
 			if (!"*".equals(headerValue)) {
-				StringTokenizer commaTokenizer = new StringTokenizer(headerValue, ",");
+				StringTokenizer commaTokenizer = new StringTokenizer(
+						headerValue, ",");
 
 				while (!conditionSatisfied && commaTokenizer.hasMoreTokens()) {
 					String currentToken = commaTokenizer.nextToken();
@@ -115,9 +126,11 @@ public class Servlets {
 	/**
 	 * 设置让浏览器弹出下载对话框的Header.
 	 * 
-	 * @param fileName 下载后的文件名.
+	 * @param fileName
+	 *            下载后的文件名.
 	 */
-	public static void setFileDownloadHeader(HttpServletRequest request, HttpServletResponse response, String fileName) {
+	public static void setFileDownloadHeader(HttpServletRequest request,
+			HttpServletResponse response, String fileName) {
 		// 中文文件名支持
 		String encodedfileName = null;
 		// 替换空格，否则firefox下有空格文件名会被截断,其他浏览器会将空格替换成+号
@@ -127,10 +140,12 @@ public class Servlets {
 		if (isMSIE) {
 			encodedfileName = Encodes.urlEncode(fileName);
 		} else {
-			encodedfileName = new String(fileName.getBytes(), Charsets.ISO_8859_1);
+			encodedfileName = new String(fileName.getBytes(),
+					Charsets.ISO_8859_1);
 		}
 
-		response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + encodedfileName + "\"");
+		response.setHeader(HttpHeaders.CONTENT_DISPOSITION,
+				"attachment; filename=\"" + encodedfileName + "\"");
 
 	}
 
@@ -139,7 +154,8 @@ public class Servlets {
 	 * 
 	 * 返回的结果的Parameter名已去除前缀.
 	 */
-	public static Map<String, Object> getParametersStartingWith(ServletRequest request, String prefix) {
+	public static Map<String, Object> getParametersStartingWith(
+			ServletRequest request, String prefix) {
 		Validate.notNull(request, "Request must not be null");
 		Enumeration paramNames = request.getParameterNames();
 		Map<String, Object> params = new TreeMap<String, Object>();
@@ -168,7 +184,8 @@ public class Servlets {
 	 * 
 	 * @see #getParametersStartingWith
 	 */
-	public static String encodeParameterStringWithPrefix(Map<String, Object> params, String prefix) {
+	public static String encodeParameterStringWithPrefix(
+			Map<String, Object> params, String prefix) {
 		if (Collections3.isEmpty(params)) {
 			return "";
 		}
@@ -181,7 +198,8 @@ public class Servlets {
 		Iterator<Entry<String, Object>> it = params.entrySet().iterator();
 		while (it.hasNext()) {
 			Entry<String, Object> entry = it.next();
-			queryStringBuilder.append(prefix).append(entry.getKey()).append('=').append(entry.getValue());
+			queryStringBuilder.append(prefix).append(entry.getKey())
+					.append('=').append(entry.getValue());
 			if (it.hasNext()) {
 				queryStringBuilder.append('&');
 			}

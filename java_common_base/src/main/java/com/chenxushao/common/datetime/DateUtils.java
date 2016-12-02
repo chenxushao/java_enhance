@@ -194,7 +194,7 @@ public class DateUtils {
 	}
 
 	/**
-	 *取当前的系统时间，格式HH:MM
+	 * 取当前的系统时间，格式HH:MM
 	 */
 	public static String getSysTime() {
 		return getDefaultTimeFormat().format(

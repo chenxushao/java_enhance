@@ -9,14 +9,15 @@ import java.util.BitSet;
 /**
  * @author mhanganu
  * 
- * This class provides utility methods for encoding URI-s. The class is a slight modified version for 
- * the URLEncoder in Tomcat's source, whose initial author is Craig McClanahan
+ *         This class provides utility methods for encoding URI-s. The class is
+ *         a slight modified version for the URLEncoder in Tomcat's source,
+ *         whose initial author is Craig McClanahan
  */
 public class URIEncoder {
 	protected static final char[] hexadecimal = { '0', '1', '2', '3', '4', '5',
 			'6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 
-	//Array containing the safe characters set.
+	// Array containing the safe characters set.
 	protected static BitSet safeCharacters = new BitSet(256);
 
 	static {
@@ -89,7 +90,7 @@ public class URIEncoder {
 		}
 		return rewrittenPath.toString();
 	}
-	
+
 	public static void main(String[] args) {
 		File f = new File("c:/");
 		System.out.println(f.list().length);
@@ -101,55 +102,55 @@ public class URIEncoder {
 	 * @param schemes
 	 * @param default_scheme
 	 */
-	public static String processString(String fileName, String[] schemes, String defaultScheme) {
+	public static String processString(String fileName, String[] schemes,
+			String defaultScheme) {
 		// if fileName contains any of the schemes registered with phileas
 		// take the scheme out and encode the rest of the string
 		// and then concatenate back the scheme and the encoded string
-		// otherwise encode the string 
+		// otherwise encode the string
 		// and add default "file:/" scheme
-		
+
 		// check for any of the schemes
 		boolean schemePresent = false;
 		String fileScheme = null;
-		for(int i = 0; i < schemes.length; i++) {
-			if(fileName.startsWith(schemes[i])) {
+		for (int i = 0; i < schemes.length; i++) {
+			if (fileName.startsWith(schemes[i])) {
 				schemePresent = true;
 				fileScheme = schemes[i];
 				break;
 			}
 		}
-		
+
 		String processedString;
-		
+
 		// if scheme found, take it out and encode the string
-		if(schemePresent) {
+		if (schemePresent) {
 			String stringWithNoScheme = fileName.substring(fileScheme.length());
-			
-			if(stringContainsUnsafeCharacters(stringWithNoScheme)) {
+
+			if (stringContainsUnsafeCharacters(stringWithNoScheme)) {
 				processedString = fileScheme + encode(stringWithNoScheme);
 			} else {
 				processedString = fileName;
 			}
 		} else {
-			if(stringContainsUnsafeCharacters(fileName)) {
+			if (stringContainsUnsafeCharacters(fileName)) {
 				processedString = defaultScheme + encode(fileName);
 			} else {
 				processedString = defaultScheme + fileName;
 			}
 		}
-		
+
 		return processedString;
 	}
 
 	/**
 	 * @param processedString
 	 */
-	/*private static String cleanUp(String str) {
-		String ret = str.replace('\\', '/');
-		while(ret.startsWith("/") || ret.startsWith("\\")) {
-			ret = ret.substring(1);
-		}
-		
-		return ret;
-	}*/
+	/*
+	 * private static String cleanUp(String str) { String ret =
+	 * str.replace('\\', '/'); while(ret.startsWith("/") ||
+	 * ret.startsWith("\\")) { ret = ret.substring(1); }
+	 * 
+	 * return ret; }
+	 */
 }

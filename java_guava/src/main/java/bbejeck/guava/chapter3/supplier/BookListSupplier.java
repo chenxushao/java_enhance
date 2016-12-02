@@ -10,20 +10,18 @@ import bbejeck.guava.common.service.BookService;
 import com.google.common.base.Supplier;
 
 /**
- * User: Bill Bejeck
- * Date: 4/5/13
- * Time: 1:53 PM
+ * User: Bill Bejeck Date: 4/5/13 Time: 1:53 PM
  */
 public class BookListSupplier implements Supplier<List<Book>> {
 
-    private BookService bookService;
+	private BookService bookService;
 
-    public BookListSupplier(BookService bookService) {
-        this.bookService = checkNotNull(bookService);
-    }
+	public BookListSupplier(BookService bookService) {
+		this.bookService = checkNotNull(bookService);
+	}
 
-    @Override
-    public List<Book> get() {
-        return bookService.get();
-    }
+	@Override
+	public List<Book> get() {
+		return bookService.get();
+	}
 }

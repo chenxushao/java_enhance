@@ -21,32 +21,30 @@ public class TestSoftReference {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		 //创建引用队列
-		 ReferenceQueue<User> rq = new ReferenceQueue<User>();
-		 Set<SoftReference<User>> userSet = new HashSet<SoftReference<User>>();
-		 //为造成内存不中，我们一次性创建5000个User对象
-		 for(int i=0; i<5000; i++){
-			 userSet.add(new SoftReference<User>(new User("user"+String.valueOf(i)),rq));
-		 }
-		 
-		  /*
-		  [GC [DefNew: 512K->64K(576K), 0.0019196 secs] 512K->310K(960K), 0.0019659 secs]
-		  [GC [DefNew: 576K->63K(576K), 0.0018645 secs][Tenured: 537K->601K(640K), 0.0116122 secs] 822K->601K(1216K), 0.0135478 secs]
-		  Finalizing User user59
-		  Finalizing User user274
-		  Finalizing User user303
-		  Finalizing User user328
-		  Finalizing User user355
-		  
-		    其它打印结果省略
-		  */
-		 
-		 
-		 /*
-		  * 由输出结果可知，内存不中时，虚拟机进行了两垃圾回收。
-		  * 并将SoftReference引用的对象回收掉
-		  */
-		 
+		// 创建引用队列
+		ReferenceQueue<User> rq = new ReferenceQueue<User>();
+		Set<SoftReference<User>> userSet = new HashSet<SoftReference<User>>();
+		// 为造成内存不中，我们一次性创建5000个User对象
+		for (int i = 0; i < 5000; i++) {
+			userSet.add(new SoftReference<User>(new User("user"
+					+ String.valueOf(i)), rq));
+		}
+
+		/*
+		 * [GC [DefNew: 512K->64K(576K), 0.0019196 secs] 512K->310K(960K),
+		 * 0.0019659 secs] [GC [DefNew: 576K->63K(576K), 0.0018645
+		 * secs][Tenured: 537K->601K(640K), 0.0116122 secs] 822K->601K(1216K),
+		 * 0.0135478 secs] Finalizing User user59 Finalizing User user274
+		 * Finalizing User user303 Finalizing User user328 Finalizing User
+		 * user355
+		 * 
+		 * 其它打印结果省略
+		 */
+
+		/*
+		 * 由输出结果可知，内存不中时，虚拟机进行了两垃圾回收。 并将SoftReference引用的对象回收掉
+		 */
+
 	}
 
 }

@@ -4,20 +4,22 @@ import sun.net.spi.nameservice.dns.DNSNameService;
 
 public class ClassLoaderTest1 {
 	public static void main(String[] args) {
-		
-		
-		//о╣мЁюЮ╪стьфВ
+
+		// о╣мЁО©╫О©╫О©╫О©╫О©╫О©╫О©╫
 		ClassLoader ccl = ClassLoader.getSystemClassLoader();
-		System.out.println("о╣мЁюЮ╪стьфВ: " + ccl);
-		
-		//оъЁлиообндюЮ╪стьфВ,д╛хогИ©Жобн╙о╣мЁюЮ╪стьфВ
-		System.out.println("оъЁлиообндюЮ╪стьфВ: "+Thread.currentThread().getContextClassLoader());
-		System.out.println("ClassLoaderTest1 classloader: " + ClassLoaderTest1.class.getClassLoader());//о╣мЁюЮ╪стьфВё╛╪стьclasspath
-		System.out.println("String classloader: " + String.class.getClassLoader());//bootstrap classloader,╪сть╨кпдюЮ©Бrt.jar
-		System.out.println("DNSNameService classloader: " + DNSNameService.class.getClassLoader());//ю╘у╧юЮ╪стьфВ
-	
-	
-		
+		System.out.println("о╣мЁО©╫О©╫О©╫О©╫О©╫О©╫О©╫: " + ccl);
+
+		// О©╫ъЁО©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫,д╛О©╫О©╫О©╫О©╫О©╫О©╫О©╫н╙о╣мЁО©╫О©╫О©╫О©╫О©╫О©╫О©╫
+		System.out.println("О©╫ъЁО©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫: "
+				+ Thread.currentThread().getContextClassLoader());
+		System.out.println("ClassLoaderTest1 classloader: "
+				+ ClassLoaderTest1.class.getClassLoader());// о╣мЁО©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫classpath
+		System.out.println("String classloader: "
+				+ String.class.getClassLoader());// bootstrap
+													// classloader,О©╫О©╫О©╫ь╨О©╫О©╫О©╫О©╫О©╫О©╫rt.jar
+		System.out.println("DNSNameService classloader: "
+				+ DNSNameService.class.getClassLoader());// О©╫О©╫у╧О©╫О©╫О©╫О©╫О©╫О©╫О©╫
+
 	}
 
 }

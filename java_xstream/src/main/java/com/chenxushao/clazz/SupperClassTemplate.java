@@ -5,10 +5,10 @@ package com.chenxushao.clazz;
  */
 public abstract class SupperClassTemplate extends ClassTemplate {
 
-    protected final Class<?> superClass;
+	protected final Class<?> superClass;
 
-    protected SupperClassTemplate(String packageName, Class<?> superClass) {
-        super(packageName);
-        this.superClass = superClass;
-    }
+	protected SupperClassTemplate(String packageName, Class<?> superClass) {
+		super(packageName);
+		this.superClass = superClass;
+	}
 }

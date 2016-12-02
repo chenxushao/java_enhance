@@ -37,9 +37,9 @@ public enum PushMsgStatus {
 		// Default
 		return null;
 	}
-	
+
 	@Override
-	public String toString(){
-		return DESC + "("+STATUS+")";
+	public String toString() {
+		return DESC + "(" + STATUS + ")";
 	}
 }

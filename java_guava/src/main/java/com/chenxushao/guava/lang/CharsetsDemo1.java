@@ -7,7 +7,7 @@ import com.google.common.base.Charsets;
  *
  */
 public class CharsetsDemo1 {
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		String something = "something";
 		byte[] bytes = something.getBytes(Charsets.UTF_8);
 		System.out.println(bytes);

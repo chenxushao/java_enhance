@@ -24,7 +24,7 @@ import java.util.Vector;
 public class StringUtils {
 	// 在工具类中可以定义一些经常使用的最终变量
 	private static final String EMPTY_STRING = ""; // 空字符串
-	private static final String DOT_DOT_DOT = "..."; //...
+	private static final String DOT_DOT_DOT = "..."; // ...
 
 	public static final String INFINITY_STRING = "\u221E"; // "oo";pa
 	public static final int CRAPPY_INFINITY_AS_INT = 365 * 24 * 3600; // seconds
@@ -32,8 +32,7 @@ public class StringUtils {
 	public static final long CRAPPY_INFINITE_AS_LONG = 10000 * 365 * 24 * 3600; // seconds
 																				// (10k
 																				// years)
-	
-	
+
 	public static final int DEFAULT_WRAPLENGTH = 150;
 
 	private static final String NEWLINE_SEPARATOR = "\n";
@@ -60,7 +59,7 @@ public class StringUtils {
 	public static String convertNull(String s) {
 		return s == null ? "" : s;
 	}
-	
+
 	// 判断字符串不为空且字符个数大于0:即不为空串
 	public static boolean isSet(String str) {
 		return (str != null && str.length() > 0);
@@ -81,7 +80,7 @@ public class StringUtils {
 		return full;
 	}
 
-	//合并2个客串数组为一个新数组,同时保持值唯一，即去掉重复的
+	// 合并2个客串数组为一个新数组,同时保持值唯一，即去掉重复的
 	public static String[] concatUniq(String[] part1, String[] part2) {
 		// 当然了也可以直接使用Set,但set不按照加入的顺序存放，List按照加入的顺序存放
 		List<String> nlist = new ArrayList<String>();
@@ -137,7 +136,6 @@ public class StringUtils {
 			return -1;
 		}
 	}
- 
 
 	// 在IO读写的方法中，一般都在方法定义中直接申请抛出IOException，在方法内部反而不需要try,catch之类，当然，针对文件读写的，finally是一定要的，要关闭流
 	public static String readString(Reader reader) throws IOException {
@@ -172,12 +170,12 @@ public class StringUtils {
 				return i;
 		}
 		return -1;
-	} 
+	}
 
 	// 返回某字符串在数组中的位置：区分大小写
 	public static int indexOf(String[] strArray, String searchStr) {
 		return indexOfString(strArray, searchStr, false);
-	} 
+	}
 
 	public static int compare(String s1, String s2) {
 		if (s1 == null) {
@@ -194,7 +192,7 @@ public class StringUtils {
 	// 返回某字符串在数组中的位置：不区分大小写
 	public static int indexOfIgnoreCase(String[] strArray, String searchStr) {
 		return indexOfString(strArray, searchStr, true);
-	}  
+	}
 
 	// 字符串数组中是否存在某字符串:区分大小写
 	public static boolean contains(String[] strArray, String searchStr) {
@@ -212,7 +210,7 @@ public class StringUtils {
 			return containsIgnoreCase(strArray, searchStr);
 		else
 			return contains(strArray, searchStr);
-	} 
+	}
 
 	protected static String[] removeFromStringArray(String[] strings,
 			String[] removeStrings) {
@@ -379,8 +377,6 @@ public class StringUtils {
 		return sb.toString();
 	}
 
-	
-
 	/**
 	 * Returns a string with size of count and all characters initialized with
 	 * ch. <br>
@@ -403,11 +399,6 @@ public class StringUtils {
 
 		return (buffer.toString());
 	} // repeat()
-
- 
- 
-
-	
 
 	/**
 	 * Shortens the given label to the given maximum length and filters
@@ -432,8 +423,8 @@ public class StringUtils {
 		if (label.length() > maxLength) {
 			label = label.substring(0, maxLength / 2)
 					+ DOT_DOT_DOT
-					+ label.substring(label.length() - maxLength / 2, label
-							.length());
+					+ label.substring(label.length() - maxLength / 2,
+							label.length());
 
 		}
 
@@ -505,7 +496,7 @@ public class StringUtils {
 		}
 		return s0.equals(s1);
 	}
-	
+
 	/**
 	 * Decode a string containing two hex digits for each byte.
 	 * 
@@ -701,8 +692,6 @@ public class StringUtils {
 		return new StringTokenizer(str, ",;，；.。").nextToken();
 	}
 
- 
-
 	public static String fromUTF8ByteArray(byte[] bytes) {
 		int i = 0;
 		int length = 0;
@@ -896,8 +885,6 @@ public class StringUtils {
 		return res;
 	}
 
-	
-
 	/**
 	 * Clear all linebreaks and carriage returns from input text.
 	 * 
@@ -1088,7 +1075,7 @@ public class StringUtils {
 		return buffer.toString();
 	}
 
-    //去年字符串右边的空格
+	// 去年字符串右边的空格
 	public static String rtrim(String input) {
 		if (input == null)
 			return null;
@@ -1102,6 +1089,7 @@ public class StringUtils {
 	/**
 	 * Computes and returns a formatted representation of the percent that the
 	 * currentProgress represents in the totalSize.
+	 * 
 	 * @param currentProgress
 	 * @param totalSize
 	 * @return
@@ -1109,11 +1097,10 @@ public class StringUtils {
 	public static String getPercent(long currentProgress, long totalSize) {
 		return (int) ((currentProgress * 100) / totalSize) + "%";
 	}
-	
+
 	public static void main(String[] args) {
-		System.out.println(rtrim("   cxs    ")+"user");
+		System.out.println(rtrim("   cxs    ") + "user");
 	}
-	
 
 	/**
 	 * Replace reserved xml chars.
@@ -1254,8 +1241,6 @@ public class StringUtils {
 		return sb.toString();
 	}
 
-
-
 	public static String cap(String str) {
 		if (str == null || str.length() == 0) {
 			return str;
@@ -1316,5 +1301,4 @@ public class StringUtils {
 		return str == null || str.length() == 0;
 	}
 
-	
 }

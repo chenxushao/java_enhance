@@ -6,14 +6,15 @@ package com.chenxushao.common.string;
  * 参考下面的示例代码将其保存为ThreadLocal.
  * 
  * <pre>
- * private static final ThreadLocal<StringBuilderHelper> threadLocalStringBuilderHolder = new ThreadLocal<StringBuilderHelper>() {
- * 	&#64;Override
+ * private static final ThreadLocal&lt;StringBuilderHelper&gt; threadLocalStringBuilderHolder = new ThreadLocal&lt;StringBuilderHelper&gt;() {
+ * 	&#064;Override
  * 	protected StringBuilderHelper initialValue() {
  * 		return new StringBuilderHelper(256);
  * 	}
  * };
  * 
- * StringBuilder sb = threadLocalStringBuilderHolder.get().resetAndGetStringBuilder();
+ * StringBuilder sb = threadLocalStringBuilderHolder.get()
+ * 		.resetAndGetStringBuilder();
  * 
  * </pre>
  * 

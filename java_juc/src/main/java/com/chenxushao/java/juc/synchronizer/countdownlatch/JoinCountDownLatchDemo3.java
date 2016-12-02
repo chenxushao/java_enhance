@@ -1,4 +1,5 @@
 package com.chenxushao.java.juc.synchronizer.countdownlatch;
+
 public class JoinCountDownLatchDemo3 {
 
 	public static void main(String[] args) throws InterruptedException {

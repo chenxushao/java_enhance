@@ -19,10 +19,10 @@ public enum SmsType {
 		@Override
 		public boolean sendSms(Map<String, String> paramMap) {
 			String mobileId = paramMap.get(SMS_MOBILE_ID);
-//			int status = SMSUtil.sendSms(diffId, mobileId, paramMap, desc);
-//			return (status == SMSUtil.SMS_SUCESS) ? true : false;
+			// int status = SMSUtil.sendSms(diffId, mobileId, paramMap, desc);
+			// return (status == SMSUtil.SMS_SUCESS) ? true : false;
 			int status = 1;
-			return (status ==  1) ? true : false;
+			return (status == 1) ? true : false;
 		}
 
 		@Override
@@ -36,10 +36,10 @@ public enum SmsType {
 		@Override
 		public boolean sendSms(Map<String, String> paramMap) {
 			String mobileId = paramMap.get(SMS_MOBILE_ID);
-//			int status = SMSUtil.sendSms(diffId, mobileId, paramMap, desc);
-			
+			// int status = SMSUtil.sendSms(diffId, mobileId, paramMap, desc);
+
 			int status = 1;
-			return (status ==  1) ? true : false;
+			return (status == 1) ? true : false;
 		}
 
 		@Override
@@ -53,10 +53,10 @@ public enum SmsType {
 		@Override
 		public boolean sendSms(Map<String, String> paramMap) {
 			String mobileId = paramMap.get(SMS_MOBILE_ID);
-//			int status = SMSUtil.sendSms(diffId, mobileId, paramMap, desc);
-//			return (status ==  SMSUtil.SMS_SUCESS) ? true : false;
+			// int status = SMSUtil.sendSms(diffId, mobileId, paramMap, desc);
+			// return (status == SMSUtil.SMS_SUCESS) ? true : false;
 			int status = 1;
-			return (status ==  1) ? true : false;
+			return (status == 1) ? true : false;
 		}
 
 		@Override
@@ -70,10 +70,10 @@ public enum SmsType {
 		@Override
 		public boolean sendSms(Map<String, String> paramMap) {
 			String mobileId = paramMap.get(SMS_MOBILE_ID);
-//			int status = SMSUtil.sendSms(diffId, mobileId, paramMap, desc);
-//			return (status ==  SMSUtil.SMS_SUCESS) ? true : false;
+			// int status = SMSUtil.sendSms(diffId, mobileId, paramMap, desc);
+			// return (status == SMSUtil.SMS_SUCESS) ? true : false;
 			int status = 1;
-			return (status ==  1) ? true : false;
+			return (status == 1) ? true : false;
 		}
 
 		@Override
@@ -116,7 +116,7 @@ public enum SmsType {
 	}
 
 	private static String buildSms(SmsType smsType, Map<String, String> paramMap) {
-		if(paramMap==null || paramMap.size()==0){
+		if (paramMap == null || paramMap.size() == 0) {
 			return "";
 		}
 		Set<Map.Entry<String, String>> entrySet = paramMap.entrySet();

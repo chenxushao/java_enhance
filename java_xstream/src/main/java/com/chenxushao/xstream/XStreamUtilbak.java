@@ -1,4 +1,5 @@
 package com.chenxushao.xstream;
+
 import java.io.Writer;
 import java.util.regex.Pattern;
 
@@ -8,7 +9,7 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
 import com.thoughtworks.xstream.io.xml.Xpp3Driver;
 
-public class XStreamUtilbak{
+public class XStreamUtilbak {
 	protected static String PREFIX_CDATA = "<![CDATA[";
 	protected static String SUFFIX_CDATA = "]]>";
 
@@ -54,6 +55,7 @@ public class XStreamUtilbak{
 
 	/**
 	 * 扩展xstream，使其支持CDATA块.专用于微信开发。使其支持CDATA，数字和浮点数不加CDATA，xml属性首字母大写
+	 * 
 	 * @return
 	 */
 	public static XStream initXStream4WeiXin() {
@@ -120,5 +122,3 @@ public class XStreamUtilbak{
 		return xstream;
 	}
 }
-
-    

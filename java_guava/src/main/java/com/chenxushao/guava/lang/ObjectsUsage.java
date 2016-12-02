@@ -30,27 +30,32 @@ public class ObjectsUsage {
 	// ComparisonChain.compare/compareTo使用
 	static class Foo implements Comparable<Foo> {
 
-		private String	aString;
-		private int		anInt;
-		private Enum<?>	anEnum;
+		private String aString;
+		private int anInt;
+		private Enum<?> anEnum;
 
-//		@Override
+		// @Override
 		public int compareTo(Foo that) {
-			return ComparisonChain.start() //
-					.compare(aString, that.aString) //
-					.compare(anInt, that.anInt) //
-					.compare(anEnum, that.anEnum, Ordering.natural().nullsFirst()) //
+			return ComparisonChain
+					.start()
+					//
+					.compare(aString, that.aString)
+					//
+					.compare(anInt, that.anInt)
+					//
+					.compare(anEnum, that.anEnum,
+							Ordering.natural().nullsFirst()) //
 					.result();
 		}
 	}
 
 	// 普通的compare用法
 	static class Person implements Comparable<Person> {
-		private String	lastName;
-		private String	firstName;
-		private int		zipCode;
+		private String lastName;
+		private String firstName;
+		private int zipCode;
 
-//		@Override
+		// @Override
 		public int compareTo(Person o) {
 			int cmp = lastName.compareTo(o.lastName);
 
@@ -67,8 +72,8 @@ public class ObjectsUsage {
 	}
 
 	static class Login {
-		private String	name;
-		private Integer	password;
+		private String name;
+		private Integer password;
 
 		public String getName() {
 			return name;

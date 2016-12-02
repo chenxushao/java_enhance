@@ -13,62 +13,63 @@ import com.google.common.math.IntMath;
  */
 public class IntMathTest {
 
-//    @Test(expectedExceptions = ArithmeticException.class, expectedExceptionsMessageRegExp = "overflow")
-    public void shouldThrowExceptionWhenOverflow() throws Exception {
+	// @Test(expectedExceptions = ArithmeticException.class,
+	// expectedExceptionsMessageRegExp = "overflow")
+	public void shouldThrowExceptionWhenOverflow() throws Exception {
 
-        // given
-        int numberOne = Integer.MAX_VALUE - 4;
-        int numberTwo = 6;
+		// given
+		int numberOne = Integer.MAX_VALUE - 4;
+		int numberTwo = 6;
 
-        // when
-        int resultOldWay = numberOne + numberTwo;
+		// when
+		int resultOldWay = numberOne + numberTwo;
 
-        // silent overflow here
-        assertThat(resultOldWay).isEqualTo(Integer.MIN_VALUE + 1);
-        
-        int result = IntMath.checkedAdd(numberOne, numberTwo);
-    }
+		// silent overflow here
+		assertThat(resultOldWay).isEqualTo(Integer.MIN_VALUE + 1);
 
-    @Test
-    public void shouldDivideWithRoundingMode() throws Exception {
+		int result = IntMath.checkedAdd(numberOne, numberTwo);
+	}
 
-        // when
-        int roundedUp = IntMath.divide(10, 4, RoundingMode.HALF_UP);
-        int roundedDown = IntMath.divide(10, 4, RoundingMode.HALF_DOWN);
+	@Test
+	public void shouldDivideWithRoundingMode() throws Exception {
 
-        // then
-        assertThat(roundedUp).isEqualTo(3);
-        assertThat(roundedDown).isEqualTo(2);
-    }
+		// when
+		int roundedUp = IntMath.divide(10, 4, RoundingMode.HALF_UP);
+		int roundedDown = IntMath.divide(10, 4, RoundingMode.HALF_DOWN);
 
-    @Test
-    public void shouldCalculateFactorial() throws Exception {
-        // when
-        int factorial = IntMath.factorial(5);
+		// then
+		assertThat(roundedUp).isEqualTo(3);
+		assertThat(roundedDown).isEqualTo(2);
+	}
 
-        // then
-        assertThat(factorial).isEqualTo(1 * 2 * 3 * 4 * 5);
-    }
+	@Test
+	public void shouldCalculateFactorial() throws Exception {
+		// when
+		int factorial = IntMath.factorial(5);
 
-    @Test
-    public void shouldCalculateGreatestCommonDivisor() throws Exception {
-        // when
-        int gcd = IntMath.gcd(20, 15);
+		// then
+		assertThat(factorial).isEqualTo(1 * 2 * 3 * 4 * 5);
+	}
 
-        // then
-        assertThat(gcd).isEqualTo(5);
-    }
+	@Test
+	public void shouldCalculateGreatestCommonDivisor() throws Exception {
+		// when
+		int gcd = IntMath.gcd(20, 15);
 
-    @Test
-    public void shouldCalculateLogarithms() throws Exception {
+		// then
+		assertThat(gcd).isEqualTo(5);
+	}
 
-        // when
-        int log2Result = IntMath.log2(17, RoundingMode.HALF_UP);
-        int log10Result = IntMath.log10(100, RoundingMode.UNNECESSARY);
+	@Test
+	public void shouldCalculateLogarithms() throws Exception {
 
-        // then
-        assertThat(log2Result).isEqualTo(4);
-        assertThat(log10Result).isEqualTo(2);
-    }
-    
+		// when
+		int log2Result = IntMath.log2(17, RoundingMode.HALF_UP);
+		int log10Result = IntMath.log10(100, RoundingMode.UNNECESSARY);
+
+		// then
+		assertThat(log2Result).isEqualTo(4);
+		assertThat(log10Result).isEqualTo(2);
+	}
+
 }

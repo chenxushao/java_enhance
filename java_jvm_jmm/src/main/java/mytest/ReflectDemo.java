@@ -1,132 +1,133 @@
 package mytest;
 
-import java.lang.reflect.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
-public class ReflectDemo
-{
+public class ReflectDemo {
 
-	public static void main(String[] args)  
-	{ 
-		Class cDemo=null;
-		Class[] cArray=null;
-		Class cTemp=null;
-		String className="";
-		BufferedReader brd=null;
-	    System.out.println("ÇëÊäÈëÀàÃû£º");
-		try{
-			   
-			  brd=new BufferedReader(new InputStreamReader(System.in));
-			  className=brd.readLine();
-			  if(className.equals(""))
-			  { 
-				  System.out.println("ÊäÈëµÄÀàĞÍÎª¿Õ.");
-				  return;
-			  }
-			  
-			  //cDemo=Class.forName("mytest."+className);
-			  cDemo=Class.forName(className);
-			  System.out.println("mytest."+className);
-			  int mod=cDemo.getModifiers();
-			  System.out.println("\tĞŞÊÎ·û£º"+Modifier.toString(mod));
-			  System.out.println("\t°üÃû£º"+cDemo.getPackage());
-			  System.out.println("\tÀàÃû: "+cDemo.getName());
-			  System.out.println("\t¸¸Àà£º"+cDemo.getSuperclass());
-			  System.out.print("\tËùÊµÏÖµÄ½Ó¿Ú£º");
-			  
-			  cArray=cDemo.getInterfaces();
-			  if (cArray.length==0)
-			  {
-				  System.out.println("ÎŞ");
-			  }
-			  else
-			  {
-			  for(int i=0; i<cArray.length; i++)
-			  {
-				    cTemp=cArray[i];
-				    if (i!=0)
-				    	System.out.print(",");
-				    System.out.print(cTemp.toString());
-			  }
-			  }
-			  System.out.println();
-			  Field[] fds=cDemo.getDeclaredFields();
-			  
-			  System.out.println("\n"+"----------------------"+className+"ÀàÉùÃ÷ÁËÈçÏÂ×Ö¶Î£º"+"----------------------");
-			 
-			  for(int i=0; i<fds.length; i++)
-			  {    
-				  if(i!=0)
-				  System.out.println("----------------------"+"----------------------"+"----------------------");
-				  System.out.println(fds[i].toString());
-				  System.out.println("\tÊôĞÔÃû£º"+fds[i].getName());
-				  System.out.println("\tĞŞÊÎ·û£º"+Modifier.toString(mod));
-				  System.out.println("\tÊı¾İÀàĞÍ£º"+fds[i].getType());
-				 
-			  }
-			  
-			  Method[] mds=cDemo.getDeclaredMethods();
-			  System.out.println("\n"+"----------------------"+className+"ÀàÉùÃ÷ÁËÈçÏÂ·½·¨£º"+"----------------------");
-			  
-			  for(int i=0; i<mds.length; i++)
-			  {    
-				  if(i!=0)
-				  System.out.println("----------------------"+"----------------------"+"----------------------");
-				  System.out.println(mds[i].toString());
-				  System.out.println("\t·½·¨Ãû£º"+mds[i].getName());
-				  System.out.println("\tĞŞÊÎ·û£º"+Modifier.toString(mds[i].getModifiers()));
-				  System.out.println("\t·µ»ØÖµÀàĞÍ£º"+mds[i].getReturnType());
-				  System.out.print("\tĞÎ²ÎÁĞ±í£º");
-				  cArray=mds[i].getParameterTypes();
-				  if(cArray.length==0)
-					  System.out.println("ÎŞ");
-				  else{
-				  for(int j=0; j<cArray.length; j++)
-				  {    
-					  cTemp=cArray[j];
-					  if(j!=0)
-						  System.out.print(",");
-					  System.out.print(cTemp.toString());
-				  }
-				  System.out.println();
-				  }
-				 
-				  
-			  }
-			  
-			  System.out.println("\n"+"----------------------"+className+"ÀàÉùÃ÷ÁËÈçÏÂ¹¹Ôì·½·¨£º"+"----------------------");
-			  Constructor[] con=cDemo.getDeclaredConstructors();
-			  for (int i=0; i<con.length; i++)
-			  {
-				  if(i!=0)
-					  System.out.println("----------------------"+"----------------------"+"----------------------");
-				  System.out.println(con[i].toString());
-				  System.out.println("\t·½·¨Ãû£º"+con[i].getName());
-				  System.out.println("\tĞŞÊÎ·û£º"+Modifier.toString(con[i].getModifiers()));
-				 
-				  System.out.print("\tĞÎ²ÎÁĞ±í£º");
-				  cArray=con[i].getParameterTypes();
-				  if(cArray.length==0)
-					  System.out.println("ÎŞ");
-				  else{
-				  for(int j=0; j<cArray.length; j++)
-				  {    
-					  cTemp=cArray[j];
-					  if(j!=0)
-						  System.out.print(",");
-					  System.out.print(cTemp.toString());
-				  }
-				  System.out.println();
-				  }
-			  }
-		}catch(IOException e){
+	public static void main(String[] args) {
+		Class cDemo = null;
+		Class[] cArray = null;
+		Class cTemp = null;
+		String className = "";
+		BufferedReader brd = null;
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		try {
+
+			brd = new BufferedReader(new InputStreamReader(System.in));
+			className = brd.readLine();
+			if (className.equals("")) {
+				System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½.");
+				return;
+			}
+
+			// cDemo=Class.forName("mytest."+className);
+			cDemo = Class.forName(className);
+			System.out.println("mytest." + className);
+			int mod = cDemo.getModifiers();
+			System.out.println("\tï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½" + Modifier.toString(mod));
+			System.out.println("\tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + cDemo.getPackage());
+			System.out.println("\tï¿½ï¿½ï¿½ï¿½: " + cDemo.getName());
+			System.out.println("\tï¿½ï¿½ï¿½à£º" + cDemo.getSuperclass());
+			System.out.print("\tï¿½ï¿½Êµï¿½ÖµÄ½Ó¿Ú£ï¿½");
+
+			cArray = cDemo.getInterfaces();
+			if (cArray.length == 0) {
+				System.out.println("ï¿½ï¿½");
+			} else {
+				for (int i = 0; i < cArray.length; i++) {
+					cTemp = cArray[i];
+					if (i != 0)
+						System.out.print(",");
+					System.out.print(cTemp.toString());
+				}
+			}
+			System.out.println();
+			Field[] fds = cDemo.getDeclaredFields();
+
+			System.out.println("\n" + "----------------------" + className
+					+ "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶Î£ï¿½" + "----------------------");
+
+			for (int i = 0; i < fds.length; i++) {
+				if (i != 0)
+					System.out.println("----------------------"
+							+ "----------------------"
+							+ "----------------------");
+				System.out.println(fds[i].toString());
+				System.out.println("\tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + fds[i].getName());
+				System.out.println("\tï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½" + Modifier.toString(mod));
+				System.out.println("\tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½" + fds[i].getType());
+
+			}
+
+			Method[] mds = cDemo.getDeclaredMethods();
+			System.out.println("\n" + "----------------------" + className
+					+ "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½" + "----------------------");
+
+			for (int i = 0; i < mds.length; i++) {
+				if (i != 0)
+					System.out.println("----------------------"
+							+ "----------------------"
+							+ "----------------------");
+				System.out.println(mds[i].toString());
+				System.out.println("\tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + mds[i].getName());
+				System.out.println("\tï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½"
+						+ Modifier.toString(mds[i].getModifiers()));
+				System.out.println("\tï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Í£ï¿½" + mds[i].getReturnType());
+				System.out.print("\tï¿½Î²ï¿½ï¿½Ğ±ï¿½");
+				cArray = mds[i].getParameterTypes();
+				if (cArray.length == 0)
+					System.out.println("ï¿½ï¿½");
+				else {
+					for (int j = 0; j < cArray.length; j++) {
+						cTemp = cArray[j];
+						if (j != 0)
+							System.out.print(",");
+						System.out.print(cTemp.toString());
+					}
+					System.out.println();
+				}
+
+			}
+
+			System.out.println("\n" + "----------------------" + className
+					+ "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¹ï¿½ï¿½ì·½ï¿½ï¿½ï¿½ï¿½" + "----------------------");
+			Constructor[] con = cDemo.getDeclaredConstructors();
+			for (int i = 0; i < con.length; i++) {
+				if (i != 0)
+					System.out.println("----------------------"
+							+ "----------------------"
+							+ "----------------------");
+				System.out.println(con[i].toString());
+				System.out.println("\tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + con[i].getName());
+				System.out.println("\tï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½"
+						+ Modifier.toString(con[i].getModifiers()));
+
+				System.out.print("\tï¿½Î²ï¿½ï¿½Ğ±ï¿½");
+				cArray = con[i].getParameterTypes();
+				if (cArray.length == 0)
+					System.out.println("ï¿½ï¿½");
+				else {
+					for (int j = 0; j < cArray.length; j++) {
+						cTemp = cArray[j];
+						if (j != 0)
+							System.out.print(",");
+						System.out.print(cTemp.toString());
+					}
+					System.out.println();
+				}
+			}
+		} catch (IOException e) {
 			e.printStackTrace();
-		}catch(ClassNotFoundException e){
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-        
-		
-          
+
 	}
 
 }

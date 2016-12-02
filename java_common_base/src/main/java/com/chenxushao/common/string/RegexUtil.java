@@ -11,5 +11,5 @@ public class RegexUtil {
 		String regex = "^[^@]+@([0-9a-zA-Z\\-]+\\.)+[a-zA-Z]+$";
 		return email.matches(regex);
 	}
-	
+
 }

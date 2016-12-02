@@ -2,21 +2,21 @@ package com.chenxushao.java.juc.collections.queue.blocking.consumerproducer;
 
 import java.util.concurrent.BlockingQueue;
 
-public class Consumer implements Runnable{
+public class Consumer implements Runnable {
 
-    protected BlockingQueue<String> queue = null;
+	protected BlockingQueue<String> queue = null;
 
-    public Consumer(BlockingQueue<String> queue) {
-        this.queue = queue;
-    }
+	public Consumer(BlockingQueue<String> queue) {
+		this.queue = queue;
+	}
 
-    public void run() {
-        try {
-            System.out.println(queue.take());
-            System.out.println(queue.take());
-            System.out.println(queue.take());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+	public void run() {
+		try {
+			System.out.println(queue.take());
+			System.out.println(queue.take());
+			System.out.println(queue.take());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 }

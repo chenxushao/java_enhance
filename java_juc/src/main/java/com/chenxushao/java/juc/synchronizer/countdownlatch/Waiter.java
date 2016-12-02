@@ -2,22 +2,21 @@ package com.chenxushao.java.juc.synchronizer.countdownlatch;
 
 import java.util.concurrent.CountDownLatch;
 
-public class Waiter implements Runnable{
+public class Waiter implements Runnable {
 
-    CountDownLatch latch = null;
+	CountDownLatch latch = null;
 
-    public Waiter(CountDownLatch latch) {
-        this.latch = latch;
-    }
+	public Waiter(CountDownLatch latch) {
+		this.latch = latch;
+	}
 
-    public void run() {
-        try {
-            latch.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+	public void run() {
+		try {
+			latch.await();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
-        System.out.println("Waiter Released");
-    }
+		System.out.println("Waiter Released");
+	}
 }
-

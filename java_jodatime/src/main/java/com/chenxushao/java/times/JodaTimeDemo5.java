@@ -5,7 +5,7 @@ import org.joda.time.DateTime;
 public class JodaTimeDemo5 {
 
 	public static void main(String[] args) {
-		//--取得月份的头一天和最后一天
+		// --取得月份的头一天和最后一天
 		beginAndEndOfDates();
 	}
 
@@ -15,10 +15,12 @@ public class JodaTimeDemo5 {
 	public static void beginAndEndOfDates() {
 		String dateString = "2016-08-10T12:10:08";
 		DateTime dt = new DateTime(dateString);
-		DateTime startOfMonth = dt.dayOfMonth().withMinimumValue().withTimeAtStartOfDay();
+		DateTime startOfMonth = dt.dayOfMonth().withMinimumValue()
+				.withTimeAtStartOfDay();
 		System.out.println(startOfMonth.toString());
 
-		DateTime endOfMonth = dt.dayOfMonth().withMaximumValue().millisOfDay().withMaximumValue();
+		DateTime endOfMonth = dt.dayOfMonth().withMaximumValue().millisOfDay()
+				.withMaximumValue();
 		System.out.println(endOfMonth);
 	}
 }

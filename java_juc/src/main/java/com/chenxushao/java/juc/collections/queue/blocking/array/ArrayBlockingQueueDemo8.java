@@ -9,23 +9,21 @@ import java.util.concurrent.TimeUnit;
 public class ArrayBlockingQueueDemo8 {
 
 	public static void main(String[] args) throws InterruptedException {
-		
+
 		ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<String>(2);
 		queue.put("1");
 		queue.put("2");
-	 
-		
+
 		System.out.println(queue.poll());
 		System.out.println(queue.poll());
-		
-		//队列空时，立即返回null
+
+		// 队列空时，立即返回null
 		System.out.println(queue.poll());
 		System.out.println(queue.poll());
-		System.out.println(queue.poll(15,TimeUnit.SECONDS));
-	    System.out.println("end");
-	    //支持超时退出
-//	    queue.poll(timeout, unit)
-		
-		
+		System.out.println(queue.poll(15, TimeUnit.SECONDS));
+		System.out.println("end");
+		// 支持超时退出
+		// queue.poll(timeout, unit)
+
 	}
 }

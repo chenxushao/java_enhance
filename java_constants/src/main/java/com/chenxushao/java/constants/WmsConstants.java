@@ -1,7 +1,10 @@
 package com.chenxushao.java.constants;
-public class WmsConstants {
- 
- 
-	public final static Integer PAGEMODEL_PERAGESIZE = 20; 
-	
+
+public final class WmsConstants {
+
+	private WmsConstants() {
+	}
+
+	public final static Integer PAGEMODEL_PERAGESIZE = 20;
+
 }

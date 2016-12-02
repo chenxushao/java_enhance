@@ -1,6 +1,5 @@
 package com.chenxushao.common.exceptions;
 
-
 /**
  * 验证异常
  */
@@ -13,5 +12,5 @@ public class ValidateException extends RuntimeException {
 	public ValidateException(String msg) {
 		super(msg);
 	}
- 
+
 }

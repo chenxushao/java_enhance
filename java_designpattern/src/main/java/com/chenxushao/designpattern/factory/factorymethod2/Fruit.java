@@ -1,4 +1,5 @@
 package com.chenxushao.designpattern.factory.factorymethod2;
+
 /*
  * 作者：cuser
  * 版本：1.0
@@ -11,12 +12,12 @@ public interface Fruit {
 	 * 生长
 	 */
 	public void grow();
-	
+
 	/*
 	 * 收获
 	 */
 	public void harvest();
-	
+
 	/*
 	 * 种植
 	 */

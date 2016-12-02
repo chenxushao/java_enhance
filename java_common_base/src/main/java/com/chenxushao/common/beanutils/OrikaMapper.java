@@ -14,7 +14,8 @@ public class OrikaMapper {
 	private static MapperFacade mapper = null;
 
 	static {
-		MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
+		MapperFactory mapperFactory = new DefaultMapperFactory.Builder()
+				.build();
 		mapper = mapperFactory.getMapperFacade();
 
 	}
@@ -29,7 +30,8 @@ public class OrikaMapper {
 	/**
 	 * 基于Dozer转换Collection中对象的类型.
 	 */
-	public static <S, D> List<D> mapList(Iterable<S> sourceList, Class<D> destinationClass) {
+	public static <S, D> List<D> mapList(Iterable<S> sourceList,
+			Class<D> destinationClass) {
 		return mapper.mapAsList(sourceList, destinationClass);
 	}
 

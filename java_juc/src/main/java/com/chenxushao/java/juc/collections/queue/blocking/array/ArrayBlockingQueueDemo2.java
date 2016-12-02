@@ -1,6 +1,7 @@
 package com.chenxushao.java.juc.collections.queue.blocking.array;
 
 import java.util.concurrent.ArrayBlockingQueue;
+
 //BlockingQueue的take方法
 public class ArrayBlockingQueueDemo2 {
 
@@ -12,10 +13,10 @@ public class ArrayBlockingQueueDemo2 {
 		System.out.println(queue.take());
 		System.out.println(queue.take());
 		System.out.println(queue.size());
-		//队列已空，会一直阻塞，直到队列有数据
+		// 队列已空，会一直阻塞，直到队列有数据
 		System.out.println(queue.take());
 		System.out.println("end");
-		
+
 	}
 
 }

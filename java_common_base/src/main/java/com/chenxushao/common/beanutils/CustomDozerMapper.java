@@ -13,17 +13,13 @@ import org.dozer.DozerBeanMapper;
  * 
  * 支持自定义加载映射文件的版本
  * 
- * 	<bean id="mapper" class="org.dozer.DozerBeanMapper">
-		<property name="mappingFiles">
-			<list>
-				<value>dozer-config/pojocopy.xml</value>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="beanMapper" class="cn.com.gome.hotel.utils.BeanMapper">
-		<property name="mapper" ref="mapper"></property>
-	</bean>
+ * <bean id="mapper" class="org.dozer.DozerBeanMapper"> <property
+ * name="mappingFiles"> <list> <value>dozer-config/pojocopy.xml</value> </list>
+ * </property> </bean>
+ * 
+ * <bean id="beanMapper" class="cn.com.gome.hotel.utils.BeanMapper"> <property
+ * name="mapper" ref="mapper"></property> </bean>
+ * 
  * @author chenxushao@hotmail.com
  * @date 2015年4月24日 下午2:48:44
  * 

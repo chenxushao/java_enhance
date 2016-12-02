@@ -30,7 +30,7 @@ public class GsonUtils {
 
 	private static final Gson GSON;
 	private static final Gson GSON_SUPPORT_ANNOTATION;// 支持字段注解
-	private static final JsonParser  jsonParser= new JsonParser();
+	private static final JsonParser jsonParser = new JsonParser();
 	static {
 		GSON = new GsonBuilder().setPrettyPrinting().create();
 		GSON_SUPPORT_ANNOTATION = new GsonBuilder()
@@ -70,7 +70,6 @@ public class GsonUtils {
 		return GSON.fromJson(json, clazz);
 	}
 
-	
 	/**
 	 * @Title: json2Object
 	 * @Description: JsonObject转化为对象
@@ -84,12 +83,14 @@ public class GsonUtils {
 			throws JsonParseException {
 		return GSON.fromJson(jo, clazz);
 	}
- 
+
 	/**
 	 * @Title: json2List
 	 * @Description:JsonArray转化为List
 	 * @param ja
-	 * @param type 类型    如：  Type type = new TypeToken<List<HelloWorld>>() { }.getType()
+	 * @param type
+	 *            类型 如： Type type = new TypeToken<List<HelloWorld>>() {
+	 *            }.getType()
 	 * @return List<T>
 	 * @throws JsonParseException
 	 */
@@ -98,14 +99,17 @@ public class GsonUtils {
 		return GSON.fromJson(ja, type);
 	}
 
-	/** 
-	* @Title: json2List 
-	* @Description: json转化为List
-	* @param json json必须为一个数组
-	* @param type 类型    如：  Type type = new TypeToken<List<HelloWorld>>() { }.getType()
-	* @return List<T>
-	* @throws 
-	*/
+	/**
+	 * @Title: json2List
+	 * @Description: json转化为List
+	 * @param json
+	 *            json必须为一个数组
+	 * @param type
+	 *            类型 如： Type type = new TypeToken<List<HelloWorld>>() {
+	 *            }.getType()
+	 * @return List<T>
+	 * @throws
+	 */
 	public static <T> List<T> json2List(String json, Type type) {
 		return GSON.fromJson(json, type);
 	}
@@ -121,15 +125,17 @@ public class GsonUtils {
 	public static String object2JsonDateSerializer(Object obj,
 			final String dateformat) {
 		String jsonStr = null;
-		Gson gson = new GsonBuilder().registerTypeHierarchyAdapter(Date.class,
-				new JsonSerializer<Date>() {
-					public JsonElement serialize(Date src, Type typeOfSrc,
-							JsonSerializationContext context) {
-						SimpleDateFormat format = new SimpleDateFormat(
-								dateformat);
-						return new JsonPrimitive(format.format(src));
-					}
-				}).setDateFormat(dateformat).create();
+		Gson gson = new GsonBuilder()
+				.registerTypeHierarchyAdapter(Date.class,
+						new JsonSerializer<Date>() {
+							public JsonElement serialize(Date src,
+									Type typeOfSrc,
+									JsonSerializationContext context) {
+								SimpleDateFormat format = new SimpleDateFormat(
+										dateformat);
+								return new JsonPrimitive(format.format(src));
+							}
+						}).setDateFormat(dateformat).create();
 		if (gson != null) {
 			jsonStr = gson.toJson(obj);
 		}
@@ -149,15 +155,17 @@ public class GsonUtils {
 	 */
 	public static <T> T json2ObjectDateSerializer(String json,
 			final String dateformat, Class<T> clazz) {
-		Gson gson = new GsonBuilder().registerTypeHierarchyAdapter(Date.class,
-				new JsonSerializer<Date>() {
-					public JsonElement serialize(Date src, Type typeOfSrc,
-							JsonSerializationContext context) {
-						SimpleDateFormat format = new SimpleDateFormat(
-								dateformat);
-						return new JsonPrimitive(format.format(src));
-					}
-				}).setDateFormat(dateformat).create();
+		Gson gson = new GsonBuilder()
+				.registerTypeHierarchyAdapter(Date.class,
+						new JsonSerializer<Date>() {
+							public JsonElement serialize(Date src,
+									Type typeOfSrc,
+									JsonSerializationContext context) {
+								SimpleDateFormat format = new SimpleDateFormat(
+										dateformat);
+								return new JsonPrimitive(format.format(src));
+							}
+						}).setDateFormat(dateformat).create();
 		return gson.fromJson(json, clazz);
 	}
 
@@ -184,20 +192,18 @@ public class GsonUtils {
 		return GSON.fromJson(json, new TypeToken<Object[]>() {
 		}.getType());
 	}
-	
-	
-	/** 
-	* @Title: json2JsonElement 
-	* @Description:json字符串转化为JsonElement对象
-	* @param json
-	* @return JsonElement
-	* @throws 
-	*/
-	public JsonElement json2JsonElement(String json){
+
+	/**
+	 * @Title: json2JsonElement
+	 * @Description:json字符串转化为JsonElement对象
+	 * @param json
+	 * @return JsonElement
+	 * @throws
+	 */
+	public JsonElement json2JsonElement(String json) {
 		return jsonParser.parse(json);
 	}
-	
-	 
+
 	/**
 	 * GsonBuilde使用示例 Gson gson = new GsonBuilder()
 	 * .registerTypeAdapter(Id.class, new IdTypeAdapter())

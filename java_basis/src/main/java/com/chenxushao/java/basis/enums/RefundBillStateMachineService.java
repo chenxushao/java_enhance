@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
 
 import com.google.common.collect.LinkedHashMultimap;
+
 //import cn.com.gome.ztghb.exception.ServiceException;
 
 /******************************************************************************
@@ -57,20 +58,20 @@ public class RefundBillStateMachineService {
 	public static void checkStateChange(RefundBillState currentState,
 			RefundBillState targetState) throws RuntimeException {
 
-		if(currentState==null || targetState==null){
-//			throw new ServiceException("当前状态或目标状态值不合法");
+		if (currentState == null || targetState == null) {
+			// throw new ServiceException("当前状态或目标状态值不合法");
 			throw new RuntimeException("当前状态或目标状态值不合法");
 		}
 
 		Set<RefundBillState> nextStates = multimap.get(currentState.VALUE);
 		if (CollectionUtils.isEmpty(nextStates)
 				|| !nextStates.contains(targetState)) {
-//			MonitorUtil.recordOne("refund-bill-checkStateChange-error");
+			// MonitorUtil.recordOne("refund-bill-checkStateChange-error");
 			logger.error(
 					"refund bill checkStateChange error 不允许进行状态转换：当前状态={}, 目标状态={}",
 					currentState, targetState);
-			throw new RuntimeException("不允许进行状态流转，当前状态="
-							+ currentState.NAME + ", 目标状态=" + targetState.NAME);
+			throw new RuntimeException("不允许进行状态流转，当前状态=" + currentState.NAME
+					+ ", 目标状态=" + targetState.NAME);
 		}
 	}
 }

@@ -19,8 +19,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 /**
- * 测试Jackson对Object,Map,List,数组,枚举,日期类等的持久化.
- * 更多测试见showcase中的JsonDemo.
+ * 测试Jackson对Object,Map,List,数组,枚举,日期类等的持久化. 更多测试见showcase中的JsonDemo.
  * 
  */
 public class JacksonMapperTest {
@@ -53,16 +52,20 @@ public class JacksonMapperTest {
 		assertThat(listString).isEqualTo("[\"A\",\"B\",\"C\"]");
 
 		// List<Bean>
-		List<TestBean> beanList = Lists.newArrayList(new TestBean("A"), new TestBean("B"));
+		List<TestBean> beanList = Lists.newArrayList(new TestBean("A"),
+				new TestBean("B"));
 		String beanListString = binder.toJson(beanList);
 		System.out.println("Bean List:" + beanListString);
-		assertThat(beanListString).isEqualTo("[{\"name\":\"A\"},{\"name\":\"B\"}]");
+		assertThat(beanListString).isEqualTo(
+				"[{\"name\":\"A\"},{\"name\":\"B\"}]");
 
 		// Bean[]
-		TestBean[] beanArray = new TestBean[] { new TestBean("A"), new TestBean("B") };
+		TestBean[] beanArray = new TestBean[] { new TestBean("A"),
+				new TestBean("B") };
 		String beanArrayString = binder.toJson(beanArray);
 		System.out.println("Array List:" + beanArrayString);
-		assertThat(beanArrayString).isEqualTo("[{\"name\":\"A\"},{\"name\":\"B\"}]");
+		assertThat(beanArrayString).isEqualTo(
+				"[{\"name\":\"A\"},{\"name\":\"B\"}]");
 	}
 
 	/**
@@ -85,7 +88,8 @@ public class JacksonMapperTest {
 
 		// List<String>
 		String listString = "[\"A\",\"B\",\"C\"]";
-		List<String> stringList = binder.getMapper().readValue(listString, List.class);
+		List<String> stringList = binder.getMapper().readValue(listString,
+				List.class);
 		System.out.println("String List:");
 		for (String element : stringList) {
 			System.out.println(element);
@@ -93,8 +97,9 @@ public class JacksonMapperTest {
 
 		// List<Bean>
 		String beanListString = "[{\"name\":\"A\"},{\"name\":\"B\"}]";
-		List<TestBean> beanList = binder.getMapper().readValue(beanListString, new TypeReference<List<TestBean>>() {
-		});
+		List<TestBean> beanList = binder.getMapper().readValue(beanListString,
+				new TypeReference<List<TestBean>>() {
+				});
 		System.out.println("Bean List:");
 		for (TestBean element : beanList) {
 			System.out.println(element);
@@ -146,12 +151,14 @@ public class JacksonMapperTest {
 		// 打印全部属性
 		JacksonMapper normalBinder = new JacksonMapper();
 		TestBean bean = new TestBean("A");
-		assertThat(normalBinder.toJson(bean)).isEqualTo(
-				"{\"name\":\"A\",\"defaultValue\":\"hello\",\"nullValue\":null}");
+		assertThat(normalBinder.toJson(bean))
+				.isEqualTo(
+						"{\"name\":\"A\",\"defaultValue\":\"hello\",\"nullValue\":null}");
 
 		// 不打印nullValue属性
 		JacksonMapper nonNullBinder = JacksonMapper.nonEmptyMapper();
-		assertThat(nonNullBinder.toJson(bean)).isEqualTo("{\"name\":\"A\",\"defaultValue\":\"hello\"}");
+		assertThat(nonNullBinder.toJson(bean)).isEqualTo(
+				"{\"name\":\"A\",\"defaultValue\":\"hello\"}");
 
 		// 不打印默认值未改变的nullValue与defaultValue属性
 		JacksonMapper nonDefaultBinder = JacksonMapper.nonDefaultMapper();
@@ -197,7 +204,8 @@ public class JacksonMapperTest {
 
 		@Override
 		public String toString() {
-			return "TestBean [defaultValue=" + defaultValue + ", name=" + name + ", nullValue=" + nullValue + "]";
+			return "TestBean [defaultValue=" + defaultValue + ", name=" + name
+					+ ", nullValue=" + nullValue + "]";
 		}
 	}
 

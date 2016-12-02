@@ -1,12 +1,9 @@
 package com.chenxushao.guava;
 
-
-
-
 public class Person {
 
 	private Integer id;
-	
+
 	private String name;
 
 	public Integer getId() {
@@ -27,9 +24,6 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person{" +
-				"id=" + id +
-				", name='" + name + '\'' +
-				'}';
+		return "Person{" + "id=" + id + ", name='" + name + '\'' + '}';
 	}
 }

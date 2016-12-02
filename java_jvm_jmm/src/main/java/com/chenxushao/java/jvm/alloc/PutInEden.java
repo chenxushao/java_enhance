@@ -1,7 +1,5 @@
 package com.chenxushao.java.jvm.alloc;
 
-import java.io.IOException;
-
 //-XX:+PrintGCDetails -Xmx20M -Xms20M
 //相同大小内存分配
 public class PutInEden {
@@ -11,7 +9,7 @@ public class PutInEden {
 		b2 = new byte[1024 * 1024];
 		b3 = new byte[1024 * 1024];
 		b4 = new byte[1024 * 1024];
-		
+
 		System.in.read();
 	}
 }

@@ -60,8 +60,6 @@ public class FileUtils {
 
 	public static final String FILE_STATUS_IS_FOLDER = "D";
 
-
-
 	private static final long K = 1 << 10;
 	private static final long M = 1 << 20;
 
@@ -85,7 +83,7 @@ public class FileUtils {
 	}
 
 	public static String[] list(File path, boolean extend,
-								final FilenameFilter filter) {
+			final FilenameFilter filter) {
 		String pathName = path.getAbsolutePath();
 		if (path.isFile() && path.exists()) {
 			if (extend)
@@ -107,8 +105,8 @@ public class FileUtils {
 			int index = pathName.lastIndexOf(File.separatorChar);
 			if (index >= 0) {
 				String dirName = pathName.substring(0, index + 1);
-				String filePattern = pathName.substring(index + 1, pathName
-						.length());
+				String filePattern = pathName.substring(index + 1,
+						pathName.length());
 				if (extend && !filePattern.endsWith("*")) //$NON-NLS-1$
 					filePattern += "*"; //$NON-NLS-1$
 				File dir = new File(dirName);
@@ -119,7 +117,7 @@ public class FileUtils {
 						public boolean accept(File dir, String name) {
 							return matcher.match(name)
 									&& (filter == null || filter.accept(dir,
-									name));
+											name));
 						}
 					});
 				}
@@ -234,11 +232,8 @@ public class FileUtils {
 			return fileName.substring(0, i);
 		return fileName;
 	}
- 
+
 	private static final long G = 1 << 30;
- 
- 
- 
 
 	/**
 	 * @param name
@@ -1309,8 +1304,8 @@ public class FileUtils {
 	}
 
 	/** THE system tmp dir "java.io.tmpdir" */
-	public static final File TMP_DIR = new File(System
-			.getProperty("java.io.tmpdir"));
+	public static final File TMP_DIR = new File(
+			System.getProperty("java.io.tmpdir"));
 
 	/**
 	 * Creates a temp directory in java.io.tmpdir.
@@ -1394,8 +1389,8 @@ public class FileUtils {
 			for (int i = 0; i < files.length; i++) {
 				File file = new File(destFolder, files[i].getName());
 				if (files[i].isDirectory()) {
-					copyFolder(files[i].getAbsolutePath(), file
-							.getAbsolutePath(), overwrite);
+					copyFolder(files[i].getAbsolutePath(),
+							file.getAbsolutePath(), overwrite);
 				} else {
 					if (!file.exists() || overwrite) {
 						streamCopyFile(files[i], file);
@@ -1924,8 +1919,8 @@ public class FileUtils {
 	 * @throws IOException
 	 */
 	public static StringBuffer readTextFile(InputStream is) throws IOException {
-		InputStreamReader isr = new InputStreamReader(is, CharsetUtils
-				.getSystemCharset());
+		InputStreamReader isr = new InputStreamReader(is,
+				CharsetUtils.getSystemCharset());
 		return readTextFile(isr);
 	}
 

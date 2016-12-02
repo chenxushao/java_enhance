@@ -10,39 +10,39 @@ import com.google.common.collect.ObjectArrays;
  * ObjectArrays showcase
  */
 public class ObjectArraysDemo1 {
-    
-    String[] array1 = new String[] {"one", "two", "three"};
-    String[] array2 = new String[] {"four", "five"};
 
-    @Test
-    public void shouldContactTwoArrays() throws Exception {
+	String[] array1 = new String[] { "one", "two", "three" };
+	String[] array2 = new String[] { "four", "five" };
 
-        // when
-        String[] newArray = ObjectArrays.concat(array1, array2, String.class);
+	@Test
+	public void shouldContactTwoArrays() throws Exception {
 
-        // then
-        assertThat(newArray.length).isEqualTo(5);
-    }
+		// when
+		String[] newArray = ObjectArrays.concat(array1, array2, String.class);
 
-    @Test
-    public void shouldAppendElement() throws Exception {
+		// then
+		assertThat(newArray.length).isEqualTo(5);
+	}
 
-        // when
-        String[] newArray = ObjectArrays.concat(array2, "six");
+	@Test
+	public void shouldAppendElement() throws Exception {
 
-        // then
-        assertThat(newArray.length).isEqualTo(3);
-        assertThat(newArray[2]).isEqualTo("six");
-    }
+		// when
+		String[] newArray = ObjectArrays.concat(array2, "six");
 
-    @Test
-    public void shouldPrependElement() throws Exception {
+		// then
+		assertThat(newArray.length).isEqualTo(3);
+		assertThat(newArray[2]).isEqualTo("six");
+	}
 
-        // when
-        String[] newArray = ObjectArrays.concat("zero", array1);
+	@Test
+	public void shouldPrependElement() throws Exception {
 
-        // then
-        assertThat(newArray.length).isEqualTo(4);
-        assertThat(newArray[0]).isEqualTo("zero");
-    }
+		// when
+		String[] newArray = ObjectArrays.concat("zero", array1);
+
+		// then
+		assertThat(newArray.length).isEqualTo(4);
+		assertThat(newArray[0]).isEqualTo("zero");
+	}
 }

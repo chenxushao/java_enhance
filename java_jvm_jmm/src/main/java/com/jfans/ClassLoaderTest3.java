@@ -1,15 +1,14 @@
 package com.jfans;
 
-import java.lang.Integer;;
-
 public class ClassLoaderTest3 {
-	
+
 	public static void main(String[] args) throws ClassNotFoundException {
-		 //Î±ÔìµÄIntegerÄÜÍ¨¹ı±àÒë£¬µ«ÓÀÔ¶ÎŞ·¨ÔËĞĞ£¬Õâ¸öµÃÒæÓÚJDKÀà¼ÓÔØÆ÷µÄË«Ç×Î¯ÍĞÄ£ĞÍ
-		//ÕâÖÖ»úÖÆ±£Ö¤ÁËJDKºËĞÄÀà¿â²»»á±»ÆÆ»µ
-		 Integer integer = new Integer("1234");
-	     System.out.println(integer + "--->" + integer.getClass().getClassLoader());
-		 
+		// Î±ï¿½ï¿½ï¿½Integerï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½Ş·ï¿½ï¿½ï¿½ï¿½Ğ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½JDKï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë«ï¿½ï¿½Î¯ï¿½ï¿½Ä£ï¿½ï¿½
+		// ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Æ±ï¿½Ö¤ï¿½ï¿½JDKï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â²»ï¿½á±»ï¿½Æ»ï¿½
+		Integer integer = new Integer("1234");
+		System.out.println(integer + "--->"
+				+ integer.getClass().getClassLoader());
+
 	}
 
 }

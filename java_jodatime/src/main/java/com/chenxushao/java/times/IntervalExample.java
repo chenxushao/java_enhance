@@ -76,7 +76,7 @@ public class IntervalExample {
 		DateTime end = new DateTime(2012, 12, 25, 22, 59, 59);
 
 		// 设置开始时间为：2012-12-25 21:59:58 ===> 1小时1秒
-		//start = start.withYear(2012).withMonthOfYear(12);
+		// start = start.withYear(2012).withMonthOfYear(12);
 
 		DurationFieldType[] types = { DurationFieldType.years(),
 				DurationFieldType.months(), DurationFieldType.days(),

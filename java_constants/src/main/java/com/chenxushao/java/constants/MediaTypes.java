@@ -8,7 +8,10 @@ package com.chenxushao.java.constants;
  * Google的MediaType必须再调用toString()函数而不是常量，不能用于Restful方法的annotation。
  * 
  */
-public class MediaTypes {
+public final class MediaTypes {
+
+	private MediaTypes() {
+	}
 
 	public static final String APPLICATION_XML = "application/xml";
 	public static final String APPLICATION_XML_UTF_8 = "application/xml; charset=UTF-8";

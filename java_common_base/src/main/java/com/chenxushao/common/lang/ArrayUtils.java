@@ -14,23 +14,27 @@ public class ArrayUtils {
 	/**
 	 * Returns a String containing all the objects
 	 * 
-	 * @param objs an array of Object objects
-	 * @param delimiter the delimiter between object's Strings
+	 * @param objs
+	 *            an array of Object objects
+	 * @param delimiter
+	 *            the delimiter between object's Strings
 	 * @return the String containing all the objects
 	 */
 	public static String arrayToString(Object[] objs, String delimiter) {
 		StringBuffer sb = new StringBuffer("");
-		for(int i = 0; i < objs.length; i++) {
+		for (int i = 0; i < objs.length; i++) {
 			sb.append(" #" + i + ": " + objs[i] + delimiter);
 		}
 		return sb.toString();
 	}
 
-
 	/**
-	 * @param a the array to search in
-	 * @param key the key to search for
-	 * @param endIndex the limit for the search
+	 * @param a
+	 *            the array to search in
+	 * @param key
+	 *            the key to search for
+	 * @param endIndex
+	 *            the limit for the search
 	 * @return the index of the key to search for
 	 */
 	public static int binarySearch(long[] a, long key, int endIndex) {
@@ -52,8 +56,10 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * @param array the array to reverse
-	 * @param size the size of the array
+	 * @param array
+	 *            the array to reverse
+	 * @param size
+	 *            the size of the array
 	 */
 	public static void reverse(int[] array, int size) {
 		for (int left = 0, right = size - 1; left < right; left++, right--) {
@@ -64,8 +70,10 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * @param array the array to ensure a capacity for
-	 * @param minCapacity the minimum capacity for the array
+	 * @param array
+	 *            the array to ensure a capacity for
+	 * @param minCapacity
+	 *            the minimum capacity for the array
 	 * @return a new array with minCapacity length
 	 */
 	public static int[] ensureCapacity(int[] array, int minCapacity) {
@@ -77,15 +85,18 @@ public class ArrayUtils {
 				newCapacity = minCapacity;
 			// minCapacity is usually close to size, so this is a win:
 			int[] copy = new int[newCapacity];
-			System.arraycopy(array, 0, copy, 0, Math.min(oldData.length, newCapacity));
+			System.arraycopy(array, 0, copy, 0,
+					Math.min(oldData.length, newCapacity));
 			return copy;
 		}
 		return array;
 	}
 
 	/**
-	 * @param array the array to ensure a capacity for
-	 * @param minCapacity the minimum capacity for the array
+	 * @param array
+	 *            the array to ensure a capacity for
+	 * @param minCapacity
+	 *            the minimum capacity for the array
 	 * @return a new array with minCapacity length
 	 */
 	public static long[] ensureCapacity(long[] array, int minCapacity) {
@@ -97,7 +108,8 @@ public class ArrayUtils {
 				newCapacity = minCapacity;
 			// minCapacity is usually close to size, so this is a win:
 			long[] copy = new long[newCapacity];
-			System.arraycopy(array, 0, copy, 0, Math.min(oldData.length, newCapacity));
+			System.arraycopy(array, 0, copy, 0,
+					Math.min(oldData.length, newCapacity));
 			return copy;
 		}
 		return array;

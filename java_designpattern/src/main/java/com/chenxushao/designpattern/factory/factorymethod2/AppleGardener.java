@@ -1,6 +1,5 @@
 package com.chenxushao.designpattern.factory.factorymethod2;
 
-
 /*
  * 作者：cuser
  * 版本：1.0
@@ -9,9 +8,9 @@ package com.chenxushao.designpattern.factory.factorymethod2;
  * 
  */
 public class AppleGardener implements FruitGardener {
-    /*
-     * 工厂方法
-     */
+	/*
+	 * 工厂方法
+	 */
 	public Fruit factory() {
 		return new Apple();
 	}

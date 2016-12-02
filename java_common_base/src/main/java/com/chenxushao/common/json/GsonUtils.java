@@ -1,6 +1,5 @@
 package com.chenxushao.common.json;
 
-
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,13 +21,12 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.google.gson.reflect.TypeToken;
 
-
 /******************************************************************************
  * 
- * <p>Description: Json处理工具类,基于Google Gson</p> 
- * Project: common
- * Package: cn.com.gome.hotel.utils
- *    File: GsonUtils.java
+ * <p>
+ * Description: Json处理工具类,基于Google Gson
+ * </p>
+ * Project: common Package: cn.com.gome.hotel.utils File: GsonUtils.java
  * 
  * @author chenxushao@hotmail.com
  * @date 2015年4月23日 上午11:30:34
@@ -39,9 +37,14 @@ public final class GsonUtils {
 	private GsonUtils() {
 	}
 
-	private static final Gson GSON = new GsonBuilder()/*.setPrettyPrinting()*/.create();
+	private static final Gson GSON = new GsonBuilder()
+			/* .setPrettyPrinting() */.create();
 
-	private static final GsonBuilder GSONBUILDER = new GsonBuilder()/*.setPrettyPrinting()*/;
+	private static final GsonBuilder GSONBUILDER = new GsonBuilder()/*
+																	 * .
+																	 * setPrettyPrinting
+																	 * ()
+																	 */;
 
 	private static final JsonParser jsonParser = new JsonParser();
 
@@ -70,7 +73,10 @@ public final class GsonUtils {
 	public static String object2Json(Object obj, Boolean supportAnnotation) {
 		if (Boolean.TRUE.equals(supportAnnotation)) {
 			Gson gson = new GsonBuilder()
-					.excludeFieldsWithoutExposeAnnotation()/*.setPrettyPrinting()*/
+					.excludeFieldsWithoutExposeAnnotation()/*
+															 * .setPrettyPrinting
+															 * ()
+															 */
 					.create();
 			return gson.toJson(obj);
 		} else {
@@ -81,7 +87,8 @@ public final class GsonUtils {
 	/**
 	 * @Title: json2Object
 	 * @Description: json串转化为某对象
-	 * @param jsonjson字符串，json必须为与Clazz实体格式匹配
+	 * @param jsonjson字符串
+	 *            ，json必须为与Clazz实体格式匹配
 	 * @param clazz
 	 * @return T
 	 * @throws JsonParseException
@@ -109,7 +116,9 @@ public final class GsonUtils {
 	 * @Title: json2List
 	 * @Description:JsonArray转化为List
 	 * @param ja
-	 * @param type 类型    如：  Type type = new TypeToken<List<HelloWorld>>() { }.getType()
+	 * @param type
+	 *            类型 如： Type type = new TypeToken<List<HelloWorld>>() {
+	 *            }.getType()
 	 * @return List<T>
 	 * @throws JsonParseException
 	 */
@@ -118,14 +127,17 @@ public final class GsonUtils {
 		return GSON.fromJson(ja, type);
 	}
 
-	/** 
-	* @Title: json2List 
-	* @Description: json转化为List
-	* @param json json必须为一个数组
-	* @param type 类型    如：  Type type = new TypeToken<List<HelloWorld>>() { }.getType()
-	* @return List<T>
-	* @throws 
-	*/
+	/**
+	 * @Title: json2List
+	 * @Description: json转化为List
+	 * @param json
+	 *            json必须为一个数组
+	 * @param type
+	 *            类型 如： Type type = new TypeToken<List<HelloWorld>>() {
+	 *            }.getType()
+	 * @return List<T>
+	 * @throws
+	 */
 	public static <T> List<T> json2List(String json, Type type) {
 		return GSON.fromJson(json, type);
 	}
@@ -141,15 +153,17 @@ public final class GsonUtils {
 	public static String object2JsonDateSerializer(Object obj,
 			final String dateformat) {
 		String jsonStr = null;
-		Gson gson = new GsonBuilder()/*.setPrettyPrinting()*/.registerTypeHierarchyAdapter(Date.class,
-				new JsonSerializer<Date>() {
-					public JsonElement serialize(Date src, Type typeOfSrc,
-							JsonSerializationContext context) {
-						SimpleDateFormat format = new SimpleDateFormat(
-								dateformat);
-						return new JsonPrimitive(format.format(src));
-					}
-				}).setDateFormat(dateformat).create();
+		Gson gson = new GsonBuilder()
+				/* .setPrettyPrinting() */.registerTypeHierarchyAdapter(
+						Date.class, new JsonSerializer<Date>() {
+							public JsonElement serialize(Date src,
+									Type typeOfSrc,
+									JsonSerializationContext context) {
+								SimpleDateFormat format = new SimpleDateFormat(
+										dateformat);
+								return new JsonPrimitive(format.format(src));
+							}
+						}).setDateFormat(dateformat).create();
 		if (gson != null) {
 			jsonStr = gson.toJson(obj);
 		}
@@ -166,26 +180,29 @@ public final class GsonUtils {
 	 * @param <T>
 	 * @param json
 	 * @param dateformat
-	 * @param  clazz
+	 * @param clazz
 	 * @return T
 	 * @throws
 	 */
 	public static <T> T json2ObjectDateSerializer(String json,
 			final String dateformat, Class<T> clazz) {
-		Gson gson = new GsonBuilder().registerTypeHierarchyAdapter(Date.class,
-				new JsonDeserializer<Date>() {
+		Gson gson = new GsonBuilder()
+				.registerTypeHierarchyAdapter(Date.class,
+						new JsonDeserializer<Date>() {
 
-					@Override
-					public Date deserialize(JsonElement jsonelement, Type type,
-							JsonDeserializationContext jsondeserializationcontext)
-							throws JsonParseException {
-						if ("\"\"".equals(jsonelement.toString())) {
-							return null;
-						}
-						String dateStr = jsonelement.getAsString();
-						return DateTimeUtils.parse(dateStr, dateformat);
-					}
-				}).setDateFormat(dateformat).create();
+							@Override
+							public Date deserialize(
+									JsonElement jsonelement,
+									Type type,
+									JsonDeserializationContext jsondeserializationcontext)
+									throws JsonParseException {
+								if ("\"\"".equals(jsonelement.toString())) {
+									return null;
+								}
+								String dateStr = jsonelement.getAsString();
+								return DateTimeUtils.parse(dateStr, dateformat);
+							}
+						}).setDateFormat(dateformat).create();
 		return gson.fromJson(json, clazz);
 	}
 
@@ -197,7 +214,8 @@ public final class GsonUtils {
 	 * @throws JsonParseException
 	 */
 	public static Map<?, ?> json2Map(String json) throws JsonParseException {
-		return GSON.fromJson(json, new TypeToken<Map<?, ?>>() {}.getType());
+		return GSON.fromJson(json, new TypeToken<Map<?, ?>>() {
+		}.getType());
 	}
 
 	/**
@@ -208,16 +226,17 @@ public final class GsonUtils {
 	 * @throws JsonParseException
 	 */
 	public static Object[] json2Array(String json) throws JsonParseException {
-		return GSON.fromJson(json, new TypeToken<Object[]>() {}.getType());
+		return GSON.fromJson(json, new TypeToken<Object[]>() {
+		}.getType());
 	}
 
-	/** 
-	* @Title: json2JsonElement 
-	* @Description:json字符串转化为JsonElement对象
-	* @param json
-	* @return JsonElement
-	* @throws 
-	*/
+	/**
+	 * @Title: json2JsonElement
+	 * @Description:json字符串转化为JsonElement对象
+	 * @param json
+	 * @return JsonElement
+	 * @throws
+	 */
 	public static JsonElement json2JsonElement(String json) {
 		return jsonParser.parse(json);
 	}

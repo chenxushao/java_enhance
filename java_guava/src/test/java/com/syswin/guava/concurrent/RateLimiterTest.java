@@ -2,9 +2,9 @@ package com.syswin.guava.concurrent;
 
 import junit.framework.TestCase;
 
-public class RateLimiterTest extends TestCase{
+public class RateLimiterTest extends TestCase {
 
-	public void test1(){
-		
+	public void test1() {
+
 	}
 }

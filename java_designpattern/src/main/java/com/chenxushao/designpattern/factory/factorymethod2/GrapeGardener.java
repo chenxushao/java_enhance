@@ -8,7 +8,7 @@ package com.chenxushao.designpattern.factory.factorymethod2;
  * 
  */
 public class GrapeGardener implements FruitGardener {
-     
+
 	/*
 	 * 工厂方法
 	 */

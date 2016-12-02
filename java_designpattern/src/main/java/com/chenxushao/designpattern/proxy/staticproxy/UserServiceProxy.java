@@ -1,12 +1,11 @@
 package com.chenxushao.designpattern.proxy.staticproxy;
+
 public class UserServiceProxy implements IUserService {
 
 	private String userName;
 	private IUserService userService;
 	private AspectBean aspectBean;
-	
-	
-	
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
@@ -21,37 +20,37 @@ public class UserServiceProxy implements IUserService {
 
 	@Override
 	public void insert() {
-		if(aspectBean.checkUser(userName)){
+		if (aspectBean.checkUser(userName)) {
 			userService.insert();
-		}else{
+		} else {
 			System.out.println("你没有权限执行insert");
 		}
-		
+
 	}
 
 	@Override
 	public void delete() {
-		if(aspectBean.checkUser(userName)){
+		if (aspectBean.checkUser(userName)) {
 			userService.delete();
-		}else{
+		} else {
 			System.out.println("你没有权限执行delete");
 		}
 	}
 
 	@Override
 	public void update() {
-		if(aspectBean.checkUser(userName)){
+		if (aspectBean.checkUser(userName)) {
 			userService.update();
-		}else{
+		} else {
 			System.out.println("你没有权限执行update");
 		}
 	}
 
 	@Override
 	public Object query() {
-		if(aspectBean.checkUser(userName)){
+		if (aspectBean.checkUser(userName)) {
 			return userService.query();
-		}else{
+		} else {
 			System.out.println("你没有权限执行query");
 			return null;
 		}

@@ -6,11 +6,10 @@ public class StringDemo1 {
 		String s0 = "kvill";
 		String s1 = new String("kvill");
 		String s2 = "kv" + new String("ill");
-		String s3 = "kv" + "ill";//String s3 = "kv" + "ill";是编译期间确定值的。
+		String s3 = "kv" + "ill";// String s3 = "kv" + "ill";是编译期间确定值的。
 		System.out.println(s0 == s1);
 		System.out.println(s0 == s2);
 		System.out.println(s1 == s2);
 		System.out.println(s0 == s3);
-		 
 	}
 }

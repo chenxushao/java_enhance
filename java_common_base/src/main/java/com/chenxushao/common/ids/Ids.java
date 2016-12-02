@@ -44,15 +44,16 @@ public class Ids {
 		random.nextBytes(randomBytes);
 		return Encodes.encodeBase62(randomBytes);
 	}
-	
+
 	public static void main(String[] args) {
 		long begin = System.currentTimeMillis();
-		Map<Long,Long> map = Maps.newHashMap();
-		for(int i=0; i<10000000; i++){
-			long key  = randomLong();
+		Map<Long, Long> map = Maps.newHashMap();
+		for (int i = 0; i < 10000000; i++) {
+			long key = randomLong();
 			map.put(key, key);
 		}
-		System.out.println("times : " + (System.currentTimeMillis()-begin)/1000);
+		System.out.println("times : " + (System.currentTimeMillis() - begin)
+				/ 1000);
 		System.out.println(map.size());
 	}
 }

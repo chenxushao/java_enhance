@@ -4,10 +4,12 @@ import java.nio.charset.Charset;
 
 /**
  * JDK7可直接使用java.nio.charset.StandardCharsets.
- * 
- *
  */
-public class Charsets {
+public final class Charsets {
+
+	private Charsets() {
+
+	}
 
 	public static final Charset UTF8 = Charset.forName("UTF-8");
 

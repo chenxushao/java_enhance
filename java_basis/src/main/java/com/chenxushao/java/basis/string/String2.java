@@ -5,10 +5,8 @@ public class String2 {
 
 		String a = "ab";
 		String bb = "b";
-
 		String b = "a" + bb;// 涉及到了变量
 
-		System.out.println(a == b);//false 
-
+		System.out.println(a == b);// false
 	}
 }

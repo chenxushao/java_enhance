@@ -7,13 +7,10 @@ import java.lang.annotation.Target;
 
 /**
  * 定义切面顺序
- *
- * @author huangyong
- * @since 1.0
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface AspectOrder {
 
-    int value();
+	int value();
 }

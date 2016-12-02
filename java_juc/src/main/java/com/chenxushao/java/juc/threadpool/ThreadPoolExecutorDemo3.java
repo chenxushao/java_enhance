@@ -15,16 +15,17 @@ public class ThreadPoolExecutorDemo3 {
 		int maximumPoolSize = 5;
 		int keepAliveTime = 1;
 		TimeUnit unit = TimeUnit.SECONDS;
-		ArrayBlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<Runnable>(40);
+		ArrayBlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<Runnable>(
+				40);
 		ThreadFactory threadFactory = Executors.defaultThreadFactory();
 		RejectedExecutionHandler handler = new RejectedExecutionHandler() {
 			@Override
 			public void rejectedExecution(Runnable r,
 					ThreadPoolExecutor executor) {
-				if(r instanceof Task){
+				if (r instanceof Task) {
 					Task task = (Task) r;
 					System.out.println("进入拒绝策略：" + task.getTaskId());
-				}else{
+				} else {
 					System.out.println("???");
 				}
 			}
@@ -40,14 +41,14 @@ public class ThreadPoolExecutorDemo3 {
 	}
 
 	private static class Task implements Runnable {
-		
-        private int taskId;
-        
-        public Task(int taskId){
-        	this.taskId = taskId;
-        }
 
-        public int getTaskId() {
+		private int taskId;
+
+		public Task(int taskId) {
+			this.taskId = taskId;
+		}
+
+		public int getTaskId() {
 			return taskId;
 		}
 

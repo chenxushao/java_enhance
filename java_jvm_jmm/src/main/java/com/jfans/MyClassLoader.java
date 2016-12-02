@@ -7,26 +7,15 @@ import java.io.IOException;
 
 public class MyClassLoader extends ClassLoader {
 
-	
-	
-	
 	public MyClassLoader() {
-//		super(null);
+		// super(null);
 		// TODO Auto-generated constructor stub
 	}
-
-
-
-
 
 	public MyClassLoader(ClassLoader parent) {
 		super(parent);
 		// TODO Auto-generated constructor stub
 	}
-
-
-
-
 
 	@Override
 	protected Class<?> findClass(String name) throws ClassNotFoundException {
@@ -37,36 +26,28 @@ public class MyClassLoader extends ClassLoader {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new RuntimeException("ÀàÃ»ÕÒµ½");
+			throw new RuntimeException("ï¿½ï¿½Ã»ï¿½Òµï¿½");
 		}
-		
+
 	}
-	
-	
-	
-	
-	
-	private byte[] loadClassDatas(String name) throws IOException{
+
+	private byte[] loadClassDatas(String name) throws IOException {
 		String fileName = name.replace('.', '/').concat(".class");
-		 
-		
-	   
+
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		 
+
 		System.out.println(new File(fileName).getAbsolutePath());
 		FileInputStream fis = new FileInputStream(new File(fileName));
 		System.out.println();
-		int ava= fis.available();
+		int ava = fis.available();
 		byte[] bytes = new byte[ava];
 		fis.read(bytes);
-		
+
 		baos.write(bytes);
-		
+
 		baos.close();
 		fis.close();
 		return baos.toByteArray();
 	}
-	
-	
 
 }

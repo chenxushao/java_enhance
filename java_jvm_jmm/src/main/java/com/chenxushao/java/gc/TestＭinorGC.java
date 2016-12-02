@@ -9,15 +9,14 @@ package com.chenxushao.java.gc;
  */
 public class TestＭinorGC {
 
-	private final static int SIZE_1MB = 1024 * 1024;//1MB
+	private final static int SIZE_1MB = 1024 * 1024;// 1MB
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		 byte[] b2,b3,b4;
-		 
-		 
-		 
+		byte[] b2, b3, b4;
+
 	}
 
 }

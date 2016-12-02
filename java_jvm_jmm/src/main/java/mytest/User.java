@@ -3,7 +3,7 @@ package mytest;
 public class User implements Comparable {
 	public String name;
 	public int age;
-	
+
 	public static int total = 0;
 
 	public User() {
@@ -36,12 +36,11 @@ public class User implements Comparable {
 		this.age = age;
 	}
 
-	 public void setAll(String name,int age)
-	 {
-		   this.name=name;
-		   this.age=age;
-	 }
-	 
+	public void setAll(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+
 	public boolean equals(Object obj) {
 		boolean flag = true;
 		User u = (User) obj;
@@ -57,7 +56,9 @@ public class User implements Comparable {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	public int hashCode() {
@@ -66,7 +67,7 @@ public class User implements Comparable {
 
 	@Override
 	public String toString() {
-		return "ÐÕÃû£º" + this.name + "," + "ÄêÁä£º" + this.age;
+		return "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + this.name + "," + "ï¿½ï¿½ï¿½ä£º" + this.age;
 	}
 
 	public int compareTo(Object obj) {

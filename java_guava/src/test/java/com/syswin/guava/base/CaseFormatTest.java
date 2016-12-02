@@ -2,9 +2,9 @@ package com.syswin.guava.base;
 
 import junit.framework.TestCase;
 
-public class CaseFormatTest extends TestCase{
+public class CaseFormatTest extends TestCase {
 
-	public void test1(){
-		
+	public void test1() {
+
 	}
 }

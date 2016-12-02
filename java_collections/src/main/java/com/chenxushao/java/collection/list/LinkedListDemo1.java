@@ -17,17 +17,17 @@ public class LinkedListDemo1 {
 		list.remove("c");
 
 		System.out.println(list);
-		
-		
+
 		System.out.println(list.peek());
 		System.out.println(list);
-		
+
 		list.offer("x");
 		System.out.println(list);
 		System.out.println(list.peek());
-		System.out.println(list.poll());;
+		System.out.println(list.poll());
+		;
 		System.out.println(list);
-		
+
 	}
 
 }

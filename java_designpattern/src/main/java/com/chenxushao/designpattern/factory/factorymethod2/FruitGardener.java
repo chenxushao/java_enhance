@@ -8,8 +8,8 @@ package com.chenxushao.designpattern.factory.factorymethod2;
  * 
  */
 public interface FruitGardener {
-	 /*
-	  * 工厂方法
-	  */
-     public Fruit factory();
+	/*
+	 * 工厂方法
+	 */
+	public Fruit factory();
 }

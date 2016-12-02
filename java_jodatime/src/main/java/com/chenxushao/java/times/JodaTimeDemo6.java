@@ -28,7 +28,7 @@ public class JodaTimeDemo6 {
 
 		// 或者：
 
-		boolean isOrderTimeoutCancel1= Minutes.minutesBetween(
+		boolean isOrderTimeoutCancel1 = Minutes.minutesBetween(
 				new DateTime(orderCreateTime), new DateTime()).getMinutes() >= 24;
 
 	}

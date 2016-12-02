@@ -1,18 +1,16 @@
 package com.chenxushao.java.basis.enums;
 
-
-/** 
-* @ClassName: StateEnum 
-* @Description: TODO(这里用一句话描述这个类的作用) 
-* @author chenxushao@gmail.com
-* @date 2014-10-29 上午11:27:04 
-*/
+/**
+ * @ClassName: StateEnum
+ * @Description: TODO(这里用一句话描述这个类的作用)
+ * @author chenxushao@gmail.com
+ * @date 2014-10-29 上午11:27:04
+ */
 public enum StateEnum {
 
-	cases("cases", "jf_periodical_cases"),
-	compnent("component", "jf_periodical_component"),
-	article("article", "jf_periodical_article"),
-	user("user", "jf_periodical_user");
+	cases("cases", "jf_periodical_cases"), compnent("component",
+			"jf_periodical_component"), article("article",
+			"jf_periodical_article"), user("user", "jf_periodical_user");
 
 	private String identifier;
 

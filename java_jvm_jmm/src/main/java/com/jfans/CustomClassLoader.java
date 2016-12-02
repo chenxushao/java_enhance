@@ -34,157 +34,159 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 /**
-    ×Ô¶¨ÒåÀà¼ÓÔØÆ÷µÄÊµÏÖ
+ * ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
  */
 public class CustomClassLoader extends ClassLoader {
 
-    /** scanned class path */
-    private Vector fPathItems;
+	/** scanned class path */
+	private Vector fPathItems;
 
-    private ClassLoader delegate;//´úÀíÀà¼ÓÔØÆ÷
+	private ClassLoader delegate;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    public CustomClassLoader() {
-    }
+	public CustomClassLoader() {
+	}
 
-    public CustomClassLoader(String classPath) {
-        scanPath(classPath);
-    }
+	public CustomClassLoader(String classPath) {
+		scanPath(classPath);
+	}
 
-    public CustomClassLoader(String classPath, ClassLoader delegate) {
-        this(classPath);
-        this.delegate = delegate;
-    }
+	public CustomClassLoader(String classPath, ClassLoader delegate) {
+		this(classPath);
+		this.delegate = delegate;
+	}
 
-    //½ÓÊÜÒÔSystem.getProperty("path.separator")
-    protected void scanPath(String classPath) {
-        String separator = System.getProperty("path.separator"); //Â·¾¶·Ö¸ô·û£¬windowsÆ½Ì¨ÏÂÎª";",linuxÆ½Ì¨ÏÂÎª":"
-        fPathItems = new Vector(10);
-        StringTokenizer st = new StringTokenizer(classPath, separator);
-        while (st.hasMoreTokens()) {
-            fPathItems.addElement(st.nextToken());
-        }
-    }
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½System.getProperty("path.separator")
+	protected void scanPath(String classPath) {
+		String separator = System.getProperty("path.separator"); // Â·ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½windowsÆ½Ì¨ï¿½ï¿½Îª";",linuxÆ½Ì¨ï¿½ï¿½Îª":"
+		fPathItems = new Vector(10);
+		StringTokenizer st = new StringTokenizer(classPath, separator);
+		while (st.hasMoreTokens()) {
+			fPathItems.addElement(st.nextToken());
+		}
+	}
 
-    @Override
-    public URL getResource(String name) {
-        return ClassLoader.getSystemResource(name);
-    }
+	@Override
+	public URL getResource(String name) {
+		return ClassLoader.getSystemResource(name);
+	}
 
-    @Override
-    public InputStream getResourceAsStream(String name) {
-        return ClassLoader.getSystemResourceAsStream(name);
-    }
+	@Override
+	public InputStream getResourceAsStream(String name) {
+		return ClassLoader.getSystemResourceAsStream(name);
+	}
 
-    //ÖØÐ´loadClass·½·¨£¬¿ÉÒÔÆÆ»µË«Ç×Î¯ÍÐÄ£ÐÍ£¬µ±È»ÔÚ´Ë²¢Ã»ÓÐ¶ÔÆä½øÐÐÆÆ»µ¡£ÔÚosgiÖÐ£¬DefaultClassLoaderÀà¶Ô´Ë·½·¨½øÐÐÁË´óÁ¿¸ÄÐ´
-    @Override
-    public synchronized Class loadClass(String name, boolean resolve) throws ClassNotFoundException {
+	// ï¿½ï¿½Ð´loadClassï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ»ï¿½Ë«ï¿½ï¿½Î¯ï¿½ï¿½Ä£ï¿½Í£ï¿½ï¿½ï¿½È»ï¿½Ú´Ë²ï¿½Ã»ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ»ï¿½ï¿½ï¿½ï¿½ï¿½osgiï¿½Ð£ï¿½DefaultClassLoaderï¿½ï¿½Ô´Ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë´ï¿½ï¿½ï¿½ï¿½ï¿½Ð´
+	@Override
+	public synchronized Class loadClass(String name, boolean resolve)
+			throws ClassNotFoundException {
 
-        Class c = findLoadedClass(name);//ÏÈ´Ó»º´æÖÐ²éÕÒ
-        if (delegate != null) {
-            c = delegate.loadClass(name);//Èô´úÀíÀà¼ÓÔØÆ÷²»Îª¿Õ£¬ÔòÊ¹ÓÃ´úÀíÀà¼ÓÔØÆ÷¼ÓÔØ
-        }
-        if (c != null)
-            return c;
-        //
-        // Delegate the loading of excluded classes to the
-        // standard class loader.
-        //
-        try {
-            c = findSystemClass(name);//Ê¹ÓÃÏµÍ³Àà¼ÓÔØÆ÷È¥¼ÓÔØ
-            return c;
-        } catch (ClassNotFoundException e) {
-            // keep searching
-            c = null;
-        }
-        if (c == null) {
-            byte[] data = lookupClassData(name);//´Ó×Ô¼ºÉèÖÃµÄcananpathÈ¥É¨ÃèÀà
-            if (data == null)
-                throw new ClassNotFoundException();
-            c = defineClass(name, data, 0, data.length);//´Ë·½·¨ÊÇ²»ÔÊÐí¸²¸ÇµÄ£¬ÓÉJDKÊµÏÖ£¬¸ú×Ùµ½×îÖÕµ÷ÓÃ£¬ËüÊÇÒ»¸önative·½·¨
-        }
-        if (resolve)
-            resolveClass(c);//½âÎö£¬Á´½Ó
-        return c;
-    }
+		Class c = findLoadedClass(name);// ï¿½È´Ó»ï¿½ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½
+		if (delegate != null) {
+			c = delegate.loadClass(name);// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Õ£ï¿½ï¿½ï¿½Ê¹ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		}
+		if (c != null)
+			return c;
+		//
+		// Delegate the loading of excluded classes to the
+		// standard class loader.
+		//
+		try {
+			c = findSystemClass(name);// Ê¹ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½
+			return c;
+		} catch (ClassNotFoundException e) {
+			// keep searching
+			c = null;
+		}
+		if (c == null) {
+			byte[] data = lookupClassData(name);// ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½Ãµï¿½cananpathÈ¥É¨ï¿½ï¿½ï¿½ï¿½
+			if (data == null)
+				throw new ClassNotFoundException();
+			c = defineClass(name, data, 0, data.length);// ï¿½Ë·ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÇµÄ£ï¿½ï¿½ï¿½JDKÊµï¿½Ö£ï¿½ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½nativeï¿½ï¿½ï¿½ï¿½
+		}
+		if (resolve)
+			resolveClass(c);// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		return c;
+	}
 
-    private byte[] lookupClassData(String className) throws ClassNotFoundException {
-        byte[] data = null;
-        for (int i = 0; i < fPathItems.size(); i++) {
-            String path = (String) fPathItems.elementAt(i);
-            String fileName = className.replace('.', '/') + ".class"; //$NON-NLS-1$
-            if (isJar(path)) {
-                data = loadJarData(path, fileName);//´Ójar°üÖÐÈ¥²éÕÒ
-            } else {
-                data = loadFileData(path, fileName);//´ÓÎÄ¼þ¼ÐÖÐÈ¥²éÕÒ
-            }
-            if (data != null)
-                return data;
-        }
-        throw new ClassNotFoundException(className);
-    }
+	private byte[] lookupClassData(String className)
+			throws ClassNotFoundException {
+		byte[] data = null;
+		for (int i = 0; i < fPathItems.size(); i++) {
+			String path = (String) fPathItems.elementAt(i);
+			String fileName = className.replace('.', '/') + ".class"; //$NON-NLS-1$
+			if (isJar(path)) {
+				data = loadJarData(path, fileName);// ï¿½ï¿½jarï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½
+			} else {
+				data = loadFileData(path, fileName);// ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½
+			}
+			if (data != null)
+				return data;
+		}
+		throw new ClassNotFoundException(className);
+	}
 
-    boolean isJar(String pathEntry) {
-        return pathEntry.endsWith(".jar") || pathEntry.endsWith(".zip"); //$NON-NLS-1$ //$NON-NLS-2$
-    }
+	boolean isJar(String pathEntry) {
+		return pathEntry.endsWith(".jar") || pathEntry.endsWith(".zip"); //$NON-NLS-1$ //$NON-NLS-2$
+	}
 
-    private byte[] loadFileData(String path, String fileName) {
-        File file = new File(path, fileName);
-        if (file.exists()) {
-            return getClassData(file);
-        }
-        return null;
-    }
+	private byte[] loadFileData(String path, String fileName) {
+		File file = new File(path, fileName);
+		if (file.exists()) {
+			return getClassData(file);
+		}
+		return null;
+	}
 
-    private byte[] getClassData(File f) {
-        try {
-            FileInputStream stream = new FileInputStream(f);
-            ByteArrayOutputStream out = new ByteArrayOutputStream(1000);
-            byte[] b = new byte[1000];
-            int n;
-            while ((n = stream.read(b)) != -1)
-                out.write(b, 0, n);
-            stream.close();
-            out.close();
-            return out.toByteArray();
+	private byte[] getClassData(File f) {
+		try {
+			FileInputStream stream = new FileInputStream(f);
+			ByteArrayOutputStream out = new ByteArrayOutputStream(1000);
+			byte[] b = new byte[1000];
+			int n;
+			while ((n = stream.read(b)) != -1)
+				out.write(b, 0, n);
+			stream.close();
+			out.close();
+			return out.toByteArray();
 
-        } catch (IOException e) {
-        }
-        return null;
-    }
+		} catch (IOException e) {
+		}
+		return null;
+	}
 
-    private byte[] loadJarData(String path, String fileName) {
-        ZipFile zipFile = null;
-        InputStream stream = null;
-        File archive = new File(path);
-        if (!archive.exists())
-            return null;
-        try {
-            zipFile = new ZipFile(archive);
-        } catch (IOException io) {
-            return null;
-        }
-        ZipEntry entry = zipFile.getEntry(fileName);
-        if (entry == null)
-            return null;
-        int size = (int) entry.getSize();
-        try {
-            stream = zipFile.getInputStream(entry);
-            byte[] data = new byte[size];
-            int pos = 0;
-            while (pos < size) {
-                int n = stream.read(data, pos, data.length - pos);
-                pos += n;
-            }
-            zipFile.close();
-            return data;
-        } catch (IOException e) {
-        } finally {
-            try {
-                if (stream != null)
-                    stream.close();
-            } catch (IOException e) {
-            }
-        }
-        return null;
-    }
+	private byte[] loadJarData(String path, String fileName) {
+		ZipFile zipFile = null;
+		InputStream stream = null;
+		File archive = new File(path);
+		if (!archive.exists())
+			return null;
+		try {
+			zipFile = new ZipFile(archive);
+		} catch (IOException io) {
+			return null;
+		}
+		ZipEntry entry = zipFile.getEntry(fileName);
+		if (entry == null)
+			return null;
+		int size = (int) entry.getSize();
+		try {
+			stream = zipFile.getInputStream(entry);
+			byte[] data = new byte[size];
+			int pos = 0;
+			while (pos < size) {
+				int n = stream.read(data, pos, data.length - pos);
+				pos += n;
+			}
+			zipFile.close();
+			return data;
+		} catch (IOException e) {
+		} finally {
+			try {
+				if (stream != null)
+					stream.close();
+			} catch (IOException e) {
+			}
+		}
+		return null;
+	}
 }

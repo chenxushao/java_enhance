@@ -5,7 +5,7 @@ package com.chenxushao.designpattern.factory.factorymethod2;
  * 版本：1.0
  * 名称：Strawberry
  * 功能：具体产品类Strawberry(草莓)
-*/
+ */
 public class Strawberry implements Fruit {
 
 	public void grow() {

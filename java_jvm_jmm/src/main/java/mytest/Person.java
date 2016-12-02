@@ -1,9 +1,8 @@
 package mytest;
 
-public class Person implements Cloneable{//Ò»¸ö±êÊ¶ÐÔ½Ó¿Ú
+public class Person implements Cloneable {// Ò»ï¿½ï¿½ï¿½ï¿½Ê¶ï¿½Ô½Ó¿ï¿½
 	public String name;
 	private int age;
-	
 
 	public Person() {
 		this.name = "";
@@ -32,36 +31,35 @@ public class Person implements Cloneable{//Ò»¸ö±êÊ¶ÐÔ½Ó¿Ú
 	}
 
 	@Override
-	public Object clone(){//¸²Ð´
-		Object o=null;
-		try{
-			o=super.clone();
-		}catch(CloneNotSupportedException e){
+	public Object clone() {// ï¿½ï¿½Ð´
+		Object o = null;
+		try {
+			o = super.clone();
+		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
 		}
 		return o;
 	}
 
 	@Override
-	public boolean equals(Object o) //¸Ã·½·¨ÓÐ´ýÕå×Ã
-	{ 
-		Person p=(Person)o;
-		if (o==null)
+	public boolean equals(Object o) // ï¿½Ã·ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½
+	{
+		Person p = (Person) o;
+		if (o == null)
 			return false;
-	   if (p.getName().equals(this.name) && p.getAge()==this.age)
+		if (p.getName().equals(this.name) && p.getAge() == this.age)
 			return true;
 		return false;
 	}
 
 	@Override
-	public int hashCode() {//¸²Ð´
-		  return name.hashCode()+age*1000;
+	public int hashCode() {// ï¿½ï¿½Ð´
+		return name.hashCode() + age * 1000;
 	}
 
 	@Override
-	public String toString() {//¸²Ð´
-	  return "ÐÕÃû: "+this.name+" , "+"ÄêÁä :"+this.age;
+	public String toString() {// ï¿½ï¿½Ð´
+		return "ï¿½ï¿½ï¿½ï¿½: " + this.name + " , " + "ï¿½ï¿½ï¿½ï¿½ :" + this.age;
 	}
-   
-	
+
 }

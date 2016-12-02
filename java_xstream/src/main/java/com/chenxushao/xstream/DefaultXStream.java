@@ -22,18 +22,19 @@ import com.thoughtworks.xstream.io.xml.CompactWriter;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class DefaultXStream {
-	//The XStream instance is thread-safe
+	// The XStream instance is thread-safe
 	private static XStream xstream = new XStream();
-	
-	static{
+
+	static {
 		xstream.autodetectAnnotations(true);
 		DefaultClassScanner scanner = new DefaultClassScanner();
-		//自定义的注解类和路径
-//		List<Class<?>>  clazzList = scanner.getClassListByAnnotation("cn.com.gome",XStreamMapper.class);
-		List<Class<?>>  clazzList = null;
-		//xstream.processAnnotations((Class[]) clazzList.toArray());
+		// 自定义的注解类和路径
+		// List<Class<?>> clazzList =
+		// scanner.getClassListByAnnotation("cn.com.gome",XStreamMapper.class);
+		List<Class<?>> clazzList = null;
+		// xstream.processAnnotations((Class[]) clazzList.toArray());
 		System.out.println(clazzList);
-		for(Class clazz:clazzList){
+		for (Class clazz : clazzList) {
 			xstream.processAnnotations(clazz);
 		}
 	}
@@ -64,29 +65,31 @@ public class DefaultXStream {
 	public static String toXML(Object obj) {
 		return xstream.toXML(obj);
 	}
-	
-	  public static String toXmlOptimized(Object toSerialize) {
-		    StringWriter sw = new StringWriter();
-		    xstream.marshal(toSerialize, new CompactWriter(sw));
-		    return sw.toString();
-    }
-	
-	public static String toXML(Object obj,List<SingleValueConverter> converterList) {
-		 for(SingleValueConverter converter:converterList){
-			 xstream.registerConverter(converter);
-		 }
-		return xstream.toXML(obj);
+
+	public static String toXmlOptimized(Object toSerialize) {
+		StringWriter sw = new StringWriter();
+		xstream.marshal(toSerialize, new CompactWriter(sw));
+		return sw.toString();
 	}
-	
-	public static String toXMLDateSerializer(Object obj,String dateFormat) {
-		xstream.registerConverter(new DateConverter(dateFormat, new String[]{}));
+
+	public static String toXML(Object obj,
+			List<SingleValueConverter> converterList) {
+		for (SingleValueConverter converter : converterList) {
+			xstream.registerConverter(converter);
+		}
 		return xstream.toXML(obj);
 	}
 
-	public static <T> T fromXMLDateDerializer(String xml,String dateFormat) {
-		xstream.registerConverter(new DateConverter(dateFormat, new String[]{}));
+	public static String toXMLDateSerializer(Object obj, String dateFormat) {
+		xstream.registerConverter(new DateConverter(dateFormat, new String[] {}));
+		return xstream.toXML(obj);
+	}
+
+	public static <T> T fromXMLDateDerializer(String xml, String dateFormat) {
+		xstream.registerConverter(new DateConverter(dateFormat, new String[] {}));
 		return (T) xstream.fromXML(xml);
 	}
+
 	public static <T> T fromXML(String xml) {
 		return (T) xstream.fromXML(xml);
 	}
@@ -94,7 +97,7 @@ public class DefaultXStream {
 	public static <T> T fromXML(InputStream in) {
 		return (T) xstream.fromXML(in);
 	}
-	
+
 	public static String toString(Object o) {
 		StringWriter writer = new StringWriter();
 		XStream xs = new XStream(new SunUnsafeReflectionProvider());
@@ -103,75 +106,82 @@ public class DefaultXStream {
 		return writer.toString();
 	}
 
-	    /**
-	     * @param map
-	     * @return  eg :  <map><entry><string>b</string><string>2</string></entry></map>
-	     */
-	    public static String serializeMap(Map<String, String> map) {
-	        if(map == null) {
-	            map = new HashMap<String, String>();
-	        }
-	        XStream xstream = new XStream(new DomDriver());
-	        return xstream.toXML(map);
-	    }
+	/**
+	 * @param map
+	 * @return eg :
+	 *         <map><entry><string>b</string><string>2</string></entry></map>
+	 */
+	public static String serializeMap(Map<String, String> map) {
+		if (map == null) {
+			map = new HashMap<String, String>();
+		}
+		XStream xstream = new XStream(new DomDriver());
+		return xstream.toXML(map);
+	}
 
-	    /**
-	     * @param map  eg :  <map><entry><string>b</string><string>2</string></entry></map>
-	     */
-	    @SuppressWarnings("unchecked")
-	    public static Map<String, String> deserializeMap(String map) {
-	        if(map == null || map.equals("")) {
-	            return new HashMap<String, String>();
-	        } else {
-	            XStream xstream = new XStream(new DomDriver());
-	            return (Map<String, String>)xstream.fromXML(map);
-	        }
-	    }
+	/**
+	 * @param map
+	 *            eg :
+	 *            <map><entry><string>b</string><string>2</string></entry></map>
+	 */
+	@SuppressWarnings("unchecked")
+	public static Map<String, String> deserializeMap(String map) {
+		if (map == null || map.equals("")) {
+			return new HashMap<String, String>();
+		} else {
+			XStream xstream = new XStream(new DomDriver());
+			return (Map<String, String>) xstream.fromXML(map);
+		}
+	}
 
-	    /**
-	     * @return   eg:<list><string>a</string><string>b</string></list>
-	     */
-	    public static String serializeList(List<?> list) {
-	        if(list == null) {
-	            list = new ArrayList<String>();
-	        }
-	        XStream xstream = new XStream(new DomDriver());
-	        return xstream.toXML(list);
-	    }
+	/**
+	 * @return eg:<list><string>a</string><string>b</string></list>
+	 */
+	public static String serializeList(List<?> list) {
+		if (list == null) {
+			list = new ArrayList<String>();
+		}
+		XStream xstream = new XStream(new DomDriver());
+		return xstream.toXML(list);
+	}
 
-	    /**
-	     * @param list  eg:<list><string>a</string><string>b</string></list>
-	     */
-	    @SuppressWarnings("unchecked")
-	    public static List<String> deserializeList(String list) {
-	        if(list == null || list.equals("")) {
-	            return new ArrayList<String>();
-	        }
-	        XStream xstream = new XStream(new DomDriver());
-	        return (List<String>)xstream.fromXML(list);
-	    }
+	/**
+	 * @param list
+	 *            eg:<list><string>a</string><string>b</string></list>
+	 */
+	@SuppressWarnings("unchecked")
+	public static List<String> deserializeList(String list) {
+		if (list == null || list.equals("")) {
+			return new ArrayList<String>();
+		}
+		XStream xstream = new XStream(new DomDriver());
+		return (List<String>) xstream.fromXML(list);
+	}
 
-	    /**
-	     * @param set of Strings
-	     * @return serialized Set  eg:<set><string>a</string><string>b</string></set>
-	     */
-	    public static String serializeSet(Set<?> set) {
-	        if(set == null) {
-	            set = new HashSet<String>();
-	        }
-	        XStream xstream = new XStream(new DomDriver());
-	        return xstream.toXML(set);
-	    }
+	/**
+	 * @param set
+	 *            of Strings
+	 * @return serialized Set eg:<set><string>a</string><string>b</string></set>
+	 */
+	public static String serializeSet(Set<?> set) {
+		if (set == null) {
+			set = new HashSet<String>();
+		}
+		XStream xstream = new XStream(new DomDriver());
+		return xstream.toXML(set);
+	}
 
-	    /**
-	     * @param set serialized as a String  eg:<set><string>a</string><string>b</string></set>
-	     * @return deserialized Set
-	     */
-	    public static Set<String> deserializeSet(String set) {
-	        if(set == null || set.equals("")) {
-	            return new HashSet<String>();
-	        }
-	        XStream xstream = new XStream(new DomDriver());
-	        return (Set<String>)xstream.fromXML(set);
-	    }
+	/**
+	 * @param set
+	 *            serialized as a String
+	 *            eg:<set><string>a</string><string>b</string></set>
+	 * @return deserialized Set
+	 */
+	public static Set<String> deserializeSet(String set) {
+		if (set == null || set.equals("")) {
+			return new HashSet<String>();
+		}
+		XStream xstream = new XStream(new DomDriver());
+		return (Set<String>) xstream.fromXML(set);
+	}
 }

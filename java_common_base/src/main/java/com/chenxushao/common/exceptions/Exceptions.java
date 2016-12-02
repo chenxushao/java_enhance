@@ -35,9 +35,10 @@ public class Exceptions {
 	 */
 	public static String getErrorMessageWithNestedException(Throwable ex) {
 		Throwable nestedException = ex.getCause();
-		return new StringBuilder().append(ex.getMessage()).append(" nested exception is ")
-				.append(nestedException.getClass().getName()).append(":").append(nestedException.getMessage())
-				.toString();
+		return new StringBuilder().append(ex.getMessage())
+				.append(" nested exception is ")
+				.append(nestedException.getClass().getName()).append(":")
+				.append(nestedException.getMessage()).toString();
 	}
 
 	/**
@@ -54,7 +55,8 @@ public class Exceptions {
 	/**
 	 * 判断异常是否由某些底层的异常引起.
 	 */
-	public static boolean isCausedBy(Exception ex, Class<? extends Exception>... causeExceptionClasses) {
+	public static boolean isCausedBy(Exception ex,
+			Class<? extends Exception>... causeExceptionClasses) {
 		Throwable cause = ex;
 		while (cause != null) {
 			for (Class<? extends Exception> causeClass : causeExceptionClasses) {
@@ -66,7 +68,7 @@ public class Exceptions {
 		}
 		return false;
 	}
- 
+
 	/**
 	 * 将CheckedException转换为UncheckedException.
 	 */

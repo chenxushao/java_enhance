@@ -23,21 +23,13 @@ public class Cryptos {
 
 	private static final String AES = "AES";
 	/**
-	 *   AES/CBC/NoPadding (128)
-AES/CBC/PKCS5Padding (128)
-AES/ECB/NoPadding (128)
-AES/ECB/PKCS5Padding (128)
-DES/CBC/NoPadding (56)
-DES/CBC/PKCS5Padding (56)
-DES/ECB/NoPadding (56)
-DES/ECB/PKCS5Padding (56)
-DESede/CBC/NoPadding (168)
-DESede/CBC/PKCS5Padding (168)
-DESede/ECB/NoPadding (168)
-DESede/ECB/PKCS5Padding (168)
-RSA/ECB/PKCS1Padding (1024, 2048)
-RSA/ECB/OAEPWithSHA-1AndMGF1Padding (1024, 2048)
-RSA/ECB/OAEPWithSHA-256AndMGF1Padding (1024, 2048)
+	 * AES/CBC/NoPadding (128) AES/CBC/PKCS5Padding (128) AES/ECB/NoPadding
+	 * (128) AES/ECB/PKCS5Padding (128) DES/CBC/NoPadding (56)
+	 * DES/CBC/PKCS5Padding (56) DES/ECB/NoPadding (56) DES/ECB/PKCS5Padding
+	 * (56) DESede/CBC/NoPadding (168) DESede/CBC/PKCS5Padding (168)
+	 * DESede/ECB/NoPadding (168) DESede/ECB/PKCS5Padding (168)
+	 * RSA/ECB/PKCS1Padding (1024, 2048) RSA/ECB/OAEPWithSHA-1AndMGF1Padding
+	 * (1024, 2048) RSA/ECB/OAEPWithSHA-256AndMGF1Padding (1024, 2048)
 	 */
 	private static final String AES_CBC = "AES/CBC/PKCS5Padding";
 	private static final String HMACSHA1 = "HmacSHA1";
@@ -52,8 +44,10 @@ RSA/ECB/OAEPWithSHA-256AndMGF1Padding (1024, 2048)
 	/**
 	 * 使用HMAC-SHA1进行消息签名, 返回字节数组,长度为20字节.
 	 * 
-	 * @param input 原始输入字符数组
-	 * @param key HMAC-SHA1密钥
+	 * @param input
+	 *            原始输入字符数组
+	 * @param key
+	 *            HMAC-SHA1密钥
 	 */
 	public static byte[] hmacSha1(byte[] input, byte[] key) {
 		try {
@@ -69,9 +63,12 @@ RSA/ECB/OAEPWithSHA-256AndMGF1Padding (1024, 2048)
 	/**
 	 * 校验HMAC-SHA1签名是否正确.
 	 * 
-	 * @param expected 已存在的签名
-	 * @param input 原始输入字符串
-	 * @param key 密钥
+	 * @param expected
+	 *            已存在的签名
+	 * @param input
+	 *            原始输入字符串
+	 * @param key
+	 *            密钥
 	 */
 	public static boolean isMacValid(byte[] expected, byte[] input, byte[] key) {
 		byte[] actual = hmacSha1(input, key);
@@ -79,8 +76,8 @@ RSA/ECB/OAEPWithSHA-256AndMGF1Padding (1024, 2048)
 	}
 
 	/**
-	 * 生成HMAC-SHA1密钥,返回字节数组,长度为160位(20字节).
-	 * HMAC-SHA1算法对密钥无特殊要求, RFC2401建议最少长度为160位(20字节).
+	 * 生成HMAC-SHA1密钥,返回字节数组,长度为160位(20字节). HMAC-SHA1算法对密钥无特殊要求,
+	 * RFC2401建议最少长度为160位(20字节).
 	 */
 	public static byte[] generateHmacSha1Key() {
 		try {
@@ -97,8 +94,10 @@ RSA/ECB/OAEPWithSHA-256AndMGF1Padding (1024, 2048)
 	/**
 	 * 使用AES加密原始字符串.
 	 * 
-	 * @param input 原始输入字符数组
-	 * @param key 符合AES要求的密钥
+	 * @param input
+	 *            原始输入字符数组
+	 * @param key
+	 *            符合AES要求的密钥
 	 */
 	public static byte[] aesEncrypt(byte[] input, byte[] key) {
 		return aes(input, key, Cipher.ENCRYPT_MODE);
@@ -107,9 +106,12 @@ RSA/ECB/OAEPWithSHA-256AndMGF1Padding (1024, 2048)
 	/**
 	 * 使用AES加密原始字符串.
 	 * 
-	 * @param input 原始输入字符数组
-	 * @param key 符合AES要求的密钥
-	 * @param iv 初始向量
+	 * @param input
+	 *            原始输入字符数组
+	 * @param key
+	 *            符合AES要求的密钥
+	 * @param iv
+	 *            初始向量
 	 */
 	public static byte[] aesEncrypt(byte[] input, byte[] key, byte[] iv) {
 		return aes(input, key, iv, Cipher.ENCRYPT_MODE);
@@ -118,8 +120,10 @@ RSA/ECB/OAEPWithSHA-256AndMGF1Padding (1024, 2048)
 	/**
 	 * 使用AES解密字符串, 返回原始字符串.
 	 * 
-	 * @param input Hex编码的加密字符串
-	 * @param key 符合AES要求的密钥
+	 * @param input
+	 *            Hex编码的加密字符串
+	 * @param key
+	 *            符合AES要求的密钥
 	 */
 	public static String aesDecrypt(byte[] input, byte[] key) {
 		byte[] decryptResult = aes(input, key, Cipher.DECRYPT_MODE);
@@ -129,9 +133,12 @@ RSA/ECB/OAEPWithSHA-256AndMGF1Padding (1024, 2048)
 	/**
 	 * 使用AES解密字符串, 返回原始字符串.
 	 * 
-	 * @param input Hex编码的加密字符串
-	 * @param key 符合AES要求的密钥
-	 * @param iv 初始向量
+	 * @param input
+	 *            Hex编码的加密字符串
+	 * @param key
+	 *            符合AES要求的密钥
+	 * @param iv
+	 *            初始向量
 	 */
 	public static String aesDecrypt(byte[] input, byte[] key, byte[] iv) {
 		byte[] decryptResult = aes(input, key, iv, Cipher.DECRYPT_MODE);
@@ -141,9 +148,12 @@ RSA/ECB/OAEPWithSHA-256AndMGF1Padding (1024, 2048)
 	/**
 	 * 使用AES加密或解密无编码的原始字节数组, 返回无编码的字节数组结果.
 	 * 
-	 * @param input 原始字节数组
-	 * @param key 符合AES要求的密钥
-	 * @param mode Cipher.ENCRYPT_MODE 或 Cipher.DECRYPT_MODE
+	 * @param input
+	 *            原始字节数组
+	 * @param key
+	 *            符合AES要求的密钥
+	 * @param mode
+	 *            Cipher.ENCRYPT_MODE 或 Cipher.DECRYPT_MODE
 	 */
 	private static byte[] aes(byte[] input, byte[] key, int mode) {
 		try {
@@ -159,10 +169,14 @@ RSA/ECB/OAEPWithSHA-256AndMGF1Padding (1024, 2048)
 	/**
 	 * 使用AES加密或解密无编码的原始字节数组, 返回无编码的字节数组结果.
 	 * 
-	 * @param input 原始字节数组
-	 * @param key 符合AES要求的密钥
-	 * @param iv 初始向量
-	 * @param mode Cipher.ENCRYPT_MODE 或 Cipher.DECRYPT_MODE
+	 * @param input
+	 *            原始字节数组
+	 * @param key
+	 *            符合AES要求的密钥
+	 * @param iv
+	 *            初始向量
+	 * @param mode
+	 *            Cipher.ENCRYPT_MODE 或 Cipher.DECRYPT_MODE
 	 */
 	private static byte[] aes(byte[] input, byte[] key, byte[] iv, int mode) {
 		try {
@@ -205,9 +219,9 @@ RSA/ECB/OAEPWithSHA-256AndMGF1Padding (1024, 2048)
 		random.nextBytes(bytes);
 		return bytes;
 	}
-	
-	//hmac加密
-	public static byte[] hmac(byte[] input, byte[] key,String hmacAlgorithm) {
+
+	// hmac加密
+	public static byte[] hmac(byte[] input, byte[] key, String hmacAlgorithm) {
 		try {
 			SecretKey secretKey = new SecretKeySpec(key, hmacAlgorithm);
 			Mac mac = Mac.getInstance(hmacAlgorithm);

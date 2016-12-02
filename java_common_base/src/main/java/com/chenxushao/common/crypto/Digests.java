@@ -18,7 +18,8 @@ import com.google.common.hash.Hashing;
 /**
  * 消息摘要的工具类.
  * 
- * 支持SHA-1/MD5这些安全性较高，返回byte[]的(可用Encodes进一步被编码为Hex, Base64或UrlSafeBase64),支持带salt达到更高的安全性.
+ * 支持SHA-1/MD5这些安全性较高，返回byte[]的(可用Encodes进一步被编码为Hex,
+ * Base64或UrlSafeBase64),支持带salt达到更高的安全性.
  * 
  * 也支持crc32，murmur32这些不追求安全性，性能较高，返回int的.
  * 
@@ -91,14 +92,16 @@ public class Digests {
 	/**
 	 * 对输入字符串进行sha1散列，带salt而且迭代达到更高更高的安全性.
 	 */
-	public static byte[] sha1(String input, Charset charset, byte[] salt, int iterations) {
+	public static byte[] sha1(String input, Charset charset, byte[] salt,
+			int iterations) {
 		return digest(input.getBytes(charset), SHA1, salt, iterations);
 	}
 
 	/**
 	 * 对字符串进行散列, 支持md5与sha1算法.
 	 */
-	private static byte[] digest(byte[] input, String algorithm, byte[] salt, int iterations) {
+	private static byte[] digest(byte[] input, String algorithm, byte[] salt,
+			int iterations) {
 		try {
 			MessageDigest digest = MessageDigest.getInstance(algorithm);
 
@@ -121,25 +124,28 @@ public class Digests {
 	/**
 	 * 生成随机的Byte[]作为salt.
 	 * 
-	 * @param numBytes salt数组的大小
+	 * @param numBytes
+	 *            salt数组的大小
 	 */
 	public static byte[] generateSalt(int numBytes) {
-		Validate.isTrue(numBytes > 0, "numBytes argument must be a positive integer (1 or larger)", numBytes);
+		Validate.isTrue(numBytes > 0,
+				"numBytes argument must be a positive integer (1 or larger)",
+				numBytes);
 
 		byte[] bytes = new byte[numBytes];
 		random.nextBytes(bytes);
 		return bytes;
 	}
-	
-	////
- 
+
+	// //
+
 	/**
 	 * 对输入字符串进行md5散列.
 	 */
 	public static byte[] md5(byte[] input) {
 		return digest(input, MD5, null, 1);
 	}
-	
+
 	public static byte[] md5(String input) {
 		byte[] bytes = new byte[0];
 		try {
@@ -148,11 +154,11 @@ public class Digests {
 		}
 		return digest(bytes, MD5, null, 1);
 	}
-	
+
 	public static byte[] md5(byte[] input, byte[] salt) {
 		return digest(input, MD5, salt, 1);
 	}
-	
+
 	public static byte[] md5(byte[] input, byte[] salt, int iterations) {
 		return digest(input, MD5, salt, iterations);
 	}
@@ -171,7 +177,8 @@ public class Digests {
 		return digest(input, SHA1);
 	}
 
-	private static byte[] digest(InputStream input, String algorithm) throws IOException {
+	private static byte[] digest(InputStream input, String algorithm)
+			throws IOException {
 		try {
 			MessageDigest messageDigest = MessageDigest.getInstance(algorithm);
 			int bufferLength = 8 * 1024;
@@ -275,7 +282,8 @@ public class Digests {
 	 * 对输入字符串进行murmur32散列，带有seed
 	 */
 	public static int murmur32(String input, int seed) {
-		return Hashing.murmur3_32(seed).hashString(input, Charsets.UTF8).asInt();
+		return Hashing.murmur3_32(seed).hashString(input, Charsets.UTF8)
+				.asInt();
 	}
 
 	/**

@@ -25,15 +25,18 @@ public class NewCollectionTypesUsage {
 	public static void main(String[] args) {
 		useMultiset();
 
-		System.out.println("______________________________________________\r\n");
+		System.out
+				.println("______________________________________________\r\n");
 
 		useMultimap();
 
-		System.out.println("______________________________________________\r\n");
+		System.out
+				.println("______________________________________________\r\n");
 
 		useBiMap();
 
-		System.out.println("______________________________________________\r\n");
+		System.out
+				.println("______________________________________________\r\n");
 
 		useTable();
 	}
@@ -70,7 +73,8 @@ public class NewCollectionTypesUsage {
 	 * Multimap允许对一个键添加多个值，并可以在上面做统计等。<br>
 	 */
 	static void useMultimap() {
-		Multimap<String, String> multimap = HashMultimap.<String, String> create();
+		Multimap<String, String> multimap = HashMultimap
+				.<String, String> create();
 		multimap.put("hello", "world");
 		multimap.put("hello", "guava");
 		multimap.put("hello", "java");
@@ -86,7 +90,8 @@ public class NewCollectionTypesUsage {
 		System.out.println(multimap.values().size());
 
 		// 将指定key的值替换掉, 返回值为旧值
-		System.out.println(multimap.replaceValues("lanbo", Lists.newArrayList("xujun")));
+		System.out.println(multimap.replaceValues("lanbo",
+				Lists.newArrayList("xujun")));
 	}
 
 	/**
@@ -122,7 +127,8 @@ public class NewCollectionTypesUsage {
 	 * Table很强大: HashBasedTable、TreeBasedTable、ImmutableTable、ArrayTable
 	 */
 	static void useTable() {
-		Table<Character, Integer, String> aTable = HashBasedTable.<Character, Integer, String> create();
+		Table<Character, Integer, String> aTable = HashBasedTable
+				.<Character, Integer, String> create();
 
 		// 创建一个表格
 		for (char a = 'A'; a <= 'C'; a++) {

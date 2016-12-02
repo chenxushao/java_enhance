@@ -7,13 +7,12 @@ import com.chenxushao.guava.Person;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
-
 public class MultiMapDemo1 {
 
 	public static void main(String[] args) {
 
 		List<Person> personList = new ArrayList<Person>();
-		
+
 		Person p1 = new Person();
 		p1.setId(1);
 		p1.setName("p1");
@@ -26,18 +25,18 @@ public class MultiMapDemo1 {
 		Person p4 = new Person();
 		p4.setId(3);
 		p4.setName("p4");
-		
+
 		personList.add(p1);
 		personList.add(p2);
 		personList.add(p3);
 		personList.add(p4);
-		
-		Multimap<String,Person> multimap = ArrayListMultimap.create();
-		
-		for(Person p:personList){
-			multimap.put(String.valueOf(p.getId()),p);
+
+		Multimap<String, Person> multimap = ArrayListMultimap.create();
+
+		for (Person p : personList) {
+			multimap.put(String.valueOf(p.getId()), p);
 		}
-		
+
 		System.out.println(multimap.get("1"));
 	}
 }

@@ -1,27 +1,25 @@
 package mytest;
-import java.lang.reflect.*;
 
-public class ReflectDemo03 
-{
+import java.lang.reflect.Array;
 
+public class ReflectDemo03 {
 
-	public static void main(String[] args) 
-	{
-		  int[] a=new int[10];
-		  
-		  for (int i=0; i<a.length; i++)
-			  a[i]=i;
-		  for (int i=0; i<a.length; i++)
-		  System.out.print(a[i]+" ");
-          System.out.println("\n"+"a[9]µÄÖµÎª£º"+Array.get(a,9));
-          System.out.println("½«a[0]µÄÖµÐÞ¸ÄÎª10µÄ²Ù×÷Óï¾äÎª£ºArray.setInt(a, 0,10)");
-          Array.setInt(a, 0,10);
-          System.out.println("a[0]µÄÖµÎª£º"+Array.get(a,0));
-          System.out.println("Êý×éaµÄ³¤¶ÈÎª: "+Array.getLength(a));
-          System.out.println("ÏÖÔÚÊÇ¶¯Ì¬´´½¨Êý×éµÄÊ¾Àý£º´´½¨Ò»¸öÕûÐÍÊý×éb");
-          int[] b=(int[]) Array.newInstance(int.class,6);
-          for(int i=0; i<b.length; i++)
-          System.out.print(b[i]+" ");
+	public static void main(String[] args) {
+		int[] a = new int[10];
+
+		for (int i = 0; i < a.length; i++)
+			a[i] = i;
+		for (int i = 0; i < a.length; i++)
+			System.out.print(a[i] + " ");
+		System.out.println("\n" + "a[9]ï¿½ï¿½ÖµÎªï¿½ï¿½" + Array.get(a, 9));
+		System.out.println("ï¿½ï¿½a[0]ï¿½ï¿½Öµï¿½Þ¸ï¿½Îª10ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Array.setInt(a, 0,10)");
+		Array.setInt(a, 0, 10);
+		System.out.println("a[0]ï¿½ï¿½ÖµÎªï¿½ï¿½" + Array.get(a, 0));
+		System.out.println("ï¿½ï¿½ï¿½ï¿½aï¿½Ä³ï¿½ï¿½ï¿½Îª: " + Array.getLength(a));
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½b");
+		int[] b = (int[]) Array.newInstance(int.class, 6);
+		for (int i = 0; i < b.length; i++)
+			System.out.print(b[i] + " ");
 	}
 
 }

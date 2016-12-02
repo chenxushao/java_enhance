@@ -13,11 +13,11 @@ public class TestGC {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		 User user = new User("1");
-		 
-		 user = null;
-		 
-		 System.gc();
+		User user = new User("1");
+
+		user = null;
+
+		System.gc();
 	}
 
 }

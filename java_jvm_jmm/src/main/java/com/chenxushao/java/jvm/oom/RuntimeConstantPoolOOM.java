@@ -10,27 +10,26 @@ import java.util.List;
  * VM参数:-XX:PermSize10M -XX:MaxPermSize10M
  * 
  * 抛出如下异常：
-    Exception in thread "main" java.lang.OutOfMemoryError: PermGen space
-	at java.lang.String.intern(Native Method)
-	at com.jfans.RuntimeConstantPoolOOM.main(RuntimeConstantPoolOOM.java:26)
-	
-	从运行结果可以看到，运行时常量池溢出，在OutOfMemoryError后面跟随的提示信息是"PermSize space"，说明运行时常量属于方法区(HotSpot虚拟
-         机中的永久代)的一部分。
-         
-     另外，还有方法区溢出，本机直接内存溢出等。
+ Exception in thread "main" java.lang.OutOfMemoryError: PermGen space
+ at java.lang.String.intern(Native Method)
+ at com.jfans.RuntimeConstantPoolOOM.main(RuntimeConstantPoolOOM.java:26)
+
+ 从运行结果可以看到，运行时常量池溢出，在OutOfMemoryError后面跟随的提示信息是"PermSize space"，说明运行时常量属于方法区(HotSpot虚拟
+ 机中的永久代)的一部分。
+
+ 另外，还有方法区溢出，本机直接内存溢出等。
  */
 public class RuntimeConstantPoolOOM {
-	
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 
-
-		//使用List保持着常量池引用，避免Full GC回收常量池行为
+		// 使用List保持着常量池引用，避免Full GC回收常量池行为
 		List<String> list = new ArrayList<String>();
-		int i=0;
-		while(true){
+		int i = 0;
+		while (true) {
 			list.add(String.valueOf(i++).intern());
 		}
 	}

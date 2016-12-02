@@ -4,11 +4,11 @@ public class PersonService implements IPersonService {
 
 	@Override
 	public void add() {
-		 System.out.println("add");
+		System.out.println("add");
 	}
 
 	@Override
 	public void adjust() {
-		 System.out.println("adjust");
+		System.out.println("adjust");
 	}
 }

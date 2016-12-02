@@ -5,34 +5,35 @@ package com.chenxushao.java.juc.atomic;
  */
 public class SafeCounterDemo {
 
+	private static SafeCounter2 safeCounter2 = new SafeCounter2();
 
-    private static SafeCounter2 safeCounter2 = new SafeCounter2();
+	public static void main(String[] args) throws InterruptedException {
 
-    public static void main(String[] args) throws InterruptedException {
+		Thread t1 = new Thread(new Runnable() {
+			public void run() {
+				for (int i = 0; i < 100000 * 100; i++) {
+					safeCounter2.increment();
+					;
+				}
+			}
+		});
 
-        Thread t1 = new Thread(new Runnable(){
-            public void run() {
-                for(int i=0; i<100000*100; i++){
-                    safeCounter2.increment();;
-                }
-            }
-        });
+		Thread t2 = new Thread(new Runnable() {
+			public void run() {
+				for (int i = 0; i < 100000 * 100; i++) {
+					safeCounter2.increment();
+					;
+				}
+			}
+		});
 
-        Thread t2 = new Thread(new Runnable(){
-            public void run() {
-                for(int i=0; i<100000*100; i++){
-                    safeCounter2.increment();;
-                }
-            }
-        });
+		t1.start();
+		t2.start();
 
-        t1.start();
-        t2.start();
+		t1.join();
+		t2.join();
+		System.out.println("end");
+		System.out.println(safeCounter2.getCount());
 
-        t1.join();
-        t2.join();
-        System.out.println("end");
-        System.out.println(safeCounter2.getCount());
-
-    }
+	}
 }

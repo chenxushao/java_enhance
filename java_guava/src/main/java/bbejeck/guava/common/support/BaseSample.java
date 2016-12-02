@@ -6,20 +6,18 @@ import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 
 /**
- * Created by IntelliJ IDEA.
- * User: bbejeck
- * Date: 11/23/11
- * Time: 2:31 PM
+ * Created by IntelliJ IDEA. User: bbejeck Date: 11/23/11 Time: 2:31 PM
  */
 public class BaseSample {
 
-    protected ListeningExecutorService executorService;
+	protected ListeningExecutorService executorService;
 
-    public BaseSample(){
-        executorService = MoreExecutors.listeningDecorator(Executors.newCachedThreadPool());
-    }
+	public BaseSample() {
+		executorService = MoreExecutors.listeningDecorator(Executors
+				.newCachedThreadPool());
+	}
 
-    public  void shutDown(){
-        executorService.shutdownNow();
-    }
+	public void shutDown() {
+		executorService.shutdownNow();
+	}
 }

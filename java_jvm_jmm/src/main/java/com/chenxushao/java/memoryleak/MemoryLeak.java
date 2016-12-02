@@ -11,20 +11,17 @@ import com.chenxushao.java.model.User;
  * -verbose:gc -XX:+PrintGCDetails
  */
 public class MemoryLeak {
-	
+
 	public static void main(String[] args) {
 		Vector<User> vector = new Vector<User>();
-		for(int i=0; i<10000; i++){
+		for (int i = 0; i < 10000; i++) {
 			User user = new User(String.valueOf(i));
 			vector.add(user);
-			user = null;//此时所有的user都不会被释放，因为vector引用这些对象，导致了内存泄漏。
+			user = null;// 此时所有的user都不会被释放，因为vector引用这些对象，导致了内存泄漏。
 		}
-		 vector.clear();
+		vector.clear();
 		/*
-		 * 正确的最简单的办法是将vector置为null
-		 * eg:
-		 * vector.clear();
-		 * vector = null;
+		 * 正确的最简单的办法是将vector置为null eg: vector.clear(); vector = null;
 		 */
 	}
 }

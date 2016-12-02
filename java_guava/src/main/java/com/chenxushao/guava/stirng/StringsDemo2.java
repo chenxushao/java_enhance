@@ -16,9 +16,9 @@ public class StringsDemo2 {
 		useSplitter();
 
 		useCharMatcher();
-		
+
 		useCharsets();
-		
+
 		useCaseFormat();
 	}
 
@@ -29,7 +29,8 @@ public class StringsDemo2 {
 		System.out.println(join);
 
 		// 置换null为指定字符串
-		String join2 = Joiner.on(",").useForNull("not-number").join(Arrays.asList(1, 4, 6, null, 8));
+		String join2 = Joiner.on(",").useForNull("not-number")
+				.join(Arrays.asList(1, 4, 6, null, 8));
 		System.out.println(join2);
 	}
 
@@ -56,18 +57,20 @@ public class StringsDemo2 {
 
 	static void useCharMatcher() {
 		// 替换掉指定字符
-		String replaceFrom = CharMatcher.JAVA_DIGIT.replaceFrom("hello1234", '*');
+		String replaceFrom = CharMatcher.JAVA_DIGIT.replaceFrom("hello1234",
+				'*');
 		System.out.println(replaceFrom);
 
 		// 还有其他一些操作方法：removeFrom、retainFrom、trimFrom等
 	}
-	
+
 	static void useCharsets() {
 		byte[] bytes = "hello1234".getBytes(Charsets.UTF_8);
 		System.out.println(bytes);
 	}
-	
+
 	static void useCaseFormat() {
-		System.out.println(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "CONSTANT_NAME"));
+		System.out.println(CaseFormat.UPPER_UNDERSCORE.to(
+				CaseFormat.LOWER_CAMEL, "CONSTANT_NAME"));
 	}
 }

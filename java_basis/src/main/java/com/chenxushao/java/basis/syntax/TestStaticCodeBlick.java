@@ -4,11 +4,11 @@ public class TestStaticCodeBlick {
 
 	/**
 	 * @param args
-	 * @throws ClassNotFoundException 
+	 * @throws ClassNotFoundException
 	 */
 	public static void main(String[] args) throws ClassNotFoundException {
- 		 StaticCodeBlock s = new StaticCodeBlock();
-	 
+		StaticCodeBlock s = new StaticCodeBlock();
+
 	}
 
 }

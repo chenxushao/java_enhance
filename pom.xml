@@ -140,5 +140,6 @@
 		<module>java_cglib</module>
 		<module>java_jodatime</module>
 		<module>java8_train</module>
+		<module>java_clean_code</module>
 	</modules>
 </project>

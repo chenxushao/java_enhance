@@ -20,7 +20,6 @@
  *
  */
 
-
 package com.chenxushao.common.string;
 
 import java.net.Inet6Address;
@@ -29,47 +28,45 @@ import java.net.NetworkInterface;
 import java.net.UnknownHostException;
 import java.util.Enumeration;
 
-public class 
-NetUtils 
-{
-	public static InetAddress
-	getLocalHost()
-	
-		throws UnknownHostException
-	{
-		try{
-			return( InetAddress.getLocalHost());
-			
-		}catch( Throwable e ){
-			
-				// sometimes get this when changing host name
-				// return first non-loopback one
-			
-			try{
-				Enumeration 	nis = NetworkInterface.getNetworkInterfaces();
+public class NetUtils {
+	public static InetAddress getLocalHost()
 
-				while( nis.hasMoreElements()){
-					
-					NetworkInterface	 ni = (NetworkInterface)nis.nextElement();
-						
+	throws UnknownHostException {
+		try {
+			return (InetAddress.getLocalHost());
+
+		} catch (Throwable e) {
+
+			// sometimes get this when changing host name
+			// return first non-loopback one
+
+			try {
+				Enumeration nis = NetworkInterface.getNetworkInterfaces();
+
+				while (nis.hasMoreElements()) {
+
+					NetworkInterface ni = (NetworkInterface) nis.nextElement();
+
 					Enumeration addresses = ni.getInetAddresses();
-					
-					while( addresses.hasMoreElements()){
-						
-						InetAddress address = (InetAddress)addresses.nextElement();
-						
-						if ( address.isLoopbackAddress() || address instanceof Inet6Address ){
-							
+
+					while (addresses.hasMoreElements()) {
+
+						InetAddress address = (InetAddress) addresses
+								.nextElement();
+
+						if (address.isLoopbackAddress()
+								|| address instanceof Inet6Address) {
+
 							continue;
 						}
-						
-						return( address );
+
+						return (address);
 					}
 				}
-			}catch( Throwable f ){
+			} catch (Throwable f) {
 			}
-			
-			return( InetAddress.getByName( "127.0.0.1" ));
+
+			return (InetAddress.getByName("127.0.0.1"));
 		}
 	}
 }

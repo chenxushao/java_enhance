@@ -24,17 +24,17 @@ public class VMStackOverflowError {
 	private int length = 0;
 
 	public static void main(String[] args) throws Throwable {
-         VMStackOverflowError vse = new VMStackOverflowError();
-         try{
-         vse.loop();
-         }catch(Throwable e){
-        	 System.out.println("stack length: " + vse.length);
-        	 throw e;
-         }
+		VMStackOverflowError vse = new VMStackOverflowError();
+		try {
+			vse.loop();
+		} catch (Throwable e) {
+			System.out.println("stack length: " + vse.length);
+			throw e;
+		}
 	}
-	
-	private  void loop(){
-		 length ++;
-		 loop();
+
+	private void loop() {
+		length++;
+		loop();
 	}
 }

@@ -23,8 +23,7 @@ import com.chenxushao.common.reflection.Reflections;
 /**
  * 使用Jaxb2.0实现XML<->Java Object的Mapper.
  * 
- * 在创建时需要设定所有需要序列化的Root对象的Class.
- * 特别支持Root对象是Collection的情形.
+ * 在创建时需要设定所有需要序列化的Root对象的Class. 特别支持Root对象是Collection的情形.
  * 
  */
 public class JaxbMapper {
@@ -70,13 +69,14 @@ public class JaxbMapper {
 	/**
 	 * Java Collection->Xml with encoding, 特别支持Root Element是Collection的情形.
 	 */
-	public static String toXml(Collection<?> root, String rootName, Class clazz, String encoding) {
+	public static String toXml(Collection<?> root, String rootName,
+			Class clazz, String encoding) {
 		try {
 			CollectionWrapper wrapper = new CollectionWrapper();
 			wrapper.collection = root;
 
-			JAXBElement<CollectionWrapper> wrapperElement = new JAXBElement<CollectionWrapper>(new QName(rootName),
-					CollectionWrapper.class, wrapper);
+			JAXBElement<CollectionWrapper> wrapperElement = new JAXBElement<CollectionWrapper>(
+					new QName(rootName), CollectionWrapper.class, wrapper);
 
 			StringWriter writer = new StringWriter();
 			createMarshaller(clazz, encoding).marshal(wrapperElement, writer);
@@ -100,8 +100,7 @@ public class JaxbMapper {
 	}
 
 	/**
-	 * 创建Marshaller并设定encoding(可为null).
-	 * 线程不安全，需要每次创建或pooling。
+	 * 创建Marshaller并设定encoding(可为null). 线程不安全，需要每次创建或pooling。
 	 */
 	public static Marshaller createMarshaller(Class clazz, String encoding) {
 		try {
@@ -109,7 +108,8 @@ public class JaxbMapper {
 
 			Marshaller marshaller = jaxbContext.createMarshaller();
 
-			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,
+					Boolean.TRUE);
 
 			if (StringUtils.isNotBlank(encoding)) {
 				marshaller.setProperty(Marshaller.JAXB_ENCODING, encoding);
@@ -122,8 +122,7 @@ public class JaxbMapper {
 	}
 
 	/**
-	 * 创建UnMarshaller.
-	 * 线程不安全，需要每次创建或pooling。
+	 * 创建UnMarshaller. 线程不安全，需要每次创建或pooling。
 	 */
 	public static Unmarshaller createUnmarshaller(Class clazz) {
 		try {
@@ -139,11 +138,13 @@ public class JaxbMapper {
 		JAXBContext jaxbContext = jaxbContexts.get(clazz);
 		if (jaxbContext == null) {
 			try {
-				jaxbContext = JAXBContext.newInstance(clazz, CollectionWrapper.class);
+				jaxbContext = JAXBContext.newInstance(clazz,
+						CollectionWrapper.class);
 				jaxbContexts.putIfAbsent(clazz, jaxbContext);
 			} catch (JAXBException ex) {
-				throw new RuntimeException("Could not instantiate JAXBContext for class [" + clazz + "]: "
-						+ ex.getMessage(), ex);
+				throw new RuntimeException(
+						"Could not instantiate JAXBContext for class [" + clazz
+								+ "]: " + ex.getMessage(), ex);
 			}
 		}
 		return jaxbContext;

@@ -69,22 +69,20 @@ public class LocalDateExample {
 		}
 		LocalTime localTime = new LocalTime(DateTimeZone.forID("Asia/Shanghai"));
 		System.out.println(localTime);
-		
+
 		LocalTime timesxx = localTime.minusHours(6).plusMinutes(20);
-		System.out.println(timesxx.getHourOfDay()+"\n"+timesxx.getMillisOfDay()+"\n"+timesxx.getMinuteOfHour());
+		System.out.println(timesxx.getHourOfDay() + "\n"
+				+ timesxx.getMillisOfDay() + "\n" + timesxx.getMinuteOfHour());
 	}
 
 	/**
-	 * Partial
-	 * 任意组装时间部分,x年x时x星期等等
-	 * [year=2013, dayOfMonth=3, dayOfWeek=6]
+	 * Partial 任意组装时间部分,x年x时x星期等等 [year=2013, dayOfMonth=3, dayOfWeek=6]
 	 */
 	private static void example_4() {
-		//类型
+		// 类型
 		DateTimeFieldType[] types = { DateTimeFieldType.year(),
-				DateTimeFieldType.dayOfMonth(),
-				DateTimeFieldType.dayOfWeek() };
-		//2013年3号星期6
+				DateTimeFieldType.dayOfMonth(), DateTimeFieldType.dayOfWeek() };
+		// 2013年3号星期6
 		Partial partial = new Partial(types, new int[] { 2013, 3, 6 });
 		System.out.println(partial.toString());
 	}

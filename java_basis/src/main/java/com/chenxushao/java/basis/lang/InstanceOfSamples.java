@@ -6,13 +6,10 @@ import java.util.List;
 public class InstanceOfSamples {
 
 	public static void main(String[] args) {
-		 List list = new ArrayList();
-		 
-		 if ( list instanceof ArrayList){
-			 System.out.println("Type is :" + "ArrayList");
-		 } 
-		 
+		List<String> list = new ArrayList<String>();
 
+		if (list instanceof ArrayList) {
+			System.out.println("Type is :" + "ArrayList");
+		}
 	}
-
 }

@@ -7,19 +7,13 @@ import java.util.concurrent.TimeUnit;
 
 public class CreateThreadPoolExecutorInstance {
 
-	
 	public static void main(String[] args) {
-		int  corePoolSize  =    5;
-		int  maxPoolSize   =   10;
+		int corePoolSize = 5;
+		int maxPoolSize = 10;
 		long keepAliveTime = 5000;
 
-		ExecutorService threadPoolExecutor =
-		        new ThreadPoolExecutor(
-		                corePoolSize,
-		                maxPoolSize,
-		                keepAliveTime,
-		                TimeUnit.MILLISECONDS,
-		                new LinkedBlockingQueue<Runnable>()
-		                );
+		ExecutorService threadPoolExecutor = new ThreadPoolExecutor(
+				corePoolSize, maxPoolSize, keepAliveTime,
+				TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
 	}
 }

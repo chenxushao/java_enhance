@@ -27,12 +27,12 @@ import java.util.Locale;
 import java.util.Map;
 
 /**
- * @version $Revision: 12386 $ - $Date: 2008-10-10 14:42:28 +0200 (Fr, 10 Okt 2008) $
+ * @version $Revision: 12386 $ - $Date: 2008-10-10 14:42:28 +0200 (Fr, 10 Okt
+ *          2008) $
  */
-public class I18nUtil
-{
-	public static String getClosestL10n(Map<Locale, String> i18nMap, Locale locale)
-	{
+public class I18nUtil {
+	public static String getClosestL10n(Map<Locale, String> i18nMap,
+			Locale locale) {
 		String res = i18nMap.get(locale);
 		if (res == null) {
 			String res_sameLanguageAndCountry = null;
@@ -42,7 +42,9 @@ public class I18nUtil
 			for (Map.Entry<Locale, String> me : i18nMap.entrySet()) {
 				res_any = me.getValue();
 
-				if (res_defaultLanguage == null && Locale.ENGLISH.getLanguage().equals(me.getKey().getLanguage()))
+				if (res_defaultLanguage == null
+						&& Locale.ENGLISH.getLanguage().equals(
+								me.getKey().getLanguage()))
 					res_defaultLanguage = me.getValue();
 
 				if (locale.getLanguage().equals(me.getKey().getLanguage())) {

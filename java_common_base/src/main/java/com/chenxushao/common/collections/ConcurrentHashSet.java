@@ -12,7 +12,8 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 /**
- * JDK并没有提供ConcurrenHashSet，考虑到JDK的HashSet也是基于HashMap实现的，因此ConcurrenHashSet也由ConcurrenHashMap完成。
+ * JDK并没有提供ConcurrenHashSet，考虑到JDK的HashSet也是基于HashMap实现的，
+ * 因此ConcurrenHashSet也由ConcurrenHashMap完成。
  * 
  * 实现参考了Jetty的实现.
  */
@@ -126,7 +127,7 @@ public class ConcurrentHashSet<E> extends AbstractSet<E> implements Set<E> {
 	@Override
 	public void forEach(Consumer<? super E> action) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

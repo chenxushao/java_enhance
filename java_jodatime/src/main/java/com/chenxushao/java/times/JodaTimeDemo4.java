@@ -27,7 +27,8 @@ public class JodaTimeDemo4 {
 	@Test
 	public void convertFromString() {
 		String dateString = "1978-06-01 12:10:08";
-		DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+		DateTimeFormatter fmt = DateTimeFormat
+				.forPattern("yyyy-MM-dd HH:mm:ss");
 		// 第一种方法，直接构造函数,注意日期和时间之间用T分割
 		DateTime dt1 = new DateTime("1978-06-01");
 		assertThat(dt1.getYear()).isEqualTo(1978);
@@ -48,26 +49,33 @@ public class JodaTimeDemo4 {
 		String format = "yyyy-MM-dd HH:mm:ss zZZ";
 
 		// DateTime的毫秒即System的毫秒,即1970到现在的UTC的毫秒数.
-		System.out.println(new DateTime().getMillis() + " " + System.currentTimeMillis());
+		System.out.println(new DateTime().getMillis() + " "
+				+ System.currentTimeMillis());
 
 		// 将日期按默认时区打印
 		DateTime fooDate = new DateTime(1978, 6, 1, 12, 10, 8, 0);
-		System.out.println(fooDate.toString(format) + " " + fooDate.getMillis()); // "1978-06-01 12:10:08"
+		System.out
+				.println(fooDate.toString(format) + " " + fooDate.getMillis()); // "1978-06-01 12:10:08"
 
 		// 将日期按UTC时区打印
 		DateTime zoneWithUTC = fooDate.withZone(DateTimeZone.UTC);
-		System.out.println(zoneWithUTC.toString(format) + " " + zoneWithUTC.getMillis());// "1978-06-01 04:10:08",
-																							// sameMillis
+		System.out.println(zoneWithUTC.toString(format) + " "
+				+ zoneWithUTC.getMillis());// "1978-06-01 04:10:08",
+											// sameMillis
 
 		// 按不同的时区分析字符串,得到不同的时间
 		String dateString = "1978-06-01 12:10:08";
-		DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+		DateTimeFormatter fmt = DateTimeFormat
+				.forPattern("yyyy-MM-dd HH:mm:ss");
 
-		DateTime parserResult1 = fmt.withZone(DateTimeZone.forID("US/Pacific")).parseDateTime(dateString);
+		DateTime parserResult1 = fmt.withZone(DateTimeZone.forID("US/Pacific"))
+				.parseDateTime(dateString);
 		DateTime parserResult2 = fmt.withZoneUTC().parseDateTime(dateString);
 
-		System.out.println(parserResult1.toString(format) + " " + parserResult1.getMillis());
-		System.out.println(parserResult2.toString(format) + " " + parserResult2.getMillis());
+		System.out.println(parserResult1.toString(format) + " "
+				+ parserResult1.getMillis());
+		System.out.println(parserResult2.toString(format) + " "
+				+ parserResult2.getMillis());
 	}
 
 	/**
@@ -95,18 +103,21 @@ public class JodaTimeDemo4 {
 		System.out.println("");
 
 		// 直接打印TimeStamp, 日期是M,时间是L
-		DateTimeFormatter formatter = DateTimeFormat.forStyle("ML").withLocale(new Locale("zh"))
-				.withZone(DateTimeZone.UTC);
+		DateTimeFormatter formatter = DateTimeFormat.forStyle("ML")
+				.withLocale(new Locale("zh")).withZone(DateTimeZone.UTC);
 
 		System.out.println("ML Mix: " + formatter.print(dateTime.getMillis()));
 
 		// 只打印日期不打印时间
-		System.out.println("Date only :" + formatDateTime(dateTime, "M-", "zh"));
+		System.out
+				.println("Date only :" + formatDateTime(dateTime, "M-", "zh"));
 
 	}
 
-	public static String formatDateTime(DateTime dateTime, String style, String lang) {
-		DateTimeFormatter formatter = DateTimeFormat.forStyle(style).withLocale(new Locale(lang));
+	public static String formatDateTime(DateTime dateTime, String style,
+			String lang) {
+		DateTimeFormatter formatter = DateTimeFormat.forStyle(style)
+				.withLocale(new Locale(lang));
 		return dateTime.toString(formatter);
 	}
 
@@ -117,9 +128,11 @@ public class JodaTimeDemo4 {
 	public void daysPlusAndMinusBetweenAndBetweenx() {
 		DateTime now = new DateTime();
 		DateTime birthDate = now.minusYears(10);
-		assertThat(Years.yearsBetween(birthDate, new DateTime()).getYears()).isEqualTo(10);
+		assertThat(Years.yearsBetween(birthDate, new DateTime()).getYears())
+				.isEqualTo(10);
 		birthDate = now.minusYears(10).plusDays(2);
-		assertThat(Years.yearsBetween(birthDate, new DateTime()).getYears()).isEqualTo(9);
+		assertThat(Years.yearsBetween(birthDate, new DateTime()).getYears())
+				.isEqualTo(9);
 	}
 
 	/**
@@ -129,10 +142,12 @@ public class JodaTimeDemo4 {
 	public void beginAndEndOfDates() {
 		String dateString = "1978-06-10T12:10:08";
 		DateTime dt = new DateTime(dateString);
-		DateTime startOfMonth = dt.dayOfMonth().withMinimumValue().withTimeAtStartOfDay();
+		DateTime startOfMonth = dt.dayOfMonth().withMinimumValue()
+				.withTimeAtStartOfDay();
 		System.out.println(startOfMonth.toString());
 
-		DateTime endOfMonth = dt.dayOfMonth().withMaximumValue().millisOfDay().withMaximumValue();
+		DateTime endOfMonth = dt.dayOfMonth().withMaximumValue().millisOfDay()
+				.withMaximumValue();
 		System.out.println(endOfMonth);
 	}
 }

@@ -51,15 +51,19 @@ public class Threads {
 	 * 
 	 * 返回线程最后是否被中断.
 	 */
-	public static boolean gracefulShutdown(ExecutorService threadPool, int shutdownTimeoutMills) {
-		return MoreExecutors.shutdownAndAwaitTermination(threadPool, shutdownTimeoutMills, TimeUnit.MILLISECONDS);
+	public static boolean gracefulShutdown(ExecutorService threadPool,
+			int shutdownTimeoutMills) {
+		return MoreExecutors.shutdownAndAwaitTermination(threadPool,
+				shutdownTimeoutMills, TimeUnit.MILLISECONDS);
 	}
 
 	/**
 	 * @see #gracefulShutdown(ExecutorService, int)
 	 */
-	public static boolean gracefulShutdown(ExecutorService threadPool, int shutdownTimeout, TimeUnit timeUnit) {
-		return MoreExecutors.shutdownAndAwaitTermination(threadPool, shutdownTimeout, timeUnit);
+	public static boolean gracefulShutdown(ExecutorService threadPool,
+			int shutdownTimeout, TimeUnit timeUnit) {
+		return MoreExecutors.shutdownAndAwaitTermination(threadPool,
+				shutdownTimeout, timeUnit);
 	}
 
 	/**
@@ -76,16 +80,20 @@ public class Threads {
 	 * 
 	 * @see #buildThreadFactory(String)
 	 */
-	public static ThreadFactory buildThreadFactory(String nameFormat, boolean daemon) {
-		return new ThreadFactoryBuilder().setNameFormat(nameFormat).setDaemon(daemon).build();
+	public static ThreadFactory buildThreadFactory(String nameFormat,
+			boolean daemon) {
+		return new ThreadFactoryBuilder().setNameFormat(nameFormat)
+				.setDaemon(daemon).build();
 	}
 
 	/**
-	 * 保证不会有Exception抛出到线程池的Runnable包裹类，防止用户没有捕捉异常导致中断了线程池中的线程, 使得SchedulerService无法执行.
+	 * 保证不会有Exception抛出到线程池的Runnable包裹类，防止用户没有捕捉异常导致中断了线程池中的线程,
+	 * 使得SchedulerService无法执行.
 	 */
 	public static class WrapExceptionRunnable implements Runnable {
 
-		private static Logger logger = LoggerFactory.getLogger(WrapExceptionRunnable.class);
+		private static Logger logger = LoggerFactory
+				.getLogger(WrapExceptionRunnable.class);
 
 		private Runnable runnable;
 
@@ -98,14 +106,14 @@ public class Threads {
 			try {
 				runnable.run();
 			} catch (Throwable e) {
-				// catch any exception, because the scheduled thread will break if the exception thrown to outside.
+				// catch any exception, because the scheduled thread will break
+				// if the exception thrown to outside.
 				logger.error("Unexpected error occurred in task", e);
 			}
 		}
 	}
- 
 
-	////
+	// //
 	/**
 	 * 创建ThreadFactory，使得创建的线程有自己的名字而不是默认的"pool-x-thread-y"，
 	 * 在用threaddump查看线程时特别有用。 格式如"mythread-%d"，使用了Guava的工具类
@@ -115,14 +123,13 @@ public class Threads {
 	}
 
 	/**
-	 * 按照ExecutorService JavaDoc示例代码编写的Graceful Shutdown方法.
-	 * 先使用shutdown, 停止接收新任务并尝试完成所有已存在任务.
-	 * 如果超时, 则调用shutdownNow, 取消在workQueue中Pending的任务,并中断所有阻塞函数.
-	 * 如果仍然超時，則強制退出.
+	 * 按照ExecutorService JavaDoc示例代码编写的Graceful Shutdown方法. 先使用shutdown,
+	 * 停止接收新任务并尝试完成所有已存在任务. 如果超时, 则调用shutdownNow,
+	 * 取消在workQueue中Pending的任务,并中断所有阻塞函数. 如果仍然超時，則強制退出.
 	 * 另对在shutdown时线程本身被调用中断做了处理.
 	 */
-	public static void gracefulShutdown(ExecutorService pool, int shutdownTimeout, int shutdownNowTimeout,
-			TimeUnit timeUnit) {
+	public static void gracefulShutdown(ExecutorService pool,
+			int shutdownTimeout, int shutdownNowTimeout, TimeUnit timeUnit) {
 		pool.shutdown(); // Disable new tasks from being submitted
 		try {
 			// Wait a while for existing tasks to terminate
@@ -144,7 +151,8 @@ public class Threads {
 	/**
 	 * 直接调用shutdownNow的方法, 有timeout控制.取消在workQueue中Pending的任务,并中断所有阻塞函数.
 	 */
-	public static void normalShutdown(ExecutorService pool, int timeout, TimeUnit timeUnit) {
+	public static void normalShutdown(ExecutorService pool, int timeout,
+			TimeUnit timeUnit) {
 		try {
 			pool.shutdownNow();
 			if (!pool.awaitTermination(timeout, timeUnit)) {
@@ -154,7 +162,5 @@ public class Threads {
 			Thread.currentThread().interrupt();
 		}
 	}
-
- 
 
 }

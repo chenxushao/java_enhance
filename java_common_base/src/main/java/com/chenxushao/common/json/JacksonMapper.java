@@ -93,7 +93,8 @@ public class JacksonMapper {
 	}
 
 	/**
-	 * 反序列化复杂Collection如List<Bean>, contructCollectionType()或contructMapType()构造类型, 然后调用本函数.
+	 * 反序列化复杂Collection如List<Bean>,
+	 * contructCollectionType()或contructMapType()构造类型, 然后调用本函数.
 	 * 
 	 * @see #createCollectionType(Class, Class...)
 	 */
@@ -113,15 +114,19 @@ public class JacksonMapper {
 	/**
 	 * 构造Collection类型.
 	 */
-	public JavaType contructCollectionType(Class<? extends Collection> collectionClass, Class<?> elementClass) {
-		return mapper.getTypeFactory().constructCollectionType(collectionClass, elementClass);
+	public JavaType contructCollectionType(
+			Class<? extends Collection> collectionClass, Class<?> elementClass) {
+		return mapper.getTypeFactory().constructCollectionType(collectionClass,
+				elementClass);
 	}
 
 	/**
 	 * 构造Map类型.
 	 */
-	public JavaType contructMapType(Class<? extends Map> mapClass, Class<?> keyClass, Class<?> valueClass) {
-		return mapper.getTypeFactory().constructMapType(mapClass, keyClass, valueClass);
+	public JavaType contructMapType(Class<? extends Map> mapClass,
+			Class<?> keyClass, Class<?> valueClass) {
+		return mapper.getTypeFactory().constructMapType(mapClass, keyClass,
+				valueClass);
 	}
 
 	/**
@@ -131,9 +136,11 @@ public class JacksonMapper {
 		try {
 			mapper.readerForUpdating(object).readValue(jsonString);
 		} catch (JsonProcessingException e) {
-			logger.warn("update json string:" + jsonString + " to object:" + object + " error.", e);
+			logger.warn("update json string:" + jsonString + " to object:"
+					+ object + " error.", e);
 		} catch (IOException e) {
-			logger.warn("update json string:" + jsonString + " to object:" + object + " error.", e);
+			logger.warn("update json string:" + jsonString + " to object:"
+					+ object + " error.", e);
 		}
 	}
 
@@ -145,7 +152,8 @@ public class JacksonMapper {
 	}
 
 	/**
-	 * 设定是否使用Enum的toString函数来读写Enum, 为False时使用Enum的name()函数来读写Enum, 默认为False. 注意本函数一定要在Mapper创建后，所有的读写动作之前调用.
+	 * 设定是否使用Enum的toString函数来读写Enum, 为False时使用Enum的name()函数来读写Enum, 默认为False.
+	 * 注意本函数一定要在Mapper创建后，所有的读写动作之前调用.
 	 */
 	public void enableEnumUseToString() {
 		mapper.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);

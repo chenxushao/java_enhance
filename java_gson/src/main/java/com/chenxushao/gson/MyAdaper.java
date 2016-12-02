@@ -18,8 +18,9 @@ public class MyAdaper<T> implements JsonSerializer<T> {
 		this.excludeField = excludeField;
 	}
 
-	private List<String> excludeField =Collections.EMPTY_LIST;
-	private List<Class> excludeClass =Collections.EMPTY_LIST;
+	private List<String> excludeField = Collections.EMPTY_LIST;
+	private List<Class> excludeClass = Collections.EMPTY_LIST;
+
 	@Override
 	public JsonElement serialize(T src, Type typeOfSrc,
 			JsonSerializationContext context) {
@@ -35,9 +36,9 @@ public class MyAdaper<T> implements JsonSerializer<T> {
 
 					@Override
 					public boolean shouldSkipClass(Class<?> clazz) {
-						 if(excludeClass.contains(clazz)){
-							 return true;
-						 }
+						if (excludeClass.contains(clazz)) {
+							return true;
+						}
 						return false;
 					}
 				}).create();
