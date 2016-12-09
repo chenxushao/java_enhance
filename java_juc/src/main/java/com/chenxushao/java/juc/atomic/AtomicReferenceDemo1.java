@@ -33,6 +33,5 @@ public class AtomicReferenceDemo1 {
 		exchanged = atomicStringReference.compareAndSet(initialReference,
 				newReference);
 		System.out.println("exchanged: " + exchanged);
-
 	}
 }

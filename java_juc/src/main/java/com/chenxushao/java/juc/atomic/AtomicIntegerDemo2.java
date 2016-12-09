@@ -12,13 +12,10 @@ public class AtomicIntegerDemo2 {
 		// AtomicInteger atomicInteger = new AtomicInteger(123);
 
 		int theValue = atomicInteger.get();
-
 		atomicInteger.set(234);
-
 		int expectedValue = 123;
 		int newValue = 234;
 		atomicInteger.compareAndSet(expectedValue, newValue);
-
 		System.out.println(atomicInteger.getAndAdd(10));
 		System.out.println(atomicInteger.addAndGet(10));
 	}

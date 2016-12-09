@@ -1,6 +1,6 @@
 package java.lang1;
 
-//һ��α���Integer
+//自定义的Integer
 public class Integer {
 
 	public Integer(String value) {
@@ -12,6 +12,6 @@ public class Integer {
 	}
 
 	public String toString() {
-		return "����һ��α���Integer��.";
+		return "我是自定义的Integer";
 	}
 }

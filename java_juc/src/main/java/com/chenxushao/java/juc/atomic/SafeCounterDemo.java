@@ -13,7 +13,6 @@ public class SafeCounterDemo {
 			public void run() {
 				for (int i = 0; i < 100000 * 100; i++) {
 					safeCounter2.increment();
-					;
 				}
 			}
 		});
@@ -22,7 +21,6 @@ public class SafeCounterDemo {
 			public void run() {
 				for (int i = 0; i < 100000 * 100; i++) {
 					safeCounter2.increment();
-					;
 				}
 			}
 		});

@@ -59,8 +59,7 @@ public class References {
 		System.gc();
 		checkQueue();
 
-		System.out
-				.println("---------------------------------------------------------");
+		System.out.println("---------------------------------------------------------");
 
 		// 创建10个Grocery对象及10个虚引用
 		Set<PhantomReference<Grocery>> pa = new HashSet<PhantomReference<Grocery>>();
@@ -81,6 +80,5 @@ public class References {
 		 * 稍微长的生命周期，当垃圾回收器执行回收操作时，有可能被垃圾回收器回收，具有软引用的对象拥有较
 		 * 长的生命周期，但在Java虚拟机认为内存不足的情况下，也会被垃圾回收器回收。
 		 */
-
 	}
 }

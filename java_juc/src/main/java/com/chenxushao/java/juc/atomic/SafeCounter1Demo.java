@@ -13,7 +13,6 @@ public class SafeCounter1Demo {
 			public void run() {
 				for (int i = 0; i < 100000 * 100; i++) {
 					safeCounter1.increment();
-					;
 				}
 			}
 		});
@@ -22,20 +21,15 @@ public class SafeCounter1Demo {
 			public void run() {
 				for (int i = 0; i < 100000 * 100; i++) {
 					safeCounter1.increment();
-					;
 				}
 			}
 		});
 
 		t1.start();
 		t2.start();
-
 		t1.join();
-		;
 		t2.join();
-		;
 		System.out.println("end");
 		System.out.println(safeCounter1.getCount());
-
 	}
 }

@@ -15,7 +15,6 @@ public class ReentrantLockDemo1 {
 		condition.signal();
 
 		lock.lock();
-
 		// lock.tryLock(time, unit)
 		// lock.lockInterruptibly();
 		lock.unlock();
