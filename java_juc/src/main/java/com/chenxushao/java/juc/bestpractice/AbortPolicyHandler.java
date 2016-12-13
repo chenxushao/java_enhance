@@ -1,11 +1,11 @@
 package com.chenxushao.java.juc.bestpractice;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class AbortPolicyHandler extends ThreadPoolExecutor.AbortPolicy {
     private static final Logger logger = LoggerFactory.getLogger(AbortPolicyHandler.class);

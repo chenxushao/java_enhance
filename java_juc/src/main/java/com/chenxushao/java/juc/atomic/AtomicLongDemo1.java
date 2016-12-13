@@ -2,6 +2,7 @@ package com.chenxushao.java.juc.atomic;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+//方法基本和AtomicInteger类似
 public class AtomicLongDemo1 {
 
 	public static AtomicLong atomicLong = new AtomicLong();

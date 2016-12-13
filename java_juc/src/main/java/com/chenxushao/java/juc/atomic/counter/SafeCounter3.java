@@ -1,4 +1,4 @@
-package com.chenxushao.java.juc.atomic;
+package com.chenxushao.java.juc.atomic.counter;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

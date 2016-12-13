@@ -1,18 +1,18 @@
-package com.chenxushao.java.juc.atomic;
+package com.chenxushao.java.juc.atomic.counter;
 
 /**
  * Created by cuser on 16/7/24.
  */
-public class SafeCounter1Demo {
+public class SafeCounterDemo {
 
-	private static SafeCounter1 safeCounter1 = new SafeCounter1();
+	private static SafeCounter2 safeCounter2 = new SafeCounter2();
 
 	public static void main(String[] args) throws InterruptedException {
 
 		Thread t1 = new Thread(new Runnable() {
 			public void run() {
 				for (int i = 0; i < 100000 * 100; i++) {
-					safeCounter1.increment();
+					safeCounter2.increment();
 				}
 			}
 		});
@@ -20,16 +20,18 @@ public class SafeCounter1Demo {
 		Thread t2 = new Thread(new Runnable() {
 			public void run() {
 				for (int i = 0; i < 100000 * 100; i++) {
-					safeCounter1.increment();
+					safeCounter2.increment();
 				}
 			}
 		});
 
 		t1.start();
 		t2.start();
+
 		t1.join();
 		t2.join();
 		System.out.println("end");
-		System.out.println(safeCounter1.getCount());
+		System.out.println(safeCounter2.getCount());
+
 	}
 }

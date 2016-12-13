@@ -1,4 +1,4 @@
-package com.chenxushao.java.juc.atomic;
+package com.chenxushao.java.juc.atomic.counter;
 
 public class SafeCounter3Demo {
 	

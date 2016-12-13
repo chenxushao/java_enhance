@@ -1,4 +1,4 @@
-package com.chenxushao.java.juc.atomic;
+package com.chenxushao.java.juc.atomic.counter;
 
 /**
  * Created by cuser on 16/7/24. 非线程安全计数器
