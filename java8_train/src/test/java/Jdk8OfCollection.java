@@ -1,4 +1,3 @@
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -43,6 +42,22 @@ public class Jdk8OfCollection {
 				Collectors.groupingBy(p -> p.getAge()));
 		System.out.println(personsByAge);
 	}
+	
+	// 按照List中某个属性进行分组
+	@Test
+	public void test21() {
+		Map<Integer, List<String>> personsByAge = persons.stream().collect(
+				Collectors.groupingBy(p -> p.getAge(),Collectors.mapping(Person::getName, Collectors.toList())));
+		System.out.println(personsByAge);
+	}
+	
+	// 按照List中某个属性进行分组
+		@Test
+		public void test22() {
+			Map<Integer,Long> personsByAge = persons.stream().collect(
+					Collectors.groupingBy(p -> p.getAge(),Collectors.counting()));
+			System.out.println(personsByAge);
+		}
 
 	// 抽取List中的某个属性
 	@Test
