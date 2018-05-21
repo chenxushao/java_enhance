@@ -1,12 +1,10 @@
 package com.chenxushao.java.basis.enums;
 
-import java.util.Set;
-
+import com.google.common.collect.LinkedHashMultimap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.util.CollectionUtils;
 
-import com.google.common.collect.LinkedHashMultimap;
+import java.util.Set;
 
 //import cn.com.gome.ztghb.exception.ServiceException;
 
@@ -64,7 +62,7 @@ public class RefundBillStateMachineService {
 		}
 
 		Set<RefundBillState> nextStates = multimap.get(currentState.VALUE);
-		if (CollectionUtils.isEmpty(nextStates)
+		if (nextStates == null || nextStates.isEmpty()
 				|| !nextStates.contains(targetState)) {
 			// MonitorUtil.recordOne("refund-bill-checkStateChange-error");
 			logger.error(

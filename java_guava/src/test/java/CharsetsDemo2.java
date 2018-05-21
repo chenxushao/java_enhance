@@ -1,12 +1,9 @@
-package com.chenxushao.guava.lang;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import com.google.common.base.Charsets;
+import org.junit.Test;
 
 import java.nio.charset.Charset;
 
-import org.junit.Test;
-
-import com.google.common.base.Charsets;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Classs to show how to use Charsets class

@@ -1,11 +1,8 @@
-package com.chenxushao.guava.collections;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.Test;
-
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Test class for Multimap

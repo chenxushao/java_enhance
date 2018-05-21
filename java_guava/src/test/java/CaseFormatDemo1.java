@@ -1,10 +1,7 @@
-package com.chenxushao.guava.stirng;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
+import com.google.common.base.CaseFormat;
 import org.junit.Test;
 
-import com.google.common.base.CaseFormat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * CaseFormat features

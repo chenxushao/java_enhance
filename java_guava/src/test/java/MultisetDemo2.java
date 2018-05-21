@@ -1,13 +1,10 @@
-package com.chenxushao.guava.collections;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Multiset;
+import org.junit.Test;
 
 import java.util.Arrays;
 
-import org.junit.Test;
-
-import com.google.common.collect.HashMultiset;
-import com.google.common.collect.Multiset;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Test class for Multiset

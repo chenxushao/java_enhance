@@ -1,19 +1,15 @@
-package com.chenxushao.guava.preconditions;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.Arrays;
-
-import org.junit.Test;
-
-import pl.tomaszdziurko.guava.geo.Continent;
-import pl.tomaszdziurko.guava.geo.Country;
-
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.google.common.base.Strings;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+import org.junit.Test;
+import pl.tomaszdziurko.guava.geo.Continent;
+import pl.tomaszdziurko.guava.geo.Country;
+
+import java.util.Arrays;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Features of Predicates class

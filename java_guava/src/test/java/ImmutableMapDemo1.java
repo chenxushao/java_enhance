@@ -1,10 +1,7 @@
-package com.chenxushao.guava.collections;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
+import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
 
-import com.google.common.collect.ImmutableMap;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Immutable Map showcase

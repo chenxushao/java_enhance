@@ -1,12 +1,9 @@
-package com.chenxushao.guava.collections;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
+import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
-
-import org.junit.Test;
-
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
 
 /**
  * BiMap showcase

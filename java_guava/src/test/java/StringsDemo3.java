@@ -1,10 +1,7 @@
-package com.chenxushao.guava.stirng;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
+import com.google.common.base.Strings;
 import org.junit.Test;
 
-import com.google.common.base.Strings;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Class to show features of Strings class

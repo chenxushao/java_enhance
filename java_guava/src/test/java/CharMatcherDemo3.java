@@ -1,10 +1,7 @@
-package com.chenxushao.guava.stirng;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
+import com.google.common.base.CharMatcher;
 import org.junit.Test;
 
-import com.google.common.base.CharMatcher;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Class to learn some features of CharMatcher

@@ -1,19 +1,15 @@
-package com.chenxushao.guava.collections;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.ArrayList;
-import java.util.Collection;
-
-import org.junit.Test;
-
-import pl.tomaszdziurko.guava.geo.Continent;
-import pl.tomaszdziurko.guava.geo.Country;
-
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
+import org.junit.Test;
+import pl.tomaszdziurko.guava.geo.Continent;
+import pl.tomaszdziurko.guava.geo.Country;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Collections2 showcase

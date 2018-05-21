@@ -1,15 +1,12 @@
-package com.chenxushao.guava.joiner;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import com.google.common.base.Joiner;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Test;
-
-import com.google.common.base.Joiner;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Test class to show some features of Joiners

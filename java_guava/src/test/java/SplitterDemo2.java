@@ -1,15 +1,12 @@
-package com.chenxushao.guava.split;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Splitter;
+import com.google.common.collect.Lists;
+import org.junit.Test;
 
 import java.util.Iterator;
 import java.util.List;
 
-import org.junit.Test;
-
-import com.google.common.base.CharMatcher;
-import com.google.common.base.Splitter;
-import com.google.common.collect.Lists;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Class to show some features of Splitter class
