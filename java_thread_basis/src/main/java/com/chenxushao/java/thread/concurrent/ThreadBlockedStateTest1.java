@@ -3,7 +3,7 @@ package com.chenxushao.java.thread.concurrent;
 /**
  * @author chenxushao@kingsoft.com
  */
-public class SynchronizedTest1 {
+public class ThreadBlockedStateTest1 {
 
 
     public synchronized void test1(){

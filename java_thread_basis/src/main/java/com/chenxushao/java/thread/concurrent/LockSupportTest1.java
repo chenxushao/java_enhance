@@ -5,8 +5,4 @@ package com.chenxushao.java.thread.concurrent;
  */
 public class LockSupportTest1 {
 
-
-
-
-
 }
