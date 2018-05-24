@@ -1,7 +1,7 @@
 package com.chenxushao.java.thread.locks.deadlock;
 
 /**
- * @author chenxushao@kingsoft.com
+ * @author chenxushao
  */
 public class DeadLockTest1 {
 

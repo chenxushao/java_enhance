@@ -2,7 +2,7 @@ package com.chenxushao.java.thread.basis.state;
 
 import java.util.Date;
 
-public class SleepBlockedTeset {
+public class SleepMethodInvokeTest {
 
 	public static void main(String[] args) {
 		Thread4 tt = new Thread4();
@@ -25,7 +25,6 @@ class Thread4 implements Runnable {
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

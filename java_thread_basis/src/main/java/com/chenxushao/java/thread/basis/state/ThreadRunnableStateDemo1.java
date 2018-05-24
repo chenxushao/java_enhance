@@ -1,7 +1,7 @@
-package com.chenxushao.java.thread.concurrent;
+package com.chenxushao.java.thread.basis.state;
 
 /**
- * @author chenxushao@kingsoft.com
+ * @author chenxushao
  */
 public class ThreadRunnableStateDemo1 {
 

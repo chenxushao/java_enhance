@@ -1,10 +1,12 @@
-package com.chenxushao.java.thread.concurrent;
+package com.chenxushao.java.thread.basis.state;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author chenxushao@kingsoft.com
+ * @author chenxushao
+ *
+ * TODO
  */
 public class LockTest1 {
 

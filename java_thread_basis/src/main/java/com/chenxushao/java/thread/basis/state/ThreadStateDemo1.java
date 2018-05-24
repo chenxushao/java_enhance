@@ -18,7 +18,6 @@ public class ThreadStateDemo1 {
 		try {
 			t1.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("finish");
@@ -36,9 +35,8 @@ class Thread1 extends Thread {
 			System.out.println("true");
 			System.out.println("run..." + " ---" + this.getState().toString());
 			try {
-				Thread.sleep(500);
+				Thread.sleep(3000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

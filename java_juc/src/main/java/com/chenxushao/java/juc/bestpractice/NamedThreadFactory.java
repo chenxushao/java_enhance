@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Package: com.kscloud.boss.charge.parallel
  *    File: NamedThreadFactory.java
  * 
- * @author chenxushao@kingsoft.com
+ * @author chenxushao
  * @Created on 2016年11月14日 上午11:48:35
  * @since 1.0
  *****************************************************************************/

@@ -1,7 +1,7 @@
 package com.chenxushao.java.thread.basis.method;
 
 /**
- * @author chenxushao@kingsoft.com
+ * @author chenxushao
  */
 public class Test3 {
 

@@ -1,13 +1,11 @@
 package com.chenxushao.java.juc;
 
 /**
- * @author chenxushao@kingsoft.com
+ * @author chenxushao
  */
 public class Test {
 
-
     public static void main(String[] args) {
-
 
         Thread t1 = new Thread1();
         Thread t2 = new Thread2();
@@ -18,8 +16,6 @@ public class Test {
         t2.start();
         t3.start();
         t4.start();
-
-
     }
 
 }
