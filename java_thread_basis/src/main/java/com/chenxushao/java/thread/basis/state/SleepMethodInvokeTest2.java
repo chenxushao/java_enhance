@@ -2,7 +2,7 @@ package com.chenxushao.java.thread.basis.state;
 
 import java.util.Date;
 
-public class SleepMethodInvokeTest {
+public class SleepMethodInvokeTest2 {
 
 	public static void main(String[] args) {
 		Thread4 tt = new Thread4();
@@ -17,13 +17,14 @@ public class SleepMethodInvokeTest {
 
 }
 
-class Thread4 implements Runnable {
+class Thread5  implements Runnable {
 
+	@Override
 	public void run() {
 		while (true) {
 			System.out.println("run");
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(10000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
