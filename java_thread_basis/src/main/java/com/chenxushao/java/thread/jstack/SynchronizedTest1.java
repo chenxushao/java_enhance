@@ -1,7 +1,7 @@
 package com.chenxushao.java.thread.jstack;
 
 /**
- * @author chenxushao@kingsoft.com
+ * @author chenxushao
  */
 public class SynchronizedTest1 {
 

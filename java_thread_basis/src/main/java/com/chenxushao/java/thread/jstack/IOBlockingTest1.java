@@ -4,7 +4,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * @author chenxushao@kingsoft.com
+ * @author chenxushao
  */
 public class IOBlockingTest1 {
 

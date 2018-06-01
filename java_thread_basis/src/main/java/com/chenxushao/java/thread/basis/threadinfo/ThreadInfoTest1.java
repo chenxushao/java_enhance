@@ -1,7 +1,7 @@
 package com.chenxushao.java.thread.basis.threadinfo;
 
 /**
- * @author chenxushao@kingsoft.com
+ * @author chenxushao
  */
 public class ThreadInfoTest1 {
 

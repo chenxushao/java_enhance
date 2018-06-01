@@ -3,10 +3,9 @@ package com.chenxushao.java.thread.jstack;
 import java.util.concurrent.locks.LockSupport;
 
 /**
- * @author chenxushao@kingsoft.com
+ * @author chenxushao
  */
 public class LockSupportTest1 {
-
 
     public static void main(String[] args) {
 

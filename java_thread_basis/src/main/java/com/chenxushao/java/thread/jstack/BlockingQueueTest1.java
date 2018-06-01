@@ -3,7 +3,7 @@ package com.chenxushao.java.thread.jstack;
 import java.io.IOException;
 
 /**
- * @author chenxushao@kingsoft.com
+ * @author chenxushao
  */
 public class BlockingQueueTest1 {
 
