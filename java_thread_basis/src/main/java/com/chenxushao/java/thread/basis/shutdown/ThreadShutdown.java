@@ -17,22 +17,23 @@ public class ThreadShutdown {
 		r.shutDown();
 	}
 
-}
+	private static class TestThread implements Runnable {
+		//要使用volatile
+		private volatile boolean flag = true;
 
-class TestThread implements Runnable {
-   //要使用volatile
-	private volatile boolean flag = true;
+		public void run() {
+			int i = 0;
+			while (flag) {
+				System.out.println("  " + i++);
+				System.out.println(Thread.currentThread().getName());
+			}
+		}
 
-	public void run() {
-		int i = 0;
-		while (flag) {
-			System.out.println("  " + i++);
-			System.out.println(Thread.currentThread().getName());
+		// 让线程中止的依法
+		public void shutDown() {
+			flag = false;
 		}
 	}
 
-	// 让线程中止的依法
-	public void shutDown() {
-		flag = false;
-	}
 }
+

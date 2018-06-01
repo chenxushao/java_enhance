@@ -5,14 +5,14 @@ package com.chenxushao.java.thread.basis.state;
  */
 public class ThreadStateTest1 {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
-        Thread t1 = new Thread(new Task1(),"t1");
+        Thread t1 = new Thread(new Task1(), "t1");
 
-        System.out.println("线程"+t1.getName()+"状态:"+ t1.getState());
+        System.out.println("线程" + t1.getName() + "状态:" + t1.getState());
         t1.start();
 
-        System.out.println("线程"+t1.getName()+"状态:"+ t1.getState());
+        System.out.println("线程" + t1.getName() + "状态:" + t1.getState());
 
         Thread.sleep(3 * 1000);
         System.out.println("线程" + t1.getName() + "状态:" + t1.getState());
@@ -20,10 +20,6 @@ public class ThreadStateTest1 {
 
         Thread.sleep(20 * 1000);
         System.out.println("线程" + t1.getName() + "状态:" + t1.getState());
-
-        System.in.read();
-
-
     }
 
 

@@ -17,20 +17,22 @@ public class JoinDemo {
             System.out.println("I am main Thread");
         }
     }
-}
 
-class Task implements Runnable {
 
-    @Override
-    public void run() {
-        for (int i = 0; i < 10; i++) {
-            System.out.println("I am " + Thread.currentThread().getName());
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    private static class Task implements Runnable {
+
+        @Override
+        public void run() {
+            for (int i = 0; i < 10; i++) {
+                System.out.println("I am " + Thread.currentThread().getName());
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
+
     }
 
 }

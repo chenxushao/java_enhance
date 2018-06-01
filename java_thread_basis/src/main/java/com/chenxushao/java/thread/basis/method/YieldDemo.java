@@ -1,7 +1,8 @@
 package com.chenxushao.java.thread.basis.method;
 
 /**
- * @author CHENXUSHAO 当线程在运行中执行了Thread类的yield()静态方法，如果此时具有相同优先级的其他线程处于就就绪状态，
+ * @author CHENXUSHAO
+ * 当线程在运行中执行了Thread类的yield()静态方法，如果此时具有相同优先级的其他线程处于就就绪状态，
  *         那么yield()方法将把当前运行的线程放到可运行池中并使另一个线程运行,如果没有相同优先级的可运行线程，则yield()方法什么都不做。
  *         让出cpu，不释放锁。
  */

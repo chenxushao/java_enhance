@@ -5,6 +5,7 @@ public class Task3 extends Thread {
 
 	private int ticket = 5;
 
+	@Override
 	public void run() {
 		for (int i = 0; i < 10; i++) {
 			if (ticket > 0) {
