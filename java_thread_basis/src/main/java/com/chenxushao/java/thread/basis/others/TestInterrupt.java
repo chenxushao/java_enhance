@@ -1,4 +1,4 @@
-package com.chenxushao.java.thread.basis.interrupt;
+package com.chenxushao.java.thread.basis.others;
 
 import java.util.Date;
 

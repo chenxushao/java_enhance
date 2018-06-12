@@ -10,23 +10,25 @@ import java.util.concurrent.TimeoutException;
 
 public class CallableDemo implements Callable<String> {
 
-	public String call() throws Exception {
+    public String call() throws Exception {
+        Thread.sleep(5000);
+        return "hello";
+    }
 
-		Thread.sleep(5000);
-		return "hello";
-	}
+    public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
 
-	public static void main(String[] args) throws InterruptedException,
-			ExecutionException, TimeoutException {
+        CallableDemo callableDemo = new CallableDemo();
 
-		CallableDemo mt2 = new CallableDemo();
-		ExecutorService executor = Executors.newSingleThreadExecutor();
-		long begin = System.currentTimeMillis();
-		Future<String> future = executor.submit(mt2);
-		// System.out.println(future.get());
-		System.out.println(future.get(6, TimeUnit.SECONDS));
-		System.out.println((System.currentTimeMillis() - begin) / 1000);
-		// System.out.println(future.get(3,TimeUnit.SECONDS));
-	}
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        long begin = System.currentTimeMillis();
+        Future<String> future = executor.submit(callableDemo);
+
+         System.out.println(future.get());
+
+        System.out.println(future.get(6, TimeUnit.SECONDS));
+        System.out.println((System.currentTimeMillis() - begin) / 1000);
+        // System.out.println(future.get(3,TimeUnit.SECONDS));
+    }
 
 }
