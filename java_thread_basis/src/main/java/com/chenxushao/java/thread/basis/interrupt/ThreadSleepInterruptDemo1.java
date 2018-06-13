@@ -3,7 +3,7 @@ package com.chenxushao.java.thread.basis.interrupt;
 import com.chenxushao.java.thread.util.ThreadUtil;
 
 /**
- * @author chenxushao@kingsoft.com
+ * @author chenxushao
  */
 public class ThreadSleepInterruptDemo1 {
 
@@ -29,8 +29,6 @@ public class ThreadSleepInterruptDemo1 {
         public void run(){
             while(true) {
                 System.out.println(Thread.currentThread().getName() + " running...");
-
-
                 try {
                     Thread.sleep(2*1000);
                 } catch (InterruptedException e) {

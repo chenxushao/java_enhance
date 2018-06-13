@@ -1,81 +1,43 @@
-/*
- * Source code of the book of Thinking in Java Component Design
- * ��������Java ������
- * ����: �׵���
- * Email: kshark2008@gmail.com
- * Date: 2008-12
- * Copyright 2008-2010
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.chenxushao.java.thread.util;
 
+import java.util.concurrent.TimeUnit;
+
+/**
+ * 线程相关工具类.
+ * 
+ * 1. 处理了InterruptedException的sleep
+ * 
+ * 2. 正确的InterruptedException处理方法
+ */
 public class ThreadUtil {
-	public static boolean sleep(long millis) {
+
+	/**
+	 * sleep等待, 单位为毫秒, 已捕捉并处理InterruptedException.
+	 */
+	public static void sleep(long durationMillis) {
 		try {
-			Thread.sleep(millis);
-			return true;
+			Thread.sleep(durationMillis);
 		} catch (InterruptedException e) {
-			return false;
+			Thread.currentThread().interrupt();
 		}
 	}
 
-	public static void interrupt(Thread t) {
+	/**
+	 * sleep等待，已捕捉并处理InterruptedException.
+	 */
+	public static void sleep(long duration, TimeUnit unit) {
 		try {
-			t.interrupt();
-		} catch (Exception e) {
-		}
-	}
-
-	public static void stop(Thread t, long millis) {
-		interrupt(t);
-
-		try {
-			t.join(millis);
-		} catch (Exception e) {
-		}
-	}
-
-	public static void waitObject(Object obj) {
-		try {
-			obj.wait();
+			Thread.sleep(unit.toMillis(duration));
 		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
 		}
 	}
 
-	public static void waitObject(Object obj, long millis) {
-		try {
-			obj.wait(millis);
-		} catch (InterruptedException e) {
-		}
+	/**
+	 * 纯粹为了提醒下处理InterruptedException的正确方式，除非你是在写不可中断的任务.
+	 */
+	public static void handleInterruptedException() {
+		Thread.currentThread().interrupt();
 	}
 
-	public static void syncWait(Object obj) {
-		synchronized (obj) {
-			try {
-				obj.wait();
-			} catch (InterruptedException e) {
-			}
-		}
-	}
-
-	public static void syncWait(Object obj, long millis) {
-		synchronized (obj) {
-			try {
-				obj.wait(millis);
-			} catch (InterruptedException e) {
-			}
-		}
-	}
 }

@@ -1,7 +1,10 @@
-package com.chenxushao.java.thread.basis.others;
+package com.chenxushao.java.thread.basis.interrupt;
 
-//使用isInterrupted（）方法判断中断状态
-public class InterruptCheck extends Object {
+
+/**
+ * 抛出InterruptedException后，会清除中断标志，isInterrupted()会返回false
+ */
+public class InterruptMethodCatchExceptionDemo1 {
 	public static void main(String[] args) {
 		Thread t = Thread.currentThread();
 		System.out.println("Point A: t.isInterrupted()=" + t.isInterrupted());

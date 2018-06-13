@@ -3,7 +3,7 @@ package com.chenxushao.java.thread.basis;
 import com.chenxushao.java.thread.util.ThreadUtil;
 
 /**
- * @author chenxushao@kingsoft.com
+ * @author chenxushao
  */
 public class ThreadGroupDemo {
 

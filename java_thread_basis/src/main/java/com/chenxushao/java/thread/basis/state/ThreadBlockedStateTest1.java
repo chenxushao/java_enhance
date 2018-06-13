@@ -1,4 +1,4 @@
-package com.chenxushao.java.thread.basis.others;
+package com.chenxushao.java.thread.basis.state;
 
 /**
  * @author chenxushao
