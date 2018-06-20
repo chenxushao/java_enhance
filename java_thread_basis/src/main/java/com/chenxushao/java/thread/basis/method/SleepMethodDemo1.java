@@ -12,6 +12,8 @@ public class SleepMethodDemo1 {
     public static void main(String[] args) {
         Thread t1 = new Thread(new Task(), "t1");
         t1.start();
+        System.out.println(t1.getId());
+        System.out.println(t1.getPriority());
     }
 
     private static class Task implements Runnable {
