@@ -1,12 +1,15 @@
-package com.chenxushao.java.thread.jstack;
+package com.chenxushao.java.thread.basis.state.blockingqueue;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 /**
+ *
+ * 阻塞队列等待时，线程状态为WAITING.
+ * 通过jstack，查看： java.lang.Thread.State: WAITING (parking)
  * @author chenxushao
  */
-public class IOBlockingTest1 {
+public class BlockingQueueDemo1 {
 
     public static void main(String[] args) throws InterruptedException {
 

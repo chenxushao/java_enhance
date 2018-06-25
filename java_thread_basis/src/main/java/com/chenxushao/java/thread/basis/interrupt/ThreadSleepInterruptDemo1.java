@@ -14,10 +14,10 @@ public class ThreadSleepInterruptDemo1 {
 
         System.out.println(t.getState());
 
-        ThreadUtil.sleep(3*1000);
+        ThreadUtil.sleep(5*1000);
         t.interrupt();
 
-        System.out.println(t.getState());
+//        System.out.println(t.getState());
 
 
     }
@@ -30,9 +30,9 @@ public class ThreadSleepInterruptDemo1 {
             while(true) {
                 System.out.println(Thread.currentThread().getName() + " running...");
                 try {
-                    Thread.sleep(2*1000);
+                    Thread.sleep(1000*1000);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                   Thread.currentThread().interrupt();
                 }
             }
         }

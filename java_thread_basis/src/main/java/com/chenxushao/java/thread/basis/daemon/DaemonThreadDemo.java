@@ -1,8 +1,10 @@
-package com.chenxushao.java.thread.basis;
+package com.chenxushao.java.thread.basis.daemon;
 
 import com.chenxushao.java.thread.util.ThreadUtil;
 
 /**
+ * 当一个Java应用内，只有守护线程时，Java虚拟机就会自然退出。
+ *
  * @author chenxushao
  */
 public class DaemonThreadDemo {

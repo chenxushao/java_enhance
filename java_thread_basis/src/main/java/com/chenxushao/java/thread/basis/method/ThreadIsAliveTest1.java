@@ -1,4 +1,8 @@
-package com.chenxushao.java.thread.basis.state;
+package com.chenxushao.java.thread.basis.method;
+
+import com.chenxushao.java.thread.util.ThreadUtil;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * 线程是否活着.
@@ -26,11 +30,7 @@ public class ThreadIsAliveTest1 {
         public void run() {
             for (int i = 0; i < 2; i++) {
                 System.out.println(i);
-                try {
-                    Thread.sleep(1000 * 2);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                ThreadUtil.sleep(2, TimeUnit.SECONDS);
             }
         }
     }

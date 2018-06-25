@@ -1,4 +1,4 @@
-package com.chenxushao.java.thread.producerconsumer;
+package com.chenxushao.java.thread.arithmetic.producerconsumer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,6 @@ public class Container {
 			try {
 				this.wait();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -34,7 +33,6 @@ public class Container {
 			try {
 				this.wait();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

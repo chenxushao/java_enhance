@@ -1,4 +1,4 @@
-package com.chenxushao.java.thread.basis.method;
+package com.chenxushao.java.thread.basis.method.join;
 
 /**
  * @author CHENXUSHAO join方法的功能就是使异步执行的线程变成同步执行
@@ -13,6 +13,7 @@ public class JoinDemo {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         for (int i = 0; i < 10; i++) {
             System.out.println("I am main Thread");
         }

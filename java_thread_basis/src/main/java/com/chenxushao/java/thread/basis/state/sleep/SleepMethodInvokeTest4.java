@@ -1,8 +1,11 @@
-package com.chenxushao.java.thread.basis.state;
+package com.chenxushao.java.thread.basis.state.sleep;
+
+import com.chenxushao.java.thread.util.ThreadUtil;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
-public class SleepMethodInvokeTest3 {
+public class SleepMethodInvokeTest4 {
 
     public static void main(String[] args) {
         Thread t = new Thread(new Task(), "t");
@@ -11,6 +14,7 @@ public class SleepMethodInvokeTest3 {
         for (int i = 0; i < 30; i++) {
             System.out.println(new Date() + "线程t的状态" + t.getState() + "----"
                 + i);
+            ThreadUtil.sleep(2, TimeUnit.SECONDS);
         }
     }
 
@@ -21,13 +25,10 @@ public class SleepMethodInvokeTest3 {
         public void run() {
             while (true) {
                 System.out.println("run");
-                try {
-                    Thread.sleep(2000 * 10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                ThreadUtil.sleep(10, TimeUnit.SECONDS);
             }
-
         }
+
     }
 }
+

@@ -1,4 +1,4 @@
-package com.chenxushao.java.thread.basis.method;
+package com.chenxushao.java.thread.basis.method.sleep;
 
 import com.chenxushao.java.thread.util.ThreadUtil;
 

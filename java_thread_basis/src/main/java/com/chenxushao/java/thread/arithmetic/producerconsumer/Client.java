@@ -1,4 +1,4 @@
-package com.chenxushao.java.thread.producerconsumer;
+package com.chenxushao.java.thread.arithmetic.producerconsumer;
 
 public class Client {
 

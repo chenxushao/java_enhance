@@ -1,6 +1,12 @@
-package com.chenxushao.java.thread.deadlock;
+package com.chenxushao.java.thread.arithmetic.deadlock;
+
+import com.chenxushao.java.thread.util.ThreadUtil;
+
+import java.util.concurrent.TimeUnit;
 
 /**
+ * 死锁范例.
+ *
  * @author chenxushao
  */
 public class DeadLockTest1 {
@@ -8,21 +14,23 @@ public class DeadLockTest1 {
     public static void main(String[] args) {
         Object o1 = new Object();
         Object o2 = new Object();
-        Task1 task1 = new Task1(o1, o2);
-        Thread t1 = new Thread(task1, "t1");
+        Task task = new Task(o1, o2);
+
+        Thread t1 = new Thread(task, "t1");
         t1.start();
-        Thread t2 = new Thread(task1, "t2");
+
+        Thread t2 = new Thread(task, "t2");
         t2.start();
     }
 
 
-    private static class Task1 implements Runnable {
+    private static class Task implements Runnable {
 
         private Object o1;
 
         private Object o2;
 
-        public Task1(Object o1, Object o2) {
+        public Task(Object o1, Object o2) {
             this.o1 = o1;
             this.o2 = o2;
         }
@@ -31,11 +39,7 @@ public class DeadLockTest1 {
         public void run() {
 
             synchronized (o1) {
-                try {
-                    Thread.sleep(1000 * 2);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                ThreadUtil.sleep(2, TimeUnit.SECONDS);
                 System.out.println(Thread.currentThread().getName() + " get o1");
                 synchronized (o2) {
                     System.out.println(Thread.currentThread().getName() + " get o2");
@@ -43,13 +47,8 @@ public class DeadLockTest1 {
             }
 
             synchronized (o2) {
-                try {
-                    Thread.sleep(1000 * 2);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                ThreadUtil.sleep(2, TimeUnit.SECONDS);
                 System.out.println(Thread.currentThread().getName() + " get o2");
-
                 synchronized (o1) {
                     System.out.println(Thread.currentThread().getName() + " get o1");
 

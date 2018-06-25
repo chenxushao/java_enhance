@@ -1,4 +1,4 @@
-package com.chenxushao.java.thread.basis;
+package com.chenxushao.java.thread.basis.threadgroup;
 
 import com.chenxushao.java.thread.util.ThreadUtil;
 
@@ -21,6 +21,7 @@ public class ThreadGroupDemo {
 
         System.out.println(tg.getParent());
         System.out.println(tg.getParent().getParent());
+        System.out.println(tg.getParent().getParent().getParent());
     }
 
     private static class Task implements Runnable{
@@ -28,7 +29,7 @@ public class ThreadGroupDemo {
         @Override
         public void run(){
             while (true) {
-                System.out.println("Daemon Thred");
+                System.out.println("test...");
                 ThreadUtil.sleep(1 * 1000);
             }
         }

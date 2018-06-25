@@ -1,4 +1,8 @@
-package com.chenxushao.java.thread.basis.state;
+package com.chenxushao.java.thread.basis.state.sleep;
+
+import com.chenxushao.java.thread.util.ThreadUtil;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author chenxushao
@@ -21,13 +25,7 @@ public class SleepMethodInvokeTest2 {
         @Override
         public void run() {
             System.out.println("pre sleep");
-
-            try {
-                Thread.sleep(1000 * 30);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
+            ThreadUtil.sleep(30, TimeUnit.SECONDS);
             System.out.println("sleep finish");
 
         }

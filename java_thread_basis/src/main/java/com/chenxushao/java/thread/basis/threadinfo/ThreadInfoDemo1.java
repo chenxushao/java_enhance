@@ -3,15 +3,15 @@ package com.chenxushao.java.thread.basis.threadinfo;
 /**
  * @author chenxushao
  */
-public class ThreadInfoTest1 {
+public class ThreadInfoDemo1 {
 
     public static void main(String[] args) {
 
         Thread t1 = new Thread(new Task1(), "t1");
 
-        System.out.println(Thread.MAX_PRIORITY);
-        System.out.println(Thread.MIN_PRIORITY);
-        System.out.println(Thread.NORM_PRIORITY);
+        System.out.println("MAX_PRIORITY: " + Thread.MAX_PRIORITY);
+        System.out.println("MIN_PRIORITY: "  + Thread.MIN_PRIORITY);
+        System.out.println("NORM_PRIORITY: " + Thread.NORM_PRIORITY);
 
         System.out.println("class: " + t1.getClass());
         System.out.println("id:" + t1.getId());

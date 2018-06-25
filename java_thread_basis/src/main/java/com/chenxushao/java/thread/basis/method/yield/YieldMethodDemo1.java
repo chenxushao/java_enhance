@@ -1,4 +1,4 @@
-package com.chenxushao.java.thread.basis.method;
+package com.chenxushao.java.thread.basis.method.yield;
 
 /**
  * @author CHENXUSHAO
@@ -6,7 +6,7 @@ package com.chenxushao.java.thread.basis.method;
  * 那么yield()方法将把当前运行的线程放到可运行池中并使另一个线程运行,如果没有相同优先级的可运行线程，则yield()方法什么都不做。
  * 让出cpu，不释放锁。
  */
-public class YieldDemo {
+public class YieldMethodDemo1 {
 
     /**
      * @param args
