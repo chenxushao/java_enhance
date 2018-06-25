@@ -8,7 +8,7 @@ public class InterruptMethodCatchExceptionDemo1 {
 	public static void main(String[] args) {
 		Thread t = Thread.currentThread();
 		System.out.println("Point A: t.isInterrupted()=" + t.isInterrupted());
-		// 待决中断，中断自身
+		// 中断自身
 		t.interrupt();
 		System.out.println("Point B: t.isInterrupted()=" + t.isInterrupted());
 		System.out.println("Point C: t.isInterrupted()=" + t.isInterrupted());
