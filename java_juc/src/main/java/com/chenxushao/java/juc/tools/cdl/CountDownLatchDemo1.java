@@ -1,5 +1,6 @@
 package com.chenxushao.java.juc.tools.cdl;
 
+import com.chenxushao.java.juc.util.ThreadUtil;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
 import java.util.Random;
@@ -8,7 +9,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * 火箭发射.
+ * 使用CountDownLatch来模拟火箭发射倒计时.
  */
 public class CountDownLatchDemo1 {
 
@@ -17,26 +18,23 @@ public class CountDownLatchDemo1 {
 
         System.out.println("开始准备火箭发射");
 
-        ExecutorService executorService = Executors.newFixedThreadPool(10, new ThreadFactoryBuilder().setDaemon(true).setNameFormat("checke-%d").build());
+        ExecutorService executorService = Executors.newFixedThreadPool(10, new ThreadFactoryBuilder().setNameFormat("checke-%d").build());
 
         for (int i = 0; i < 10; i++) {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println(Thread.currentThread().getName() + " check complete.");
-                    try {
-                        Thread.sleep(new Random().nextInt(10) * 1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    int sleepTime = new Random().nextInt(10) * 1000;
+                    System.out.println(Thread.currentThread().getName() + " check complete," + " sleepTime:" + sleepTime);
+                    ThreadUtil.sleep(sleepTime);
                     latch.countDown();
                 }
             });
         }
 
         latch.await();
-        System.out.println("Fire");
-        executorService.shutdown();;
+        System.out.println("各项工作准备就绪，开始发射！");
+        executorService.shutdown();
     }
 
 }

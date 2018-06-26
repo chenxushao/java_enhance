@@ -1,5 +1,6 @@
 package com.chenxushao.java.juc.tools.cdl;
 
+import com.chenxushao.java.juc.util.ThreadUtil;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
 import java.util.concurrent.ArrayBlockingQueue;
@@ -39,12 +40,7 @@ public class CountDownLatchDemo5 {
 
     private static void performWork(String work) {
         System.out.println(Thread.currentThread().getName() + " 处理任务：" + work);
-        try {
-            //模拟耗时的任务
-            Thread.currentThread().sleep(60);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        ThreadUtil.sleep(60);
     }
 
     public static void main(String[] args) throws Exception {

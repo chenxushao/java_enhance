@@ -28,6 +28,7 @@ public class CountDownLatchDemo2 {
         });
         parser1.start();
         parser2.start();
+
         latch.await();
         System.out.println("all parser finish");
 
