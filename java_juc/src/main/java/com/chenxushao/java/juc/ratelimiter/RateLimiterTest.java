@@ -25,19 +25,24 @@ public class RateLimiterTest {
         for (int i = 0; i < 50; i++) {
             limiter.acquire(); // 请求RateLimiter, 超过permits会被阻塞
             
-            executorService.submit(new Task3("is "+ i));
+            executorService.submit(new Task("is "+ i));
         }
     }
+
+
+    private static class Task implements Runnable {
+        String str;
+
+        public Task(String str) {
+            this.str = str;
+        }
+
+        @Override
+        public void run() {
+            System.out.println("Task call execute.." + str);
+        }
+
+    }
 }
 
-class Task3 implements Runnable{
-    String str;
-    public Task3(String str){
-        this.str = str;
-    }
-    @Override
-    public void run() {
-        System.out.println("Task2 call execute.." + str);
-    }
 
-}

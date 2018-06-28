@@ -3,6 +3,11 @@ import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * getNumberWaiting()的测试
+ * 初始时，getNumberWaiting为0，当每一个线程到将要达时getNumberWaiting值为0,当第一个线程到达后，getNumberWaiting为1
+ * 当最后一个线程将要到达时，getNumberWaiting为parties-1，最后一个线程到达后，getNumberWaiting重新归0.
+ */
 public class CyclicBarrierDemo6 {
 
 	public static void main(String[] args) {

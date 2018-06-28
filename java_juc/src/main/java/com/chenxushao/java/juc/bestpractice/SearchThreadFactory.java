@@ -3,9 +3,6 @@ package com.chenxushao.java.juc.bestpractice;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * Created by chengmeng .
- */
 public class SearchThreadFactory implements ThreadFactory {
     private static final AtomicInteger poolNumber = new AtomicInteger(1);
     private final ThreadGroup group;

@@ -1,4 +1,4 @@
-package com.chenxushao.java.thread.basis.method;
+package com.chenxushao.java.thread.basis.method.isalive;
 
 import com.chenxushao.java.thread.util.ThreadUtil;
 
@@ -21,7 +21,9 @@ public class ThreadIsAliveTest1 {
 
 
         t1.join();
+        System.out.println("t1:" + t1.isAlive());
 
+        ThreadUtil.sleep(15,TimeUnit.SECONDS);
         System.out.println("t1:" + t1.isAlive());
     }
 
@@ -29,7 +31,6 @@ public class ThreadIsAliveTest1 {
         @Override
         public void run() {
             for (int i = 0; i < 2; i++) {
-                System.out.println(i);
                 ThreadUtil.sleep(2, TimeUnit.SECONDS);
             }
         }

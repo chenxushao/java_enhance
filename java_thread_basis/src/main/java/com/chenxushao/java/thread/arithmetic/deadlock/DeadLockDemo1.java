@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author chenxushao
  */
-public class DeadLockTest1 {
+public class DeadLockDemo1 {
 
     public static void main(String[] args) {
         Object o1 = new Object();

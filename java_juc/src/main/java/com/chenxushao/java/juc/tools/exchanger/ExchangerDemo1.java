@@ -67,39 +67,41 @@ public class ExchangerDemo1 {
 		new Thread(new EmptyingLoop()).start();
 		new Thread(new FillingLoop()).start();
 	}
-}
 
-class DataBuffer {
-	private final static int MAX = 10;
-	private List<String> items = new ArrayList<>();
+	private static class DataBuffer {
+		private final static int MAX = 10;
 
-	DataBuffer() {
-	}
+		private List<String> items = new ArrayList<>();
 
-	DataBuffer(String prefix) {
-		for (int i = 0; i < MAX; i++) {
-			String item = prefix + i;
-			System.out.printf("Adding %s%n", item);
-			items.add(item);
+		DataBuffer() {
+		}
+
+		DataBuffer(String prefix) {
+			for (int i = 0; i < MAX; i++) {
+				String item = prefix + i;
+				System.out.printf("Adding %s%n", item);
+				items.add(item);
+			}
+		}
+
+		void add(String s) {
+			if (!isFull())
+				items.add(s);
+		}
+
+		boolean isEmpty() {
+			return items.size() == 0;
+		}
+
+		boolean isFull() {
+			return items.size() == MAX;
+		}
+
+		String remove() {
+			if (!isEmpty())
+				return items.remove(0);
+			return null;
 		}
 	}
-
-	void add(String s) {
-		if (!isFull())
-			items.add(s);
-	}
-
-	boolean isEmpty() {
-		return items.size() == 0;
-	}
-
-	boolean isFull() {
-		return items.size() == MAX;
-	}
-
-	String remove() {
-		if (!isEmpty())
-			return items.remove(0);
-		return null;
-	}
 }
+

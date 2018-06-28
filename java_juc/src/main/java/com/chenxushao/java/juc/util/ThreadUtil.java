@@ -11,6 +11,9 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadUtil {
 
+	public static final int NCPUs = Runtime.getRuntime().availableProcessors();
+
+
 	/**
 	 * sleep等待, 单位为毫秒, 已捕捉并处理InterruptedException.
 	 */
