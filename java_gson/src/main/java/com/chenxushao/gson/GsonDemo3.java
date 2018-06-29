@@ -7,15 +7,15 @@ public class GsonDemo3 {
 
 	public static void main(String[] args) {
 		/*
-		 * JsonArray jsonArray = new JsonArray(); GsonBuilder gb = new
+		 * JsonArray jsonArray = newstate JsonArray(); GsonBuilder gb = newstate
 		 * GsonBuilder(); gb.setDateFormat("yyyy-MM-dd HH:mm:ss");
 		 * gb.setPrettyPrinting();
 		 * 
-		 * Gson gson = gb.create(); Person p = new Person(); p.setName("cxs");
-		 * p.setBirth(new Date()); p.setId("0101"); p.setPswd("root");
+		 * Gson gson = gb.create(); Person p = newstate Person(); p.setName("cxs");
+		 * p.setBirth(newstate Date()); p.setId("0101"); p.setPswd("root");
 		 * p.setSex(true);
 		 * 
-		 * Person p1 = new Person(); p1.setName("st"); p1.setBirth(new Date());
+		 * Person p1 = newstate Person(); p1.setName("st"); p1.setBirth(newstate Date());
 		 * p1.setId("0101"); p1.setPswd("root"); p1.setSex(true);
 		 * 
 		 * // p1.setSon(p); p.setFather(p1);

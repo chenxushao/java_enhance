@@ -20,7 +20,7 @@ public class UserDaoTest {
 		user.setBirthday(new Date());
 		
 		
-		/*UserDao userDao = new UserDaoJdbcImpl();*/
+		/*UserDao userDao = newstate UserDaoJdbcImpl();*/
 		UserDao userDao = DAOFactory.getInstance().getUserDao();
 		/*userDao.addUser(user);*/
 		

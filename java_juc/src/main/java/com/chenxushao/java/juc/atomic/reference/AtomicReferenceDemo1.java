@@ -7,7 +7,7 @@ public class AtomicReferenceDemo1 {
 	public static void main(String[] args) {
 		String initialReference = "the initially referenced string";
 		AtomicReference<String> atomicReference = new AtomicReference<String>(initialReference);
-		// AtomicReference atomicReference = new
+		// AtomicReference atomicReference = newstate
 		// AtomicReference("first value referenced");
 
 		String reference =  atomicReference.get();
@@ -24,9 +24,9 @@ public class AtomicReferenceDemo1 {
 		// String initialReference = "initial value referenced";
 
 		// AtomicReference<String> atomicStringReference =
-		// new AtomicReference<String>(initialReference);
+		// newstate AtomicReference<String>(initialReference);
 
-		String newReference = "new value referenced";
+		String newReference = "newstate value referenced";
 		boolean exchanged = atomicStringReference.compareAndSet(
 				initialReference, newReference);
 		System.out.println("exchanged: " + exchanged);

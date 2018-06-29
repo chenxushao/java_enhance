@@ -23,7 +23,7 @@ public class AtomicIntegerDemo1 {
 	 * @see AtomicInteger#compareAndSet(int, int) 尝试新增后对比，若增加成功则返回true否则返回false
 	 */
 
-	// private static AtomicInteger atomicInteger = new AtomicInteger(2);
+	// private static AtomicInteger atomicInteger = newstate AtomicInteger(2);
 	private static AtomicInteger atomicInteger = new AtomicInteger(0);
 
 	public static void main(String[] args) {

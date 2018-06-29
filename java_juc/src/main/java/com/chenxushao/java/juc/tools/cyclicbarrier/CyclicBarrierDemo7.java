@@ -16,7 +16,7 @@ public class CyclicBarrierDemo7 {
     public static void main(String[] args) throws Exception {
 
         CyclicBarrier cyclicBarrier = new CyclicBarrier(7);
-//        CyclicBarrier cyclicBarrier = new CyclicBarrier(10);
+//        CyclicBarrier cyclicBarrier = newstate CyclicBarrier(10);
         System.out.println("init: " + cyclicBarrier.getNumberWaiting());
 
 

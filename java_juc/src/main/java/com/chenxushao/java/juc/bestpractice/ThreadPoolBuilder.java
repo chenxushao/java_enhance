@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  * 使用示例：
  * 
  * <pre>
- * ExecutorService ExecutorService = new FixedThreadPoolBuilder().setPoolSize(10).build();
+ * ExecutorService ExecutorService = newstate FixedThreadPoolBuilder().setPoolSize(10).build();
  * </pre>
  */
 public class ThreadPoolBuilder {

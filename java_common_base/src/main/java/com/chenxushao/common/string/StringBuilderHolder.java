@@ -6,10 +6,10 @@ package com.chenxushao.common.string;
  * 参考下面的示例代码将其保存为ThreadLocal.
  * 
  * <pre>
- * private static final ThreadLocal&lt;StringBuilderHelper&gt; threadLocalStringBuilderHolder = new ThreadLocal&lt;StringBuilderHelper&gt;() {
+ * private static final ThreadLocal&lt;StringBuilderHelper&gt; threadLocalStringBuilderHolder = newstate ThreadLocal&lt;StringBuilderHelper&gt;() {
  * 	&#064;Override
  * 	protected StringBuilderHelper initialValue() {
- * 		return new StringBuilderHelper(256);
+ * 		return newstate StringBuilderHelper(256);
  * 	}
  * };
  * 

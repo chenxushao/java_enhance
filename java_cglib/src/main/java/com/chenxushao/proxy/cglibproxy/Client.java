@@ -18,17 +18,17 @@ public class Client {
 	 */
 
 	public static void main(String[] args) {
-		// IPersonService us = new PersonService();
-		// JdkProxyFactory jpf = new JdkProxyFactory(us);
-		// jpf.setAspectBean(new AspectBean("cxs"));
+		// IPersonService us = newstate PersonService();
+		// JdkProxyFactory jpf = newstate JdkProxyFactory(us);
+		// jpf.setAspectBean(newstate AspectBean("cxs"));
 		// jpf.setUserName("cxs");
 		// IPersonService usProxy = (IPersonService) jpf.bind();
 		// usProxy.add();
 		// usProxy.adjust();
 
-		// IUserService us = new UserService();
-		// JdkProxyFactory jpf = new JdkProxyFactory(us);
-		// jpf.setAspectBean(new AspectBean("cxs"));
+		// IUserService us = newstate UserService();
+		// JdkProxyFactory jpf = newstate JdkProxyFactory(us);
+		// jpf.setAspectBean(newstate AspectBean("cxs"));
 		// jpf.setUserName("cxser");
 		// IUserService usProxy = (IUserService) jpf.bind();
 

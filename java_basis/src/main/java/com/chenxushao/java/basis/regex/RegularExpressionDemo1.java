@@ -96,7 +96,7 @@ public class RegularExpressionDemo1 {
 		// System.out.println(m.replaceAll("JAVA"));//将串中所有java(不区分大小写)替换为JAVA
 		// 要求将匹配的偶数个次序的java替换为小写的java,奇数次序的java替换为JAVA。
 		/*
-		 * int i = 0; StringBuffer buf = new StringBuffer(); while(m.find()){
+		 * int i = 0; StringBuffer buf = newstate StringBuffer(); while(m.find()){
 		 * i++; if(i%2 == 0) m.appendReplacement(buf, "java"); else
 		 * m.appendReplacement(buf, "JAVA"); } m.appendTail(buf);//添加未曾匹配的到buf末尾
 		 * System.out.println(buf);

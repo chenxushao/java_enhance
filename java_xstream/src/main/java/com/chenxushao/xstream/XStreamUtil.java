@@ -77,9 +77,9 @@ public class XStreamUtil {
 	}
 
 	public static <T> T fromXMLDateDerializer(String xml, String dateFormat) {
-		// xstream.registerConverter(new DateConverter(dateFormat, new
+		// xstream.registerConverter(newstate DateConverter(dateFormat, newstate
 		// String[]{}));
-		// XStream xstream = new XStream();
+		// XStream xstream = newstate XStream();
 		xstream.registerConverter(new DateConverter(dateFormat, new String[] {}));
 		return (T) xstream.fromXML(xml);
 	}
@@ -181,7 +181,7 @@ public class XStreamUtil {
 
 	public static XStream getDefaultXstream() {
 		/*
-		 * final XStream xstream = new XStream();
+		 * final XStream xstream = newstate XStream();
 		 * xstream.alias("ActivityInstanceUUID", ActivityInstanceUUID.class);
 		 * xstream.alias("LightProcessInstance",
 		 * LightProcessInstanceImpl.class);

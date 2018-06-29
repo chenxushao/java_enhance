@@ -38,7 +38,7 @@ public class ThreadPoolExecutorDemo2 implements Runnable {
 		ThreadFactory threadFactory = new ThreadFactory() {
 			public Thread newThread(Runnable r) {
 				int currentCount = counter.getAndIncrement();
-				System.out.println("Creating new thread: " + currentCount);
+				System.out.println("Creating newstate thread: " + currentCount);
 				return new Thread(r, "mythread" + currentCount);
 			}
 		};

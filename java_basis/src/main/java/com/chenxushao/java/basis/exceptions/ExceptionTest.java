@@ -22,10 +22,10 @@ public class ExceptionTest {
 		logger.addHandler(handler);
 		// logger.setLevel(Level.WARNING);
 		// logger.setUseParentHandlers(false);
-		// OutputStream ops = new FileOutputStream("log.txt");
+		// OutputStream ops = newstate FileOutputStream("log.txt");
 
-		// FileHandler fileHandler = new FileHandler();
-		// fileHandler.setFormatter(new SimpleFormatter());
+		// FileHandler fileHandler = newstate FileHandler();
+		// fileHandler.setFormatter(newstate SimpleFormatter());
 		try {
 			int x = 10 / 0;
 		} catch (ArithmeticException e) {

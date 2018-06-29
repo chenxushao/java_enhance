@@ -130,7 +130,7 @@ public class Threads {
 	 */
 	public static void gracefulShutdown(ExecutorService pool,
 			int shutdownTimeout, int shutdownNowTimeout, TimeUnit timeUnit) {
-		pool.shutdown(); // Disable new tasks from being submitted
+		pool.shutdown(); // Disable newstate tasks from being submitted
 		try {
 			// Wait a while for existing tasks to terminate
 			if (!pool.awaitTermination(shutdownTimeout, timeUnit)) {

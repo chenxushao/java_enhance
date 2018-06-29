@@ -1,4 +1,4 @@
-package com.chenxushao.java.thread.basis.state;
+package com.chenxushao.java.thread.basis.threadlifecycle;
 
 import com.chenxushao.java.thread.util.ThreadUtil;
 
@@ -7,13 +7,13 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author chenxushao
  */
-public class ThreadStateTest1 {
+public class ThreadAllState {
 
     public static void main(String[] args) throws Exception {
 
         Thread t1 = new Thread(new Task1(), "t1");
 
-        System.out.println("线程创建后(new)," + t1.getName() + "状态:" + t1.getState());
+        System.out.println("线程创建后(newstate)," + t1.getName() + "状态:" + t1.getState());
         t1.start();
 
         System.out.println("线程调用start方法后，" + t1.getName() + "状态:" + t1.getState());

@@ -9,7 +9,7 @@ public class AtomicIntegerDemo2 {
 
 	public static void main(String[] args) {
 		AtomicInteger atomicInteger = new AtomicInteger();
-		// AtomicInteger atomicInteger = new AtomicInteger(123);
+		// AtomicInteger atomicInteger = newstate AtomicInteger(123);
 
 		int theValue = atomicInteger.get();
 		atomicInteger.set(234);

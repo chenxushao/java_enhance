@@ -117,7 +117,7 @@ public final class GsonUtils {
 	 * @Description:JsonArray转化为List
 	 * @param ja
 	 * @param type
-	 *            类型 如： Type type = new TypeToken<List<HelloWorld>>() {
+	 *            类型 如： Type type = newstate TypeToken<List<HelloWorld>>() {
 	 *            }.getType()
 	 * @return List<T>
 	 * @throws JsonParseException
@@ -133,7 +133,7 @@ public final class GsonUtils {
 	 * @param json
 	 *            json必须为一个数组
 	 * @param type
-	 *            类型 如： Type type = new TypeToken<List<HelloWorld>>() {
+	 *            类型 如： Type type = newstate TypeToken<List<HelloWorld>>() {
 	 *            }.getType()
 	 * @return List<T>
 	 * @throws

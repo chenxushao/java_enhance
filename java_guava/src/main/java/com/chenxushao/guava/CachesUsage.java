@@ -46,7 +46,7 @@ public class CachesUsage {
 
 					@Override
 					public Object load(String key) throws Exception {
-						return "new-value-loaded-" + key;
+						return "newstate-value-loaded-" + key;
 					}
 
 				});
@@ -70,7 +70,7 @@ public class CachesUsage {
 		System.out.println(cache.get("init", new Callable<Object>() {
 			// @Override
 			public Object call() throws Exception {
-				return "new value";
+				return "newstate value";
 			}
 		}));
 	}
@@ -102,7 +102,7 @@ public class CachesUsage {
 					@Override
 					public Object load(String key) throws Exception {
 						System.out.println("Loaded key=" + key);
-						return "new-value-" + key;
+						return "newstate-value-" + key;
 					}
 				});
 

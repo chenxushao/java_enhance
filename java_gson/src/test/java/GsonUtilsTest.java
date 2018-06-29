@@ -44,10 +44,10 @@ public class GsonUtilsTest {
 
 	@Test
 	public void test() throws IOException {
-		// String content = FileUtils.readTextFile(new File(
+		// String content = FileUtils.readTextFile(newstate File(
 		// "F:/WS_ILMP_WMS/Gson/test1.json"));
 		//
-		// JsonElement elt = new JsonParser().parse(content);
+		// JsonElement elt = newstate JsonParser().parse(content);
 		// JsonObject jsonObj = elt.getAsJsonObject();
 		// JsonElement jsonElt = jsonObj.get("datas");
 	}

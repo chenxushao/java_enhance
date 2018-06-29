@@ -12,7 +12,7 @@ public class Client {
 
 	public static void main(String[] args) {
 		/*
-		 * IUserService us = new UserService(); us.insert(); us.delete();
+		 * IUserService us = newstate UserService(); us.insert(); us.delete();
 		 * us.update(); us.query();
 		 */
 		UserServiceProxy userServiceProxy = new UserServiceProxy();

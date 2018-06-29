@@ -1,5 +1,7 @@
 package com.chenxushao.java.thread.basis.callable;
 
+import com.chenxushao.java.thread.util.ThreadUtil;
+
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -8,27 +10,31 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-public class CallableDemo implements Callable<String> {
-
-    public String call() throws Exception {
-        Thread.sleep(5000);
-        return "hello";
-    }
+public class CallableDemo2 {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
-
-        CallableDemo callableDemo = new CallableDemo();
-
         ExecutorService executor = Executors.newSingleThreadExecutor();
 
         long begin = System.currentTimeMillis();
-        Future<String> future = executor.submit(callableDemo);
+        Future<String> future = executor.submit(new CallableTask());
 
-         System.out.println(future.get());
+        String result = future.get(6, TimeUnit.SECONDS);
+//        String result = future.get(12, TimeUnit.SECONDS);
+        System.out.println("result : " + result);
 
-        System.out.println(future.get(6, TimeUnit.SECONDS));
         System.out.println((System.currentTimeMillis() - begin) / 1000);
-        // System.out.println(future.get(3,TimeUnit.SECONDS));
+
+        executor.shutdown();
     }
 
+
+    private static class CallableTask implements Callable<String> {
+
+        @Override
+        public String call() throws Exception {
+            ThreadUtil.sleep(10, TimeUnit.SECONDS);
+            System.out.println("xx");
+            return "hello";
+        }
+    }
 }

@@ -1,16 +1,16 @@
-package com.chenxushao.java.thread.basis.state.sync;
+package com.chenxushao.java.thread.basis.threadlifecycle.blocked;
 
 import com.chenxushao.java.thread.util.ThreadUtil;
 
 import java.util.concurrent.TimeUnit;
 
 /**
- * 在等待进入同步方法或同步代码块的（获得锁）的线程处于BLOCKED状态，通过jstack查看： java.lang.Thread.State: BLOCKED (on object monitor)
+ * 在等待进入同步方法或同步代码块的（获得锁）的线程处于BLOCKED状态
  *
- *
+ * 通过jstack查看，一般显示为： java.lang.Thread.State: BLOCKED (on object monitor)
  * @author chenxushao
  */
-public class ThreadSyncStateTest1 {
+public class BlockedState1 {
 
     public static void main(String[] args) {
         Container container = new Container();

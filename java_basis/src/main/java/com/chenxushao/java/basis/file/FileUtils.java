@@ -546,7 +546,7 @@ public class FileUtils {
 
 	// public static void main(String[] args) {
 	// long startTime = System.currentTimeMillis();
-	// long size = getFileOrDirectorySize(new File("c:/"));
+	// long size = getFileOrDirectorySize(newstate File("c:/"));
 	// System.out.println(fileLengthToString(size));
 	// System.out.println("耗时: " + (System.currentTimeMillis() -
 	// startTime)/1000);
@@ -924,13 +924,13 @@ public class FileUtils {
 
 		StringBuffer strBuffer = new StringBuffer();
 		//
-		// FileChannel in = new FileInputStream( file ).getChannel();
+		// FileChannel in = newstate FileInputStream( file ).getChannel();
 		//
 		// ByteBuffer buffer = ByteBuffer.allocate( bufferSize );
 		// while( in.read( buffer ) != -1 )
 		// {
 		// buffer.flip();
-		// String temp = new String( buffer.array(), "gbk" );
+		// String temp = newstate String( buffer.array(), "gbk" );
 		// strBuffer.append( temp );
 		// buffer.clear();
 		// }
@@ -938,7 +938,7 @@ public class FileUtils {
 
 		BufferedReader in = new BufferedReader(new FileReader(file), bufferSize);
 
-		// char[] buffer = new char[ bufferSize ];
+		// char[] buffer = newstate char[ bufferSize ];
 
 		String tempStr = in.readLine();
 		strBuffer.append(tempStr);
@@ -1539,7 +1539,7 @@ public class FileUtils {
 
 	/**
 	 * Creates a temp directory inside the given one. It uses
-	 * <code>System.currentTimeMillis</code> for naming the new temp dir. This
+	 * <code>System.currentTimeMillis</code> for naming the newstate temp dir. This
 	 * method can hang a little while in the case the directory it tries to
 	 * create already exist.
 	 * 

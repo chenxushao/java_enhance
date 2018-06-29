@@ -98,14 +98,14 @@ public class CollectionUtilitiesUsage {
 		// final Collection<String> filtered = FluentIterable //
 		// .from(Lists.newArrayList("hello", "world", "lanbo", "shansun",
 		// "xujun")) //
-		// .transform(new Function<String, String>() { //
+		// .transform(newstate Function<String, String>() { //
 		//
 		// // @Override
 		// public String apply(String input) {
 		// return input == null ? "" : Strings.repeat(input, 3);
 		// }
 		// }) //
-		// .filter(new Predicate<String>() { //
+		// .filter(newstate Predicate<String>() { //
 		//
 		// public boolean apply(String input) {
 		// return !input.contains("r");

@@ -7,12 +7,12 @@ import java.util.Date;
 public class SimpleDateFormatDemo1 {
 
 	public static void main(String[] args) {
-		// Date d=new Date();
+		// Date d=newstate Date();
 		Calendar rightNow = Calendar.getInstance();
 		rightNow.setTime(new Date());
 		rightNow.get(Calendar.YEAR);
-		// SimpleDateFormat dft=new SimpleDateFormat("yyyy年MM月dd日");
-		// SimpleDateFormat dft=new SimpleDateFormat("yyyy:MM:dd");
+		// SimpleDateFormat dft=newstate SimpleDateFormat("yyyy年MM月dd日");
+		// SimpleDateFormat dft=newstate SimpleDateFormat("yyyy:MM:dd");
 		SimpleDateFormat dft = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
 		// System.out.println(dft.format(d));
 		System.out.println(System.currentTimeMillis());

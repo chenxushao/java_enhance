@@ -51,7 +51,7 @@ public class StringUtil {
 	// =========================================================================
 	/** Constant for the space character **/
 	public static final char CH_SPACE = '\u0020';
-	/** Constant for the new line character **/
+	/** Constant for the newstate line character **/
 	public static final char CH_NEWLINE = '\n';
 	/** Constant for the carriage return character **/
 	public static final char CH_CR = '\r';
@@ -60,7 +60,7 @@ public class StringUtil {
 
 	/** Constant for the String representation of the space character **/
 	public static final String STR_SPACE = "\u0020";
-	/** Constant for the String representation of the new line character **/
+	/** Constant for the String representation of the newstate line character **/
 	public static final String STR_NEWLINE = "\n";
 	/** Constant for the String representation of the carriage return character **/
 	public static final String STR_CR = "\r";
@@ -128,9 +128,9 @@ public class StringUtil {
 	 * @param oldSubStr
 	 *            The string that is searched for in sourceStr
 	 * @param newSubStr
-	 *            The new string that is placed everywhere the oldSubStr was
+	 *            The newstate string that is placed everywhere the oldSubStr was
 	 *            found
-	 * @return The original string with all found substrings replaced by new
+	 * @return The original string with all found substrings replaced by newstate
 	 *         strings
 	 */
 	public String replaceAll(String sourceStr, String oldSubStr,
@@ -573,7 +573,7 @@ public class StringUtil {
 
 	/**
 	 * Removes all string of the second array from the first array. Returns a
-	 * new array of string that contains all remaining strings of the original
+	 * newstate array of string that contains all remaining strings of the original
 	 * strings array.
 	 * 
 	 * @param strings
@@ -593,7 +593,7 @@ public class StringUtil {
 	// -------------------------------------------------------------------------
 
 	/**
-	 * Removes the given string from the specified string array. Returns a new
+	 * Removes the given string from the specified string array. Returns a newstate
 	 * array of string that contains all remaining strings of the original
 	 * strings array.
 	 * 
@@ -611,7 +611,7 @@ public class StringUtil {
 	// -------------------------------------------------------------------------
 
 	/**
-	 * Removes all null values from the given string array. Returns a new string
+	 * Removes all null values from the given string array. Returns a newstate string
 	 * array that contains all none null values of the input array.
 	 * 
 	 * @param strings
@@ -762,7 +762,7 @@ public class StringUtil {
 	// -------------------------------------------------------------------------
 
 	/**
-	 * Returns all elements of string array <i>from</i> in a new array from
+	 * Returns all elements of string array <i>from</i> in a newstate array from
 	 * index start up to the end. If start index is larger than the array's
 	 * length, an empty array will be returned.
 	 * 
@@ -781,7 +781,7 @@ public class StringUtil {
 	// -------------------------------------------------------------------------
 
 	/**
-	 * Returns all elements of string array <i>from</i> in a new array from
+	 * Returns all elements of string array <i>from</i> in a newstate array from
 	 * index start up to index end (inclusive). If end is larger than the last
 	 * valid index, it will be reduced to the last index. If end index is less
 	 * than start index, an empty array will be returned.
@@ -1063,8 +1063,8 @@ public class StringUtil {
 	// -------------------------------------------------------------------------
 
 	/**
-	 * Returns the given map with new entries from the specified String. If the
-	 * specified map is null a new empty java.util.Hashtable will be created. <br>
+	 * Returns the given map with newstate entries from the specified String. If the
+	 * specified map is null a newstate empty java.util.Hashtable will be created. <br>
 	 * The string is split up into elements separated by the elementSeparator
 	 * parameter. If this parameter is null the default separator "," is used. <br>
 	 * After that each part is split up to a key-value pair separated by the
@@ -1114,7 +1114,7 @@ public class StringUtil {
 	// -------------------------------------------------------------------------
 
 	/**
-	 * Returns a new map object that contains all key-value pairs of the
+	 * Returns a newstate map object that contains all key-value pairs of the
 	 * specified string. <br>
 	 * The separator between the elements is assumed to be "," and "=" between
 	 * key and value.
@@ -1135,7 +1135,7 @@ public class StringUtil {
 	// -------------------------------------------------------------------------
 
 	/**
-	 * Returns a new map object that contains all key-value pairs of the
+	 * Returns a newstate map object that contains all key-value pairs of the
 	 * specified string. <br>
 	 * The separator between the keys and values is assumed to be "=".
 	 * <p>
@@ -1154,7 +1154,7 @@ public class StringUtil {
 	// -------------------------------------------------------------------------
 
 	/**
-	 * Returns a new map object that contains all key-value pairs of the
+	 * Returns a newstate map object that contains all key-value pairs of the
 	 * specified string.
 	 * <p>
 	 * <b>Be aware that all leading and trailing whitespaces of keys and values
@@ -1215,7 +1215,7 @@ public class StringUtil {
 	// -------------------------------------------------------------------------
 
 	/**
-	 * Adds all key-value pairs of the given string to a new properties object. <br>
+	 * Adds all key-value pairs of the given string to a newstate properties object. <br>
 	 * The separator between the elements is assumed to be "," and "=" between
 	 * key and value.
 	 * <p>

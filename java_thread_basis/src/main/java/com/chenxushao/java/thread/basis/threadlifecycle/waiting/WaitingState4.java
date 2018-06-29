@@ -1,4 +1,4 @@
-package com.chenxushao.java.thread.basis.state.waitlock;
+package com.chenxushao.java.thread.basis.threadlifecycle.waiting;
 
 import com.chenxushao.java.thread.util.ThreadUtil;
 
@@ -7,12 +7,13 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 等待获得ReentrantLOck的线程处于WAITING状态，通过jstack查看：  java.lang.Thread.State: WAITING (parking)
+ * 等待获得ReentrantLock的线程处于WAITING状态
  *
+ * 通过jstack查看,一般显示为：java.lang.Thread.State: WAITING (parking)
  *
  * @author chenxushao
  */
-public class WaitLockStateTest1 {
+public class WaitingState4 {
 
     public static void main(String[] args) {
         Container container = new Container();

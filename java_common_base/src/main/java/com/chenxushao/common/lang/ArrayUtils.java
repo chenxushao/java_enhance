@@ -74,7 +74,7 @@ public class ArrayUtils {
 	 *            the array to ensure a capacity for
 	 * @param minCapacity
 	 *            the minimum capacity for the array
-	 * @return a new array with minCapacity length
+	 * @return a newstate array with minCapacity length
 	 */
 	public static int[] ensureCapacity(int[] array, int minCapacity) {
 		int oldCapacity = array.length;
@@ -97,7 +97,7 @@ public class ArrayUtils {
 	 *            the array to ensure a capacity for
 	 * @param minCapacity
 	 *            the minimum capacity for the array
-	 * @return a new array with minCapacity length
+	 * @return a newstate array with minCapacity length
 	 */
 	public static long[] ensureCapacity(long[] array, int minCapacity) {
 		int oldCapacity = array.length;

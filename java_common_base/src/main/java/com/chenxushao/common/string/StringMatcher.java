@@ -219,7 +219,7 @@ public class StringMatcher {
 				break;
 			case '*':
 				if (buf.length() > 0) {
-					/* new segment */
+					/* newstate segment */
 					temp.addElement(buf.toString());
 					fBound += buf.length();
 					buf.setLength(0);

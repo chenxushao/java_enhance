@@ -392,7 +392,7 @@ public class JodaTimeDemo3 {
 		System.out
 				.println("Instant stores a point in the datetime continuum as millisecs from 1970-01-01T00:00:00Z");
 		System.out.println("Instant is immutable and thread-safe");
-		System.out.println("                      in = new Instant()");
+		System.out.println("                      in = newstate Instant()");
 		Instant in = new Instant();
 		System.out.println("Millisecond time:     in.getMillis():           "
 				+ in.getMillis());
@@ -415,7 +415,7 @@ public class JodaTimeDemo3 {
 				+ in.toDate());
 		System.out.println("");
 		System.out
-				.println("                      in2 = new Instant(in.getMillis() + 10)");
+				.println("                      in2 = newstate Instant(in.getMillis() + 10)");
 		Instant in2 = new Instant(in.getMillis() + 10);
 		System.out.println("Equals ms and chrono: in.equals(in2):           "
 				+ in.equals(in2));
@@ -435,7 +435,7 @@ public class JodaTimeDemo3 {
 		System.out
 				.println("DateTime stores a the date and time using millisecs from 1970-01-01T00:00:00Z internally");
 		System.out.println("DateTime is immutable and thread-safe");
-		System.out.println("                      in = new DateTime()");
+		System.out.println("                      in = newstate DateTime()");
 		DateTime in = new DateTime();
 		System.out.println("Millisecond time:     in.getMillis():           "
 				+ in.getMillis());
@@ -497,7 +497,7 @@ public class JodaTimeDemo3 {
 				+ in.toGregorianCalendar().toString().substring(0, 46));
 		System.out.println("");
 		System.out
-				.println("                      in2 = new DateTime(in.getMillis() + 10)");
+				.println("                      in2 = newstate DateTime(in.getMillis() + 10)");
 		DateTime in2 = new DateTime(in.getMillis() + 10);
 		System.out.println("Equals ms and chrono: in.equals(in2):           "
 				+ in.equals(in2));

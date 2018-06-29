@@ -16,7 +16,7 @@ public class ThreadInfoDemo1 {
         System.out.println("class: " + t1.getClass());
         System.out.println("id:" + t1.getId());
         System.out.println("name:" + t1.getName());
-        System.out.println("state:" + t1.getState());
+        System.out.println("threadlifecycle:" + t1.getState());
         System.out.println("priority:" + t1.getPriority());
         System.out.println("isAlive:" + t1.isAlive());
         System.out.println("isDaemon:" + t1.isDaemon());

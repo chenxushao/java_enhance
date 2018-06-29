@@ -25,7 +25,7 @@ public class TraditionalLockSample {
 
 	public void otherSynchronizedOperation() {
 		synchronized (lock) {
-			System.out.println("Doing some work that resets state");
+			System.out.println("Doing some work that resets threadlifecycle");
 			condition = false;
 			lock.notify();
 		}

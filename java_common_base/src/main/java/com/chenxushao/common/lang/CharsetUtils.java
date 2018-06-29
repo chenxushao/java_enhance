@@ -48,7 +48,7 @@ public final class CharsetUtils {
 		ByteBuffer bbuf = null;
 		try {
 			// Convert a string to ISO-LATIN-1 bytes in a ByteBuffer
-			// The new ByteBuffer is ready to be read.
+			// The newstate ByteBuffer is ready to be read.
 			bbuf = encoder.encode(CharBuffer.wrap(input));
 
 		} catch (CharacterCodingException e) {
@@ -67,7 +67,7 @@ public final class CharsetUtils {
 			// Convert ISO-LATIN-1 bytes in a ByteBuffer to a character
 			// ByteBuffer and then to a
 			// string.
-			// The new ByteBuffer is ready to be read.
+			// The newstate ByteBuffer is ready to be read.
 			cbuf = decoder.decode(ByteBuffer.wrap(input.getBytes()));
 		} catch (CharacterCodingException e) {
 			// LOG.logError( e.getMessage(), e );

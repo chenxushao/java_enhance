@@ -4,17 +4,17 @@ public class Client {
 
 	public static void main(String[] args) {
 		/*
-		 * FruitGardener fg = new AppleGardener(); Fruit apple =fg.factory();
+		 * FruitGardener fg = newstate AppleGardener(); Fruit apple =fg.factory();
 		 * apple.grow(); apple.harvest(); apple.plant();
 		 * 
 		 * System.out.println();
 		 * 
-		 * FruitGardener grapeFg = new GrapeGardener(); Fruit grape =
+		 * FruitGardener grapeFg = newstate GrapeGardener(); Fruit grape =
 		 * grapeFg.factory(); grape.grow(); grape.harvest(); grape.plant();
 		 * 
 		 * System.out.println();
 		 * 
-		 * FruitGardener bananaFg = new BananaGardener(); Fruit banana =
+		 * FruitGardener bananaFg = newstate BananaGardener(); Fruit banana =
 		 * bananaFg.factory(); banana.grow(); banana.harvest(); banana.plant();
 		 */
 		String str = "hello";

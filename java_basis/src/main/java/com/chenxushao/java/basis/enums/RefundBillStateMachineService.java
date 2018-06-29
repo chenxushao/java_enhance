@@ -57,7 +57,7 @@ public class RefundBillStateMachineService {
 			RefundBillState targetState) throws RuntimeException {
 
 		if (currentState == null || targetState == null) {
-			// throw new ServiceException("当前状态或目标状态值不合法");
+			// throw newstate ServiceException("当前状态或目标状态值不合法");
 			throw new RuntimeException("当前状态或目标状态值不合法");
 		}
 

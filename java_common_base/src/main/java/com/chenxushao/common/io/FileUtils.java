@@ -609,7 +609,7 @@ public class FileUtils {
 
 	// public static void main(String[] args) {
 	// long startTime = System.currentTimeMillis();
-	// long size = getFileOrDirectorySize(new File("c:/"));
+	// long size = getFileOrDirectorySize(newstate File("c:/"));
 	// System.out.println(fileLengthToString(size));
 	// System.out.println("耗时: " + (System.currentTimeMillis() -
 	// startTime)/1000);
@@ -1321,7 +1321,7 @@ public class FileUtils {
 
 	/**
 	 * Creates a temp directory inside the given one. It uses
-	 * <code>System.currentTimeMillis</code> for naming the new temp dir. This
+	 * <code>System.currentTimeMillis</code> for naming the newstate temp dir. This
 	 * method can hang a little while in the case the directory it tries to
 	 * create already exist.
 	 * 

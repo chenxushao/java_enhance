@@ -12,8 +12,8 @@ public class SuppressWarningsTest {
 	public static void main(String[] args) {
 		// jdk5.0的正确使用方法，不会出现警告等信息
 		/*
-		 * Map<String,Date> map = new TreeMap<String,Date>(); map.put("hello",
-		 * new Date()); System.out.println(map.get("hello"));
+		 * Map<String,Date> map = newstate TreeMap<String,Date>(); map.put("hello",
+		 * newstate Date()); System.out.println(map.get("hello"));
 		 */
 
 		// jdk1.4及之前的定义方式

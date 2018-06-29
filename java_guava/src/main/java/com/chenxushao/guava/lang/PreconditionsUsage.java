@@ -8,7 +8,7 @@ public class PreconditionsUsage {
 
 		Preconditions.checkNotNull(args, "Args is null");
 
-		Preconditions.checkState(args.length == 0, "Args is not in state");
+		Preconditions.checkState(args.length == 0, "Args is not in threadlifecycle");
 
 		Preconditions.checkElementIndex(0, args.length + 1,
 				"Args is out of bound");

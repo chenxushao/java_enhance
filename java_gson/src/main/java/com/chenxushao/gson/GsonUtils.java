@@ -89,7 +89,7 @@ public class GsonUtils {
 	 * @Description:JsonArray转化为List
 	 * @param ja
 	 * @param type
-	 *            类型 如： Type type = new TypeToken<List<HelloWorld>>() {
+	 *            类型 如： Type type = newstate TypeToken<List<HelloWorld>>() {
 	 *            }.getType()
 	 * @return List<T>
 	 * @throws JsonParseException
@@ -105,7 +105,7 @@ public class GsonUtils {
 	 * @param json
 	 *            json必须为一个数组
 	 * @param type
-	 *            类型 如： Type type = new TypeToken<List<HelloWorld>>() {
+	 *            类型 如： Type type = newstate TypeToken<List<HelloWorld>>() {
 	 *            }.getType()
 	 * @return List<T>
 	 * @throws
@@ -205,8 +205,8 @@ public class GsonUtils {
 	}
 
 	/**
-	 * GsonBuilde使用示例 Gson gson = new GsonBuilder()
-	 * .registerTypeAdapter(Id.class, new IdTypeAdapter())
+	 * GsonBuilde使用示例 Gson gson = newstate GsonBuilder()
+	 * .registerTypeAdapter(Id.class, newstate IdTypeAdapter())
 	 * .enableComplexMapKeySerialization() .serializeNulls()
 	 * .setDateFormat(DateFormat.LONG)
 	 * .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)

@@ -32,8 +32,8 @@ public class BlobTest {
 	  public void create() throws SQLException, IOException{
 		   /* Connection conn = JdbcUtils.getConnection();
 		    PreparedStatement pstmt = conn.prepareStatement("insert into blob_table(big_bit) values(?)");
-		    File file = new File(FILE_PATH_NAME);
-		    InputStream is = new BufferedInputStream(new FileInputStream(file));
+		    File file = newstate File(FILE_PATH_NAME);
+		    InputStream is = newstate BufferedInputStream(newstate FileInputStream(file));
 		    pstmt.setBinaryStream(1, is, (int) file.length());
 		    pstmt.executeUpdate();
 		    is.close();
