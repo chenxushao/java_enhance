@@ -1,4 +1,4 @@
-package com.chenxushao.java.concurrent.juc.locks.rwlock;
+package com.chenxushao.java.concurrent.juc.locks.reentrantreadwritelock;
 
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;

@@ -1,4 +1,4 @@
-package com.chenxushao.java.concurrent.juc.future;
+package com.chenxushao.java.concurrent.basis.future;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;

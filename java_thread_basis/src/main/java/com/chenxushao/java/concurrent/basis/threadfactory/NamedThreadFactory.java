@@ -1,4 +1,4 @@
-package com.chenxushao.java.concurrent.visibility;
+package com.chenxushao.java.concurrent.basis.threadfactory;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;

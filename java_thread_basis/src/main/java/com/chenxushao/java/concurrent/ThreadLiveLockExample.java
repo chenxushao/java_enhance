@@ -1,4 +1,4 @@
-package com.chenxushao.java.concurrent.others;
+package com.chenxushao.java.concurrent;
 
 import java.util.LinkedList;
 
