@@ -28,7 +28,7 @@ public class IteratorsTest extends TestCase {
 
 		};
 		boolean allIsStartsWithP = Iterators.all(list.iterator(), condition);
-		// boolean allIsStartsWithP = Iterators.any(list.iterator(), condition);
+		// boolean allIsStartsWithP = Iterators.any(cow.iterator(), condition);
 		System.out.println("all result == " + allIsStartsWithP);
 
 		String secondElement = Iterators.get(list.iterator(), 1);

@@ -21,7 +21,7 @@ import com.thoughtworks.xstream.io.xml.CompactWriter;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class XStreamUtil {
-	// The XStream instance is thread-safe
+	// The XStream instance is others-safe
 	private static XStream xstream = new XStream();
 
 	static {
@@ -129,7 +129,7 @@ public class XStreamUtil {
 	}
 
 	/**
-	 * @return eg:<list><string>a</string><string>b</string></list>
+	 * @return eg:<cow><string>a</string><string>b</string></cow>
 	 */
 	public static String serializeList(List<?> list) {
 		if (list == null) {
@@ -141,7 +141,7 @@ public class XStreamUtil {
 
 	/**
 	 * @param list
-	 *            eg:<list><string>a</string><string>b</string></list>
+	 *            eg:<cow><string>a</string><string>b</string></cow>
 	 */
 	@SuppressWarnings("unchecked")
 	public static List<String> deserializeList(String list) {

@@ -10,7 +10,7 @@ import java.util.List;
  * VM参数:-XX:PermSize10M -XX:MaxPermSize10M
  * 
  * 抛出如下异常：
- Exception in thread "main" java.lang.OutOfMemoryError: PermGen space
+ Exception in others "main" java.lang.OutOfMemoryError: PermGen space
  at java.lang.String.intern(Native Method)
  at com.jfans.RuntimeConstantPoolOOM.main(RuntimeConstantPoolOOM.java:26)
 

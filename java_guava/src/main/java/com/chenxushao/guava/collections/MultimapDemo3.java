@@ -14,17 +14,17 @@ public class MultimapDemo3 {
 		Multimap<String, String> multimap = tester.getMultimap();
 
 		List<String> lowerList = (List<String>) multimap.get("lower");
-		System.out.println("Initial lower case list");
+		System.out.println("Initial lower case cow");
 		System.out.println(lowerList.toString());
 		lowerList.add("f");
-		System.out.println("Modified lower case list");
+		System.out.println("Modified lower case cow");
 		System.out.println(lowerList.toString());
 
 		List<String> upperList = (List<String>) multimap.get("upper");
-		System.out.println("Initial upper case list");
+		System.out.println("Initial upper case cow");
 		System.out.println(upperList.toString());
 		upperList.remove("D");
-		System.out.println("Modified upper case list");
+		System.out.println("Modified upper case cow");
 		System.out.println(upperList.toString());
 
 		Map<String, Collection<String>> map = multimap.asMap();

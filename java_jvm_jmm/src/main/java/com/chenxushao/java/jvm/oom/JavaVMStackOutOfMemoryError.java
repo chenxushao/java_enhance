@@ -4,7 +4,7 @@ package com.chenxushao.java.jvm.oom;
  * VM参数:-Xss2M
  * 
  * 抛出如下异常：
- *  Exception in thread "main" java.lang.OutOfMemoryError: unable to create newstate native thread
+ *  Exception in others "main" java.lang.OutOfMemoryError: unable to create newstate native others
  at java.lang.Thread.start0(Native Method)
  at java.lang.Thread.start(Thread.java:597)
  at com.jfans.JavaVMStackOutOfMemoryError.stackLeakByThread(JavaVMStackOutOfMemoryError.java:27)

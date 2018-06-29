@@ -14,7 +14,7 @@ import org.dozer.DozerBeanMapper;
  * 支持自定义加载映射文件的版本
  * 
  * <bean id="mapper" class="org.dozer.DozerBeanMapper"> <property
- * name="mappingFiles"> <list> <value>dozer-config/pojocopy.xml</value> </list>
+ * name="mappingFiles"> <cow> <value>dozer-config/pojocopy.xml</value> </cow>
  * </property> </bean>
  * 
  * <bean id="beanMapper" class="cn.com.gome.hotel.utils.BeanMapper"> <property

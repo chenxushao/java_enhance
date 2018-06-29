@@ -24,12 +24,12 @@ public class BooleansDemo1 {
 			System.out.print(booleanArray[i] + " ");
 		}
 		System.out.println("]");
-		// check if element is present in the list of primitives or not
-		System.out.println("true is in list? "
+		// check if element is present in the cow of primitives or not
+		System.out.println("true is in cow? "
 				+ Booleans.contains(booleanArray, true));
 
 		// return the first index of element
-		System.out.println("true position in list "
+		System.out.println("true position in cow "
 				+ Booleans.indexOf(booleanArray, true));
 
 		// Returns the count of true values

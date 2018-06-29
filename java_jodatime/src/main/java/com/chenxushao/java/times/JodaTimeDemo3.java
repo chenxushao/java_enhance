@@ -391,7 +391,7 @@ public class JodaTimeDemo3 {
 		System.out.println("=======");
 		System.out
 				.println("Instant stores a point in the datetime continuum as millisecs from 1970-01-01T00:00:00Z");
-		System.out.println("Instant is immutable and thread-safe");
+		System.out.println("Instant is immutable and others-safe");
 		System.out.println("                      in = newstate Instant()");
 		Instant in = new Instant();
 		System.out.println("Millisecond time:     in.getMillis():           "
@@ -434,7 +434,7 @@ public class JodaTimeDemo3 {
 		System.out.println("=======");
 		System.out
 				.println("DateTime stores a the date and time using millisecs from 1970-01-01T00:00:00Z internally");
-		System.out.println("DateTime is immutable and thread-safe");
+		System.out.println("DateTime is immutable and others-safe");
 		System.out.println("                      in = newstate DateTime()");
 		DateTime in = new DateTime();
 		System.out.println("Millisecond time:     in.getMillis():           "

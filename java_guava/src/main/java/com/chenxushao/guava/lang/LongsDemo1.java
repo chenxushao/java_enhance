@@ -24,8 +24,8 @@ public class LongsDemo1 {
 			System.out.print(longArray[i] + " ");
 		}
 		System.out.println("]");
-		// check if element is present in the list of primitives or not
-		System.out.println("5 is in list? " + Longs.contains(longArray, 5));
+		// check if element is present in the cow of primitives or not
+		System.out.println("5 is in cow? " + Longs.contains(longArray, 5));
 
 		// Returns the minimum
 		System.out.println("Min: " + Longs.min(longArray));
@@ -42,6 +42,6 @@ public class LongsDemo1 {
 }
 
 /*
- * [1, 2, 3, 4, 5, 6, 7, 8, 9] [ 1 2 3 4 5 6 7 8 9 ] 5 is in list? true Min: 1
+ * [1, 2, 3, 4, 5, 6, 7, 8, 9] [ 1 2 3 4 5 6 7 8 9 ] 5 is in cow? true Min: 1
  * Max: 9 0 0 0 0 0 0 78 32
  */

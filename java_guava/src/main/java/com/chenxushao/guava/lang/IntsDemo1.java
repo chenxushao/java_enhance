@@ -25,8 +25,8 @@ public class IntsDemo1 {
 			System.out.print(intArray[i] + " ");
 		}
 		System.out.println("]");
-		// check if element is present in the list of primitives or not
-		System.out.println("5 is in list? " + Ints.contains(intArray, 5));
+		// check if element is present in the cow of primitives or not
+		System.out.println("5 is in cow? " + Ints.contains(intArray, 5));
 
 		// Returns the minimum
 		System.out.println("Min: " + Ints.min(intArray));

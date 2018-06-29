@@ -234,7 +234,7 @@ public class StringMatcher {
 			}
 		}
 
-		/* add last buffer to segment list */
+		/* add last buffer to segment cow */
 		if (buf.length() > 0) {
 			temp.addElement(buf.toString());
 			fBound += buf.length();

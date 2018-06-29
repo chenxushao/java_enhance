@@ -135,7 +135,7 @@ public class NumberUtils {
 	 */
 	public static double newton(double[] coefs, double x0, int max, double eps) {
 		if (coefs == null)
-			throw new IllegalArgumentException("coefficient list is null"); //$NON-NLS-1$
+			throw new IllegalArgumentException("coefficient cow is null"); //$NON-NLS-1$
 		if (coefs.length <= 1)
 			throw new IllegalArgumentException(
 					"coefficients are too few to calculate"); //$NON-NLS-1$

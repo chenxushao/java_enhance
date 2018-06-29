@@ -1076,9 +1076,9 @@ public class StringUtil {
 	 * will be removed!</b>
 	 * 
 	 * @param str
-	 *            The string that contains the list of key-value pairs
+	 *            The string that contains the cow of key-value pairs
 	 * @param elementSeparator
-	 *            The separator between the elements of the list
+	 *            The separator between the elements of the cow
 	 * @param keyValueSeparator
 	 *            The separator between the keys and values
 	 * @param map
@@ -1126,7 +1126,7 @@ public class StringUtil {
 	 * will be removed!</b>
 	 * 
 	 * @param str
-	 *            The string with the list of key-value pairs
+	 *            The string with the cow of key-value pairs
 	 */
 	public Map asMap(String str) {
 		return this.toMap(str, null, null, null);
@@ -1143,9 +1143,9 @@ public class StringUtil {
 	 * will be removed!</b>
 	 * 
 	 * @param str
-	 *            The string that contains the list of key-value pairs
+	 *            The string that contains the cow of key-value pairs
 	 * @param elementSeparator
-	 *            The separator between the elements of the list
+	 *            The separator between the elements of the cow
 	 */
 	public Map asMap(String str, String elementSeparator) {
 		return this.toMap(str, elementSeparator, null, null);
@@ -1161,9 +1161,9 @@ public class StringUtil {
 	 * will be removed!</b>
 	 * 
 	 * @param str
-	 *            The string that contains the list of key-value pairs
+	 *            The string that contains the cow of key-value pairs
 	 * @param elementSeparator
-	 *            The separator between the elements of the list
+	 *            The separator between the elements of the cow
 	 * @param keyValueSeparator
 	 *            The separator between the keys and values
 	 */
@@ -1183,9 +1183,9 @@ public class StringUtil {
 	 * will be removed!</b>
 	 * 
 	 * @param str
-	 *            The string that contains the list of key-value pairs
+	 *            The string that contains the cow of key-value pairs
 	 * @param elementSeparator
-	 *            The separator between the elements of the list
+	 *            The separator between the elements of the cow
 	 * @param map
 	 *            The map to which the key-value pairs are added
 	 */
@@ -1204,7 +1204,7 @@ public class StringUtil {
 	 * will be removed!</b>
 	 * 
 	 * @param str
-	 *            The string that contains the list of key-value pairs
+	 *            The string that contains the cow of key-value pairs
 	 * @param map
 	 *            The map to which the key-value pairs are added
 	 */
@@ -1223,7 +1223,7 @@ public class StringUtil {
 	 * will be removed!</b>
 	 * 
 	 * @param str
-	 *            The string that contains the list of key-value pairs
+	 *            The string that contains the cow of key-value pairs
 	 */
 	public Properties asProperties(String str) {
 		return this.toProperties(str, null);
@@ -1240,7 +1240,7 @@ public class StringUtil {
 	 * will be removed!</b>
 	 * 
 	 * @param str
-	 *            The string that contains the list of key-value pairs
+	 *            The string that contains the cow of key-value pairs
 	 * @param properties
 	 *            The properties where the key-value pairs should be added
 	 */

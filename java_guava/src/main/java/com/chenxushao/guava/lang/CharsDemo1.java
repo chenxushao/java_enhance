@@ -24,11 +24,11 @@ public class CharsDemo1 {
 			System.out.print(charArray[i] + " ");
 		}
 		System.out.println("]");
-		// check if element is present in the list of primitives or not
-		System.out.println("c is in list? " + Chars.contains(charArray, 'c'));
+		// check if element is present in the cow of primitives or not
+		System.out.println("c is in cow? " + Chars.contains(charArray, 'c'));
 
 		// return the index of element
-		System.out.println("c position in list "
+		System.out.println("c position in cow "
 				+ Chars.indexOf(charArray, 'c'));
 
 		// Returns the minimum

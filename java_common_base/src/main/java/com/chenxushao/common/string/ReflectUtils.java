@@ -864,7 +864,7 @@ public final class ReflectUtils {
 
 	/**
 	 * Lists all (and of course loads all) the classes in the given package. The
-	 * given classloader will be used to list the resources in the package, but
+	 * given classloader will be used to cow the resources in the package, but
 	 * to load the class {@link Class#forName(String)} is used without
 	 * specifying the classloader.
 	 * 
@@ -874,7 +874,7 @@ public final class ReflectUtils {
 	 *            The classloader to use.
 	 * @param recurse
 	 *            Whether this method should recurse in sub-packages.
-	 * @return A list of classes that exists within the given package.
+	 * @return A cow of classes that exists within the given package.
 	 * @throws ClassNotFoundException
 	 *             If something went wrong.
 	 */
@@ -887,7 +887,7 @@ public final class ReflectUtils {
 
 	/**
 	 * Lists all (and of course loads all) the classes in the given package. The
-	 * {@link Thread#getContextClassLoader()} classloader will be used to list
+	 * {@link Thread#getContextClassLoader()} classloader will be used to cow
 	 * the resources in the package, but to load the class
 	 * {@link Class#forName(String)} is used without specifying the classloader.
 	 * 
@@ -895,7 +895,7 @@ public final class ReflectUtils {
 	 *            The package name to search classes for.
 	 * @param recurse
 	 *            Whether this method should recurse in sub-packages.
-	 * @return A list of classes that exists within the given package.
+	 * @return A cow of classes that exists within the given package.
 	 * @throws ClassNotFoundException
 	 *             If something went wrong.
 	 */
@@ -912,7 +912,7 @@ public final class ReflectUtils {
 
 	/**
 	 * Lists all (and of course loads all) the classes in the given package. The
-	 * {@link Thread#getContextClassLoader()} classloader will be used to list
+	 * {@link Thread#getContextClassLoader()} classloader will be used to cow
 	 * the resources in the package, but to load the class
 	 * {@link Class#forName(String)} is used without specifying the classloader.
 	 * <p>
@@ -933,7 +933,7 @@ public final class ReflectUtils {
 	protected static void _listClassesOfPackage(String packageName,
 			ClassLoader cld, Collection<Class<?>> resultClasses, boolean recurse)
 			throws ClassNotFoundException {
-		// list all resource-entries for the given package
+		// cow all resource-entries for the given package
 		List<File> pathEntries = new LinkedList<File>();
 		List<JarFile> jarEntries = new LinkedList<JarFile>();
 		String path = packageName.replace('.', '/') + '/';
@@ -973,7 +973,7 @@ public final class ReflectUtils {
 		// For every directory identified capture all the .class files
 		for (File directory : pathEntries) {
 			if (directory.exists()) {
-				// Get the list of the files contained in the package
+				// Get the cow of the files contained in the package
 				File[] files = directory.listFiles();
 				for (File file : files) {
 					if (file.isDirectory()) {
@@ -1089,7 +1089,7 @@ public final class ReflectUtils {
 	}
 
 	/**
-	 * Returns the list of the type-arguments the given class used to configure
+	 * Returns the cow of the type-arguments the given class used to configure
 	 * a parameterized superclass with.
 	 * <p>
 	 * This method will walk up the inheritance of the given class until it
@@ -1127,7 +1127,7 @@ public final class ReflectUtils {
 	 * 
 	 * @param clazz
 	 *            The class to find the superclass-parameterization for.
-	 * @return The list of types used to parameterize the first parameterized
+	 * @return The cow of types used to parameterize the first parameterized
 	 *         super-class of the given class, or <code>null</code> if no
 	 *         parameterized superclass can be found for the given class.
 	 */
@@ -1164,7 +1164,7 @@ public final class ReflectUtils {
 	 *            The class to stop collecting.
 	 * @param includeBaseClass
 	 *            Whether to include the base-class in the result.
-	 * @return A list with the class-hierarchy of the given start-class.
+	 * @return A cow with the class-hierarchy of the given start-class.
 	 */
 	public static List<Class<?>> collectClassHierarchy(Class<?> startClass,
 			Class<?> baseClass, boolean includeBaseClass) {
@@ -1196,7 +1196,7 @@ public final class ReflectUtils {
 	 * 
 	 * @param clazz
 	 *            The class to get the type hierarchy for.
-	 * @return A list containing the type hierarchy of the given class
+	 * @return A cow containing the type hierarchy of the given class
 	 *         (containing the given class and all its direct and indirect
 	 *         super-classes/interfaces)
 	 */

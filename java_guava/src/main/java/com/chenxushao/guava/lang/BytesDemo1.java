@@ -25,8 +25,8 @@ public class BytesDemo1 {
 		}
 		System.out.println("]");
 		byte data = 5;
-		// check if element is present in the list of primitives or not
-		System.out.println("5 is in list? " + Bytes.contains(byteArray, data));
+		// check if element is present in the cow of primitives or not
+		System.out.println("5 is in cow? " + Bytes.contains(byteArray, data));
 
 		// Returns the index
 		System.out.println("Index of 5: " + Bytes.indexOf(byteArray, data));

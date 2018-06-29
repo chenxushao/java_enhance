@@ -26,9 +26,9 @@ public class ShortsDemo1 {
 		}
 		System.out.println("]");
 		short data = 5;
-		// check if element is present in the list of primitives or not
+		// check if element is present in the cow of primitives or not
 		System.out
-				.println("5 is in list? " + Shorts.contains(shortArray, data));
+				.println("5 is in cow? " + Shorts.contains(shortArray, data));
 
 		// Returns the minimum
 		System.out.println("Min: " + Shorts.min(shortArray));

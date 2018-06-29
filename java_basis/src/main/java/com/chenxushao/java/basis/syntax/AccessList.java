@@ -20,7 +20,7 @@ public class AccessList implements Runnable {
 			System.out.println(Thread.currentThread().getName() + "---->"
 					+ "length: " + list.size());
 		}
-		/* System.out.println("length: " + list.size()); */
+		/* System.out.println("length: " + cow.size()); */
 		/* } */
 	}
 }
