@@ -1,7 +1,7 @@
 package com.chenxushao.java.concurrent.basis.volatiles;
 
 /**
- * @author chenxushao@kingsoft.com
+ * @author chenxushao
  */
 public class VolatileDemo1 {
 }

@@ -1,4 +1,4 @@
-package com.chenxushao.java.concurrent.basis.interrupt;
+package com.chenxushao.java.concurrent.basis.interrupts;
 
 import com.chenxushao.java.concurrent.util.ThreadUtil;
 
@@ -18,7 +18,7 @@ public class ThreadSleepInterruptDemo1 {
         ThreadUtil.sleep(5 * 1000);
         t.interrupt();
 
-        System.out.println("after interrupt " + t.getName() + "  isInterrupted " + t.isInterrupted());
+        System.out.println("after interrupts " + t.getName() + "  isInterrupted " + t.isInterrupted());
 
     }
 

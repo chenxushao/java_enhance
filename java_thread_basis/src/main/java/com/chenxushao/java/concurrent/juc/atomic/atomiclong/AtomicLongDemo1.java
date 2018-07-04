@@ -1,4 +1,4 @@
-package com.chenxushao.java.concurrent.juc.atomic;
+package com.chenxushao.java.concurrent.juc.atomic.atomiclong;
 
 import java.util.concurrent.atomic.AtomicLong;
 

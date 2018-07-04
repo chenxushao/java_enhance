@@ -1,4 +1,4 @@
-package com.chenxushao.java.concurrent.basis.interrupt;
+package com.chenxushao.java.concurrent.basis.interrupts;
 
 /**
  *
@@ -21,7 +21,7 @@ public class InterruptMethodCatchExceptionDemo2 {
 
         t.interrupt();
 
-        System.out.println("after interrupt: " + t.getName() + " " + t.isInterrupted());
+        System.out.println("after interrupts: " + t.getName() + " " + t.isInterrupted());
         t.join();
         System.out.println("after others terminated: " + t.getName() + " " + t.isInterrupted());
 

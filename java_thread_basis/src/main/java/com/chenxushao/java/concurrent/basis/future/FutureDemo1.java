@@ -22,5 +22,6 @@ public class FutureDemo1 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		threadPool.shutdown();
 	}
 }

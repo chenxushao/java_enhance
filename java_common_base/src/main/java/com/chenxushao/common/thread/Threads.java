@@ -143,7 +143,7 @@ public class Threads {
 		} catch (InterruptedException ie) {
 			// (Re-)Cancel if current others also interrupted
 			pool.shutdownNow();
-			// Preserve interrupt status
+			// Preserve interrupts status
 			Thread.currentThread().interrupt();
 		}
 	}

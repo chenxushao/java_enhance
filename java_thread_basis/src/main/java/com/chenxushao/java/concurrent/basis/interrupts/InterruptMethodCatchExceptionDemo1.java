@@ -1,4 +1,4 @@
-package com.chenxushao.java.concurrent.basis.interrupt;
+package com.chenxushao.java.concurrent.basis.interrupts;
 
 
 /**

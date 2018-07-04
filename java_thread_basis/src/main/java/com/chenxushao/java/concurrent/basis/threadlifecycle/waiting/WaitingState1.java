@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author chenxushao
- * A线程调用了B线程的方法后，A线程会进入WAITING状态
+ * A线程调用了B线程的join方法后，A线程会进入WAITING状态
  *
  * 可通过jstack工具进行查看，一般显示为： java.lang.Thread.State: WAITING (on object monitor)
  */
