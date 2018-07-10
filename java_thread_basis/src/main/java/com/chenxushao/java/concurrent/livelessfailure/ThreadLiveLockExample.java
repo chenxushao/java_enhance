@@ -1,4 +1,4 @@
-package com.chenxushao.java.concurrent;
+package com.chenxushao.java.concurrent.livelessfailure;
 
 import java.util.LinkedList;
 

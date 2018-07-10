@@ -1,4 +1,4 @@
-package com.chenxushao.java.concurrent.notthreadsafe;
+package com.chenxushao.java.concurrent.threadsafe.notsafe;
 
 import java.util.HashMap;
 import java.util.UUID;
